@@ -1,0 +1,317 @@
+
+@define-color selected_bg_color rgba(255, 255, 255, 0.75);
+@define-color selected_fg_color white;
+
+/* Panel itself */
+@define-color selected_bgpanel_color black;
+
+/* Items of panel */
+@define-color selected_item_color white;
+@define-color not_selected_item_color rgba(255,255,255,0.65);
+
+
+@define-color background_item_color rgba(0,0,0,0.75);
+@define-color border_item_color rgba(255, 255, 255, 0.25);
+
+
+
+
+
+
+
+
+
+
+/* Pulseaudio and clipboard */
+@define-color first_bottom #0C002D;
+@define-color second_bottom #0C002D;
+@define-color third_bottom #0C002D;
+
+/* Windows buttons */
+@define-color first_item #0C002D;
+@define-color second_item #0D002E;
+@define-color third_item #0C002D;
+@define-color fourth_item #0D002E;
+@define-color fifth_item #0C002D;
+
+/* Hour, notification, battery */
+@define-color first_item_right #E6DDFF;
+@define-color second_item_right #FFFFFF;
+@define-color third_item_right #E6DDFF;
+@define-color items_color_right #262626;
+
+
+
+
+
+
+.xfce4-panel {
+  border: 0;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.xfce4-sensors-plugin-5 {
+  color: white;
+}
+
+.xfce4-sensors {
+  color: white;
+  background-color: red;
+}
+
+#xfce4-sensors-plugin-5 {
+  color: white;
+  background-color: red;
+}
+
+
+
+
+
+
+/* Windows of panel */
+
+@define-color bg_window rgba(0,0,0,.66);
+
+.tasklist .toggle {
+  background-color: @bg_window;
+}
+
+.tasklist .toggle:hover {
+
+}
+
+.tasklist .toggle:checked,
+.tasklist .toggle:active {
+  background-color: @background_item_color;
+  color: white;
+
+}
+
+
+
+
+
+/* Buttons of panel */
+
+.xfce4-panel button {
+  color: @not_selected_item_color;
+}
+
+.xfce4-panel button:active,
+.xfce4-panel button:checked,
+.xfce4-panel button:hover {
+  color: @selected_item_color;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Clock, duh */
+#clock-button {
+  color: @items_color_right;
+
+  background-color: @first_item_right;
+
+  padding: 0 14px 0 12px;
+  border-radius: 8px 0 0 8px;
+  
+  margin-right: -8px;
+
+}
+
+#clock-button:checked,
+#clock-button:active,
+#clock-button:hover {
+  background-color: @second_item_right;
+}
+
+
+#xfce4-notification-plugin {
+  background-color: @second_item_right;
+  color: @items_color_right;
+
+  padding: 0 5px 0 10px;
+  margin-left: -8px;
+  border-radius: 8px 0 0 8px;
+}
+
+#xfce4-power-manager-plugin {
+  background-color: @third_item_right;
+
+  color: @items_color_right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Workspaces in panel*/
+
+
+
+
+
+
+#pager-6 button {
+  color: @not_selected_item_color;
+
+  border-width: 2px 0;
+  border-style: solid;
+
+  padding: 0 6px;
+}
+
+#pager-6 button:nth-child(1) {
+  background-color: @first_item;
+  border-color: @first_item;
+
+  padding: 0 10px 0 6px;
+  border-radius: 0 16px 16px 0;
+}
+
+#pager-6 button:nth-child(2) {
+  background-color: @second_item;
+  border-color: @second_item;
+
+  padding: 0 8px 0 10px;
+  border-radius: 0 16px 16px 0;
+
+  margin-left: -8px;
+}
+
+#pager-6 button:nth-child(3) {
+  background-color: @third_item;
+  border-color: @third_item;
+
+  padding: 0 8px 0 10px;
+  border-radius: 0 16px 16px 0;
+  margin-left: -8px;
+}
+
+#pager-6 button:nth-child(4) {
+  background-color: @fourth_item;
+  border-color: @fourth_item;
+
+  padding: 0 8px 0 10px;
+  border-radius: 0 16px 16px 0;
+
+  margin-left: -8px;
+}
+
+#pager-6 button:nth-child(5) {
+  background-color: @fifth_item;
+  border-color: @fifth_item;
+
+  padding: 0 8px 0 6px;
+  border-radius: 0 16px 16px 0;
+  margin-left: -8px;
+}
+
+#pager-6 button:active,
+#pager-6 button:checked {
+  color: @selected_item_color;
+}
+
+#pager-6 button:hover {
+  color: @selected_item_color;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Pulse audio */
+
+
+
+
+#pulseaudio-button {
+  background-color: @first_bottom;
+  color: @items_color_right;
+
+  padding: 0 4px 0 4px;
+  margin-right: -2px;
+}
+
+#pulseaudio-button:checked {
+
+}
+
+#pulseaudio-button:active,
+#pulseaudio-button:hover {
+
+}
+
+
+
+
+
+#xfce4-sensors-plugin button {
+  background-color: red;
+}
+
+#xfce4-clipman-plugin-1 button {
+  background: @second_bottom;
+  color: @items_color_right;
+
+  padding: 0 2px 0 8px;
+  border-radius: 16px 0 0 16px;
+}
+
+#xfce4-clipman-plugin-1 button:checked,
+#xfce4-clipman-plugin-1 button:hover,
+#xfce4-clipman-plugin-1 button:active {
+ 
+}
+
+
+
+
+
+#directorymenu-24 *,
+#xfce4-clipman-plugin-1 button {
+  color: @selected_bg_color;
+}
+
+
+
+
+
+
+
+
+
+
+VteTerminal, vte-terminal {
+    padding: 14px;
+}
