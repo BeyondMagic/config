@@ -20,14 +20,13 @@ The configuration for my actual desktop.
   * base16 zathurarc-dark.
 * neovim;
 * sagemath;
-* feh;
+* sxiv;
 * gimp (of course);
 * qBitTorrent;
 * Telegram;
 * Lollypop (I love it);
-* VLC;
+* mpv;
 * gcsf (oh my god);
-* mpsyt;
 * etterna-git <3
 
 ## System
