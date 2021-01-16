@@ -3,14 +3,14 @@
 @define-color selected_fg_color white;
 
 /* Panel itself */
-@define-color selected_bgpanel_color black;
+@define-color selected_bgpanel_color transparent;
 
 /* Items of panel */
 @define-color selected_item_color white;
-@define-color not_selected_item_color rgba(255,255,255,0.65);
+@define-color not_selected_item_color white;
 
 
-@define-color background_item_color rgba(0,0,0,0.75);
+@define-color background_item_color transparent;
 @define-color border_item_color rgba(255, 255, 255, 0.25);
 
 
@@ -19,53 +19,18 @@
 
 
 
-
-
-
-/* Pulseaudio and clipboard */
-@define-color first_bottom #0C002D;
-@define-color second_bottom #0C002D;
-@define-color third_bottom #0C002D;
-
-/* Windows buttons */
-@define-color first_item #0C002D;
-@define-color second_item #0D002E;
-@define-color third_item #0C002D;
-@define-color fourth_item #0D002E;
-@define-color fifth_item #0C002D;
-
-/* Hour, notification, battery */
-@define-color first_item_right #E6DDFF;
-@define-color second_item_right #FFFFFF;
-@define-color third_item_right #E6DDFF;
-@define-color items_color_right #262626;
-
-
-
-
-
-
-.xfce4-panel {
+.xfce4-panel.background.horizontal.panel {
   border: 0;
-  background-color: transparent;
+  /*background: linear-gradient(45deg, rgba(94,81,139,0.5), rgba(211,143,93,0.5), rgba(220,227,237,0.5), rgba(1,176,199,0.5), rgba(66,66,128,0.5));*/
+  background: rgba(255,255,255,0.175);
   margin: 0;
-  padding: 0;
+  font-weight: bolder;
+  box-shadow: -2px 2px 8px 2px black;
+  text-shadow: -2px 2px 2px rgba(0,0,0,0.85);
 }
 
-
-
-.xfce4-sensors-plugin-5 {
-  color: white;
-}
-
-.xfce4-sensors {
-  color: white;
-  background-color: red;
-}
-
-#xfce4-sensors-plugin-5 {
-  color: white;
-  background-color: red;
+.xfce4-panel:not(.horizontal) {
+  
 }
 
 
@@ -75,19 +40,23 @@
 
 /* Windows of panel */
 
-@define-color bg_window rgba(0,0,0,.66);
+@define-color bg_window transparent;
 
 .tasklist .toggle {
-  background-color: @bg_window;
+  background: #473E65;
+  border: 4px solid #1F0726;
+  border-radius: 30%;
 }
 
 .tasklist .toggle:hover {
+ border: 4px solid  #1F0726;
 
 }
 
 .tasklist .toggle:checked,
 .tasklist .toggle:active {
-  background-color: @background_item_color;
+  border: 4px solid  #1F0726;
+  background: transparent;
   color: white;
 
 }
@@ -122,9 +91,9 @@
 
 /* Clock, duh */
 #clock-button {
-  color: @items_color_right;
+  color: white;
 
-  background-color: @first_item_right;
+  background-color: transparent;
 
   padding: 0 14px 0 12px;
   border-radius: 8px 0 0 8px;
@@ -136,13 +105,13 @@
 #clock-button:checked,
 #clock-button:active,
 #clock-button:hover {
-  background-color: @second_item_right;
+  background-color:  transparent;
 }
 
 
 #xfce4-notification-plugin {
-  background-color: @second_item_right;
-  color: @items_color_right;
+  background-color: transparent;
+  color: white;
 
   padding: 0 5px 0 10px;
   margin-left: -8px;
@@ -150,16 +119,10 @@
 }
 
 #xfce4-power-manager-plugin {
-  background-color: @third_item_right;
+    background-color:  transparent;
 
-  color: @items_color_right;
+  color: white;
 }
-
-
-
-
-
-
 
 
 
@@ -174,25 +137,20 @@
 
 
 #pager-6 button {
-  color: @not_selected_item_color;
-
-  border-width: 2px 0;
-  border-style: solid;
+  color: white;
 
   padding: 0 6px;
+
+  opacity: 0.75;
 }
 
 #pager-6 button:nth-child(1) {
-  background-color: @first_item;
-  border-color: @first_item;
 
   padding: 0 10px 0 6px;
   border-radius: 0 16px 16px 0;
 }
 
-#pager-6 button:nth-child(2) {
-  background-color: @second_item;
-  border-color: @second_item;
+#pager-6 button:nth-child(even) {
 
   padding: 0 8px 0 10px;
   border-radius: 0 16px 16px 0;
@@ -200,44 +158,20 @@
   margin-left: -8px;
 }
 
-#pager-6 button:nth-child(3) {
-  background-color: @third_item;
-  border-color: @third_item;
-
-  padding: 0 8px 0 10px;
-  border-radius: 0 16px 16px 0;
-  margin-left: -8px;
-}
-
-#pager-6 button:nth-child(4) {
-  background-color: @fourth_item;
-  border-color: @fourth_item;
-
-  padding: 0 8px 0 10px;
-  border-radius: 0 16px 16px 0;
-
-  margin-left: -8px;
-}
-
-#pager-6 button:nth-child(5) {
-  background-color: @fifth_item;
-  border-color: @fifth_item;
+#pager-6 button:nth-child(odd) {
 
   padding: 0 8px 0 6px;
   border-radius: 0 16px 16px 0;
   margin-left: -8px;
 }
 
+#pager-6 button:hover,
 #pager-6 button:active,
 #pager-6 button:checked {
   color: @selected_item_color;
+  background: transparent;
+  opacity: 1;
 }
-
-#pager-6 button:hover {
-  color: @selected_item_color;
-}
-
-
 
 
 
@@ -256,7 +190,7 @@
 
 
 #pulseaudio-button {
-  background-color: @first_bottom;
+  background-color:  transparent;
   color: @items_color_right;
 
   padding: 0 4px 0 4px;
@@ -277,11 +211,11 @@
 
 
 #xfce4-sensors-plugin button {
-  background-color: red;
+      background-color:  transparent;
 }
 
 #xfce4-clipman-plugin-1 button {
-  background: @second_bottom;
+      background-color:  transparent;
   color: @items_color_right;
 
   padding: 0 2px 0 8px;
@@ -309,9 +243,9 @@
 
 
 
-
-
-
 VteTerminal, vte-terminal {
     padding: 14px;
 }
+#pulseaudio-button * {-gtk-icon-transform: scale(1);}
+#xfce4-notification-plugin * {-gtk-icon-transform: scale(1);}
+#xfce4-power-manager-plugin * {-gtk-icon-transform: scale(1);}
