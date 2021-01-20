@@ -21,19 +21,19 @@
 
 .xfce4-panel.background.horizontal.panel {
   border: 0;
-  /*background: linear-gradient(45deg, rgba(94,81,139,0.5), rgba(211,143,93,0.5), rgba(220,227,237,0.5), rgba(1,176,199,0.5), rgba(66,66,128,0.5));*/
-  background: rgba(255,255,255,0.175);
+  background: linear-gradient(60deg, rgba(24,7,28, 0.8), rgba(31,10,37,0.8), rgba(36,36,47,0.8));
+  /*background: rgba(255,255,255,0.175);*/
   margin: 0;
   font-weight: bolder;
+  border-bottom: 1px solid rgba(255,255,255,0.125);
   box-shadow: -2px 2px 8px 2px black;
   text-shadow: -2px 2px 2px rgba(0,0,0,0.85);
 }
 
-.xfce4-panel:not(.horizontal) {
-  
+#launcher-8 button {
+	color: white;
+	margin-left: 1.5rem;
 }
-
-
 
 
 
@@ -142,6 +142,8 @@
   padding: 0 6px;
 
   opacity: 0.75;
+
+  margin-top: -2px
 }
 
 #pager-6 button:nth-child(1) {
@@ -181,6 +183,68 @@
 
 
 
+
+
+
+
+
+
+/*
+You can type here any CSS rule recognized by GTK+.
+You can temporarily disable this custom CSS by clicking on the “Pause” button above.
+
+Changes are applied instantly and globally, for the whole application.
+*/
+
+#launcher-8 button {
+	color: white;
+	margin-left: 1.5rem;
+	padding: 0;
+}
+
+#clock-9 button {
+	padding-right: 40px;
+}
+
+
+#pager-6 button:not(:checked) {
+	padding: 0;
+	opacity: 0;
+}
+
+
+#pager-6 button:nth-child(7):checked {
+	margin-left: -455px;
+}
+
+
+#pager-6 button:nth-child(6):checked {
+	margin-left: -355px;
+}
+
+
+#pager-6 button:nth-child(5):checked {
+	margin-right: -45px;
+}
+
+
+#pager-6 button:nth-child(4):checked {
+	margin-left: -145px;
+}
+
+#pager-6 button:nth-child(3):checked {
+	margin-left: -30px;
+}
+
+
+#pager-6 button:nth-child(2):checked {
+	margin-right: -80px;
+}
+
+
+#pager-6 button:nth-child(1):checked {
+	margin-right: -190px;
+}
 
 
 
@@ -249,3 +313,103 @@ VteTerminal, vte-terminal {
 #pulseaudio-button * {-gtk-icon-transform: scale(1);}
 #xfce4-notification-plugin * {-gtk-icon-transform: scale(1);}
 #xfce4-power-manager-plugin * {-gtk-icon-transform: scale(1);}
+
+
+
+
+/* Windows of panel */
+
+@define-color bg_window transparent;
+
+.tasklist .toggle {
+  background: radial-gradient(circle at center, rgba(255,255,255,0.125) 65%, transparent 10%);
+  border-color: transparent;
+}
+
+
+.tasklist .toggle:checked,
+.tasklist .toggle:active {
+  background: radial-gradient(circle at center, rgba(255,255,255,0.125) 65%, transparent 10%);
+  color: white;
+}
+
+.tasklist .toggle.group-button {
+  color: #18071C;
+}
+
+.tasklist .toggle.group-button * {
+ 
+}
+
+
+
+/*
+You can type here any CSS rule recognized by GTK+.
+You can temporarily disable this custom CSS by clicking on the “Pause” button above.
+
+Changes are applied instantly and globally, for the whole application.
+*/
+
+.xfce4-panel:not(.horizontal) {
+  border: 0;
+  /*background: linear-gradient(60deg, rgba(24,7,28,0.5), rgba(31,10,37,0.5), rgba(36,36,47,0.5));*/
+  background: rgba(0,0,0,0.25);
+  margin: 0;
+  font-weight: bolder;
+  border-top: 1px solid rgba(255,255,255,0.125);
+  text-shadow: -2px 2px 2px rgba(0,0,0,0.85);
+}
+
+
+
+
+#launcher-8 button {
+	color: white;
+	margin-left: 1.5rem;
+	padding: 0;
+}
+
+#pager-6 button {
+	transition: all 0s linear;
+}
+
+#pager-6 button:not(:checked) {
+	padding: 0;
+	opacity: 0;
+}
+
+
+#pager-6 button:nth-child(7):checked {
+	margin-left: -425px;
+}
+
+
+#pager-6 button:nth-child(6):checked {
+	margin-left: -320px;
+}
+
+
+#pager-6 button:nth-child(5):checked {
+	margin-left: -225px;
+}
+
+
+#pager-6 button:nth-child(4):checked {
+	margin-left: -110px;
+}
+
+#pager-6 button:nth-child(3):checked {
+	margin-left: 0px;
+}
+
+
+#pager-6 button:nth-child(2):checked {
+	margin-right: -115px;
+}
+
+
+#pager-6 button:nth-child(1):checked {
+	margin-right: -220px;
+}
+
+

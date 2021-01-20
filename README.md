@@ -54,7 +54,7 @@ The configuration for my actual desktop.
     * Notification Plugin;
     * Power Manager Plugin.
 * Xfwm;
-  * Nelio-Slimmer.
+  * Nelio-Slimmer;
 * Mouse;
   * Left-handed;
   * pixelfun3.
