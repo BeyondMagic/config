@@ -30,6 +30,10 @@
   text-shadow: -2px 2px 2px rgba(0,0,0,0.85);
 }
 
+.xfce4-panel.background.panel:not(.horizontal) {
+  text-shadow: -2px 2px 2px black;
+}
+
 #launcher-8 button {
 	color: white;
 	margin-left: 1.5rem;
@@ -49,14 +53,13 @@
 }
 
 .tasklist .toggle:hover {
- border: 4px solid  #1F0726;
+ border: 4px solid transparent;
 
 }
 
 .tasklist .toggle:checked,
 .tasklist .toggle:active {
-  border: 4px solid  #1F0726;
-  background: transparent;
+  border: 4px solid  transparent;
   color: white;
 
 }
@@ -119,7 +122,7 @@
 }
 
 #xfce4-power-manager-plugin {
-    background-color:  transparent;
+  background-color:  transparent;
 
   color: white;
 }
@@ -130,56 +133,6 @@
 
 
 /* Workspaces in panel*/
-
-
-
-
-
-
-#pager-6 button {
-  color: white;
-
-  padding: 0 6px;
-
-  opacity: 0.75;
-
-  margin-top: -2px
-}
-
-#pager-6 button:nth-child(1) {
-
-  padding: 0 10px 0 6px;
-  border-radius: 0 16px 16px 0;
-}
-
-#pager-6 button:nth-child(even) {
-
-  padding: 0 8px 0 10px;
-  border-radius: 0 16px 16px 0;
-
-  margin-left: -8px;
-}
-
-#pager-6 button:nth-child(odd) {
-
-  padding: 0 8px 0 6px;
-  border-radius: 0 16px 16px 0;
-  margin-left: -8px;
-}
-
-#pager-6 button:hover,
-#pager-6 button:active,
-#pager-6 button:checked {
-  color: @selected_item_color;
-  background: transparent;
-  opacity: 1;
-}
-
-
-
-
-
-
 
 
 
@@ -204,46 +157,6 @@ Changes are applied instantly and globally, for the whole application.
 
 #clock-9 button {
 	padding-right: 40px;
-}
-
-
-#pager-6 button:not(:checked) {
-	padding: 0;
-	opacity: 0;
-}
-
-
-#pager-6 button:nth-child(7):checked {
-	margin-left: -455px;
-}
-
-
-#pager-6 button:nth-child(6):checked {
-	margin-left: -355px;
-}
-
-
-#pager-6 button:nth-child(5):checked {
-	margin-right: -45px;
-}
-
-
-#pager-6 button:nth-child(4):checked {
-	margin-left: -145px;
-}
-
-#pager-6 button:nth-child(3):checked {
-	margin-left: -30px;
-}
-
-
-#pager-6 button:nth-child(2):checked {
-	margin-right: -80px;
-}
-
-
-#pager-6 button:nth-child(1):checked {
-	margin-right: -190px;
 }
 
 
@@ -329,7 +242,7 @@ VteTerminal, vte-terminal {
 
 .tasklist .toggle:checked,
 .tasklist .toggle:active {
-  background: radial-gradient(circle at center, rgba(255,255,255,0.125) 65%, transparent 10%);
+  background: radial-gradient(circle at center, rgba(255,255,255,0.3) 65%, transparent 10%);
   color: white;
 }
 
@@ -363,53 +276,78 @@ Changes are applied instantly and globally, for the whole application.
 
 
 
+
 #launcher-8 button {
 	color: white;
 	margin-left: 1.5rem;
 	padding: 0;
 }
 
-#pager-6 button {
-	transition: all 0s linear;
-}
-
-#pager-6 button:not(:checked) {
+#pager-4 * {
 	padding: 0;
-	opacity: 0;
+	margin: 0;
+	
 }
 
 
-#pager-6 button:nth-child(7):checked {
-	margin-left: -425px;
+.xfce4-panel.background.panel:not(.horizontal) #pager-4 .toggle.flat {
+	background: url('/home/koetemagie/.config/gtk-3.0/icons/2.png');
+	background-size: 12px;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: transparent;
+	text-shadow: none;
+}
+
+.xfce4-panel.background.panel:not(.horizontal) #pager-4 .toggle.flat:hover {
+	background-color: rgba(255,255,255,0.025);
+	background: url('/home/koetemagie/.config/gtk-3.0/icons/3.png');
+	background-size: 12px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.xfce4-panel.background.panel:not(.horizontal) #pager-4 .toggle.flat:checked {
+	background-color: rgba(255,255,255,0.035);
+	background: url('/home/koetemagie/.config/gtk-3.0/icons/1.png');
+	background-size: 12px;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 
-#pager-6 button:nth-child(6):checked {
-	margin-left: -320px;
+
+.xfce4-panel.horizontal.panel.background {
+	 background: linear-gradient(60deg, rgba(24,7,28, 0.9), rgba(31,10,37,0.9), rgba(36,36,47,0.9));
 }
 
 
-#pager-6 button:nth-child(5):checked {
-	margin-left: -225px;
+/*
+You can type here any CSS rule recognized by GTK+.
+You can temporarily disable this custom CSS by clicking on the “Pause” button above.
+
+Changes are applied instantly and globally, for the whole application.
+*/
+
+.xfce4-panel.horizontal.panel.background {
+	 background: linear-gradient(60deg, rgba(24,7,28, 0.9), rgba(31,10,37,0.9), rgba(36,36,47,0.9));
 }
 
 
-#pager-6 button:nth-child(4):checked {
-	margin-left: -110px;
+#pager-6 > * {
+	margin-right: 1rem;
 }
 
-#pager-6 button:nth-child(3):checked {
-	margin-left: 0px;
+#pager-6 .toggle:checked {
+	background: transparent;
 }
 
+#pager-6 .toggle:not(:checked) { opacity: 0; } 
 
-#pager-6 button:nth-child(2):checked {
-	margin-right: -115px;
-}
-
-
-#pager-6 button:nth-child(1):checked {
-	margin-right: -220px;
-}
-
-
+#pager-6 .toggle:checked:nth-child(1) { margin-bottom: -25px; }
+#pager-6 .toggle:checked:nth-child(2) { margin-bottom: -14px; }
+#pager-6 .toggle:checked:nth-child(3) { margin-bottom: -5px; }
+#pager-6 .toggle:checked:nth-child(4) { margin-top: -3px; }
+#pager-6 .toggle:checked:nth-child(5) { margin-top: -11px; }
+#pager-6 .toggle:checked:nth-child(6) { margin-top: -19px; }
+#pager-6 .toggle:checked:nth-child(7) { margin-top: -26px; }

@@ -55,6 +55,7 @@ The configuration for my actual desktop.
     * Power Manager Plugin.
 * Xfwm;
   * Nelio-Slimmer;
+  * rofi.
 * Mouse;
   * Left-handed;
   * pixelfun3.
