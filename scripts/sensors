@@ -1,0 +1,1 @@
+sensors | grep Temperature | sed -E 's/(\w+ \w+:\s+\+)//' | sed -E 's/  \(.+//'

@@ -1,1 +1,0 @@
-exec rofi -modi windowcd -show windowcd -no-fixed-num-lines -show-icons -cycle & sleep 0.15 && xdotool key Down
