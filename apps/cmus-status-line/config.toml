@@ -21,7 +21,7 @@ format = """
             Container([
                 Truncate(Title, 60),
                 Text("   "),
-                ProgressBar("■■■■■■■■         "),
+                ProgressBar("■■■■■■■■■■■■■■■■■■■■■■■■■■                           "),
             ]),
         ),
 
@@ -29,8 +29,8 @@ format = """
             IsStatus(Paused),
             Container([
                 Truncate(Title, 10),
-                Text(" "),
-                ProgressBar("|....|"),
+                Text(" ..........................."),
+                ProgressBar("    "),
             ]),
         ),
     ]),

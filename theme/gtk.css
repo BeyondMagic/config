@@ -340,6 +340,7 @@ Changes are applied instantly and globally, for the whole application.
 
 #pager-6 .toggle:checked {
 	background: transparent;
+  margin-right: -20px;
 }
 
 #pager-6 .toggle:not(:checked) { opacity: 0; } 
@@ -351,3 +352,17 @@ Changes are applied instantly and globally, for the whole application.
 #pager-6 .toggle:checked:nth-child(5) { margin-top: -11px; }
 #pager-6 .toggle:checked:nth-child(6) { margin-top: -19px; }
 #pager-6 .toggle:checked:nth-child(7) { margin-top: -26px; }
+
+#genmon-10 * {
+  color: #EEB782;
+  margin-right: 0.75rem;
+}
+
+#genmon-7 * {
+  background: linear-gradient(60deg, rgba(28,10,36,0.8), rgba(31,10,37,0.8));
+  margin-left: 1rem; 
+}
+
+#netload-12 * {
+  background: linear-gradient(60deg, rgba(33,24,43,0.8) , rgba(36,36,47,0.8), rgba(31,10,37,0.8));
+}
