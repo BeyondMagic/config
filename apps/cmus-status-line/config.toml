@@ -9,26 +9,26 @@ format = """
     Container([
         Container([
             If(IsStatus(Playing),
-                Text(" ")),
+                Text("")),
             If(IsStatus(Paused),
-                Text(" ")),
+                Text("")),
             If(IsStatus(Stopped),
-                Text(" ")),
+                Text("")),
         ]),
 
         If(
             IsStatus(Playing),
             Container([
                 Truncate(Title, 60),
-                Text("   "),
-                ProgressBar("■■■■■■■■■■■■■■■■■■■■■■■■■■                           "),
+                Text(" - "),
+                ProgressBar("■■■■■■■■■■■■■■■■■■■■■■■                        "),
             ]),
         ),
 
         If(
             IsStatus(Paused),
             Container([
-                Truncate(Title, 10),
+                Title,
                 Text(" ..........................."),
                 ProgressBar("    "),
             ]),

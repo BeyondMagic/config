@@ -10,10 +10,9 @@
 @define-color not_selected_item_color white;
 
 
-@define-color background_item_color transparent;
+@define-color background_item_color rgba(0,0,0,.8);
 @define-color border_item_color rgba(255, 255, 255, 0.25);
-
-
+@define-color panel_border_colour rgba(152,234,222,0.8);
 
 
 
@@ -21,22 +20,36 @@
 
 .xfce4-panel.background.horizontal.panel {
   border: 0;
-  background: linear-gradient(60deg, rgba(24,7,28, 0.8), rgba(31,10,37,0.8), rgba(36,36,47,0.8));
+  background: transparent;
   /*background: rgba(255,255,255,0.175);*/
   margin: 0;
   font-weight: bolder;
-  border-bottom: 1px solid rgba(255,255,255,0.125);
+  border-bottom: 1px solid @panel_border_colour;
   box-shadow: -2px 2px 8px 2px black;
   text-shadow: -2px 2px 2px rgba(0,0,0,0.85);
 }
+
+.xfce4-panel:not(.horizontal) {
+  border: 0;
+  background: transparent;
+  margin: 0;
+  font-weight: bolder;
+  text-shadow: -2px 2px 2px rgba(0,0,0,0.85);
+}
+
+
 
 .xfce4-panel.background.panel:not(.horizontal) {
   text-shadow: -2px 2px 2px black;
 }
 
+#launcher-8 > * {
+  border-bottom: 1px solid @panel_border_colour;
+}
+
 #launcher-8 button {
 	color: white;
-	margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 
@@ -46,21 +59,8 @@
 
 @define-color bg_window transparent;
 
-.tasklist .toggle {
-  background: #473E65;
-  border: 4px solid #1F0726;
-  border-radius: 30%;
-}
-
-.tasklist .toggle:hover {
- border: 4px solid transparent;
-
-}
-
 .tasklist .toggle:checked,
 .tasklist .toggle:active {
-  border: 4px solid  transparent;
-  color: white;
 
 }
 
@@ -72,6 +72,7 @@
 
 .xfce4-panel button {
   color: @not_selected_item_color;
+
 }
 
 .xfce4-panel button:active,
@@ -92,18 +93,7 @@
 
 
 
-/* Clock, duh */
-#clock-button {
-  color: white;
 
-  background-color: transparent;
-
-  padding: 0 14px 0 12px;
-  border-radius: 8px 0 0 8px;
-  
-  margin-right: -8px;
-
-}
 
 #clock-button:checked,
 #clock-button:active,
@@ -118,7 +108,6 @@
 
   padding: 0 5px 0 10px;
   margin-left: -8px;
-  border-radius: 8px 0 0 8px;
 }
 
 #xfce4-power-manager-plugin {
@@ -156,7 +145,8 @@ Changes are applied instantly and globally, for the whole application.
 }
 
 #clock-9 button {
-	padding-right: 40px;
+	padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 
@@ -196,7 +186,6 @@ Changes are applied instantly and globally, for the whole application.
   color: @items_color_right;
 
   padding: 0 2px 0 8px;
-  border-radius: 16px 0 0 16px;
 }
 
 #xfce4-clipman-plugin-1 button:checked,
@@ -234,15 +223,8 @@ VteTerminal, vte-terminal {
 
 @define-color bg_window transparent;
 
-.tasklist .toggle {
-  background: radial-gradient(circle at center, rgba(255,255,255,0.125) 65%, transparent 10%);
-  border-color: transparent;
-}
-
-
 .tasklist .toggle:checked,
 .tasklist .toggle:active {
-  background: radial-gradient(circle at center, rgba(255,255,255,0.3) 65%, transparent 10%);
   color: white;
 }
 
@@ -263,16 +245,6 @@ You can temporarily disable this custom CSS by clicking on the “Pause” butto
 Changes are applied instantly and globally, for the whole application.
 */
 
-.xfce4-panel:not(.horizontal) {
-  border: 0;
-  /*background: linear-gradient(60deg, rgba(24,7,28,0.5), rgba(31,10,37,0.5), rgba(36,36,47,0.5));*/
-  background: rgba(0,0,0,0.25);
-  margin: 0;
-  font-weight: bolder;
-  border-top: 1px solid rgba(255,255,255,0.125);
-  text-shadow: -2px 2px 2px rgba(0,0,0,0.85);
-}
-
 
 
 
@@ -288,7 +260,6 @@ Changes are applied instantly and globally, for the whole application.
 	margin: 0;
 	
 }
-
 
 .xfce4-panel.background.panel:not(.horizontal) #pager-4 .toggle.flat {
 	background: url('/home/koetemagie/.config/gtk-3.0/icons/2.png');
@@ -308,7 +279,6 @@ Changes are applied instantly and globally, for the whole application.
 }
 
 .xfce4-panel.background.panel:not(.horizontal) #pager-4 .toggle.flat:checked {
-	background-color: rgba(255,255,255,0.035);
 	background: url('/home/koetemagie/.config/gtk-3.0/icons/1.png');
 	background-size: 12px;
 	background-repeat: no-repeat;
@@ -317,9 +287,6 @@ Changes are applied instantly and globally, for the whole application.
 
 
 
-.xfce4-panel.horizontal.panel.background {
-	 background: linear-gradient(60deg, rgba(24,7,28, 0.9), rgba(31,10,37,0.9), rgba(36,36,47,0.9));
-}
 
 
 /*
@@ -330,7 +297,7 @@ Changes are applied instantly and globally, for the whole application.
 */
 
 .xfce4-panel.horizontal.panel.background {
-	 background: linear-gradient(60deg, rgba(24,7,28, 0.9), rgba(31,10,37,0.9), rgba(36,36,47,0.9));
+	 
 }
 
 
@@ -355,14 +322,115 @@ Changes are applied instantly and globally, for the whole application.
 
 #genmon-10 * {
   color: #EEB782;
-  margin-right: 0.75rem;
+  background: @background_item_color;
 }
 
 #genmon-7 * {
-  background: linear-gradient(60deg, rgba(28,10,36,0.8), rgba(31,10,37,0.8));
-  margin-left: 1rem; 
+  margin-left: 0.75rem;
 }
 
+
 #netload-12 * {
-  background: linear-gradient(60deg, rgba(33,24,43,0.8) , rgba(36,36,47,0.8), rgba(31,10,37,0.8));
+  background: transparent;
+}
+
+/*
+You can type here any CSS rule recognized by GTK+.
+You can temporarily disable this custom CSS by clicking on the “Pause” button above.
+
+Changes are applied instantly and globally, for the whole application.
+*/
+
+#notification-plugin-2 > *,
+#tasklist-1 .toggle,
+.xfce4-panel.background.panel:not(.horizontal) #pager-4 > * {
+	background-color: rgba(0,0,0,0.8);
+	border-top: 2px solid @panel_border_colour;
+}
+
+.xfce4-panel.background.panel:not(.horizontal) #pager-4 .toggle.flat:checked {
+	background-color: @panel_border_colour;
+}
+
+#notification-plugin-2 > *:hover,
+#notification-plugin-2 > *:checked,
+#tasklist-1 .toggle:checked {
+	background: @panel_border_colour;
+}
+
+.xfce4-panel.background.horizontal.panel {
+	border-bottom: 1px solid @panel_border_colour;
+}
+
+.xfce4-panel:not(.horizontal) {
+}
+
+#genmon-10 * > * > * {
+	color: black;
+  background: transparent;
+  padding: 0 0.6rem;
+  text-shadow: -1px 1px 2px rgba(0,0,0,0.4);
+}
+
+#genmon-10 .genmon_imagebox {
+	background: @panel_border_colour;
+}
+
+
+#notification-plugin-2 > *{
+	border-bottom: 4px solid transparent;
+	border-radius: 0;
+}
+
+#notification-plugin-2 > * > * {
+	padding-left: 4px;
+}
+
+
+#genmon-7 * {
+	background: transparent;
+	color: #F68FB7;
+}
+
+.xfce4-panel.background.panel.horizontal {
+	border-top: 4px solid transparent;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-bottom: none;
+	background: transparent;
+}
+
+.xfce4-panel.background.panel.horizontal > * > * > * {
+	background: rgba(0,0,0,0.8);
+	border-left: 4px solid transparent;
+	border-radius: 0;
+}
+
+#tasklist-1 .tasklist .toggle {
+	border-bottom: 4px solid transparent;
+}
+
+/*#tasklist-1 .tasklist .toggle > * > * {
+	margin-top: -6px;
+}*/
+
+
+#pager-4 > * {
+	border-bottom: 4px solid transparent;
+	border-left: 12px solid transparent;	
+}
+
+#netload-12 {
+	background: red;
+}
+
+#clock-9 > * {
+  background: @background_item_color;
+  border-bottom: 1px solid @panel_border_colour;
+  border-radius: 0;
+}
+
+#windowmenu-47 > *,
+#launcher-26 > *, #launcher-27 > *,  #launcher-21 > *,  #launcher-25 > *,  #launcher-22 > *,  #launcher-24 > * {
+  border-bottom: 1px solid @panel_border_colour;
 }
