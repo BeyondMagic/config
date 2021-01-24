@@ -1,5 +1,5 @@
 <div align="center"><img src="/theme/preview.png"></img></div>
-
+<div align="center"><img src="/theme/preview-azul.png"></img></div>
 
 # config
 <p align="center">Personal configuration for my desktop, it surely changed a lot, but I always loved the static WM that I use and always used since my first install of Linux. A little bit of pre information, this desktop is meant to be very, very lightweight since it was made in a 2006 computer (with no upgrades); the ricing yet is beautiful.</p>
