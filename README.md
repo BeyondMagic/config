@@ -24,10 +24,10 @@
 - **Application Launcher** : [rofi](https://github.com/davatorium/rofi)
 - **Image Editor** : [Gimp](https://www.gimp.org/)
 - **Video Player** : [mpv](https://mpv.io/) (faster than vlc)
-- **Music Player** : [cmus](https://cmus.github.io/) & [lollypop](https://gitlab.gnome.org/World/lollypop/)
+- **Music Player** : [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) & [lollypop](https://gitlab.gnome.org/World/lollypop/)
 - **PDF Viewer** : [zathura](https://pwmt.org/projects/zathura/)
 - **Image viewer** : [sxiv](https://github.com/muennich/sxiv)
-
+- **Browser** : [Firefox-Developer-Edition](https://www.mozilla.org/en-US/firefox/developer/)
 ---
 
 **Additional**
@@ -79,6 +79,12 @@
 **Kvantum Manager**
   * **Theme** :
   - [Moe](https://store.kde.org/p/1337441/)
+
+**Firefox Developer Edition**
+  * **Theme** :
+  - [MaterialFox](https://github.com/muckSponge/MaterialFox)
+
+
 
 **xfwm4-tweaks**
   * **Cycling** :

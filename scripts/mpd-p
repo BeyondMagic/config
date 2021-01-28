@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# extract %
+perc="$(mpc -f %name% | grep -o ' [^ ]*%' | sed -e 's/ (//' | sed -e 's/%//' | grep -m1 '')"
+
+# convert perc
+duration="${perc/.*}"
+elapsed=duration/2
+
+printf "$(mpc -f %artist% | grep -m1 '') - "; printf "$(mpc -f %title% | grep -m1 '')  "
+
+for ((done=0; done<=$elapsed; done++))
+do
+  printf "■"
+done
+
+printf "\n"
+
+
