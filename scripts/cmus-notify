@@ -1,4 +1,0 @@
-varib=`/home/koetemagie/.cargo/bin/cmus-status-line || echo ''`
-echo $varib | awk '{gsub("#", " ");print}'
-
-

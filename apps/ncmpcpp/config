@@ -26,7 +26,6 @@ now_playing_prefix = "$b$5"
 now_playing_suffix = "$/b$9"
 
 [statusbar]
-■
 progressbar_look = "■| "
 progressbar_color = "black"
 statusbar_visibility = "no"
