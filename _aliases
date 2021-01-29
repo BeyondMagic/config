@@ -6,11 +6,17 @@ alias sublime='/home/koetemagie/dotfiles1/Apps/sublime-text/sublime_text "$1"'
 alias save-session='dbus-send --session --dest=org.xfce.SessionManager --print-reply /org/xfce/SessionManager org.xfce.Session.Manager.Checkpoint string:""'
 alias firefox='MOZ_GTK_TITLEBAR_DECORATION=client firefox'
 alias editquote="sublime ~/Programas/github_new/quotixterminal/quotes.json"
-alias addquote='cd ~/Programas/github_new/quotixterminal/ && node ~/Programas/github_new/quotixterminal/addquote.js "$1"'
 alias vim='nvim'
-alias now='screenfetch -D "Arch" -c 1 | sed "s -manjaro -archlinux "'
+alias now='~/BeyondMagic/GITHUB/config/scripts/mfetch | lolcat'
+alias song='ncmpcpp'
 
 export EDITOR=nvim VISUAL=nvim
+
+addquote() {
+  cwd=$(pwd)
+  cd ~/Programas/github_new/quotixterminal/ && node ~/Programas/github_new/quotixterminal/addquote.js "$1";
+  cd $cwd
+}
 
 run() {
   "$@" </dev/null &>/dev/null &

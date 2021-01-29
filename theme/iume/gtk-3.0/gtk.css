@@ -1,9 +1,9 @@
 @define-color bdlightcolor black;
-@define-color bdsongcolor #F68FB7;
+@define-color bdsongcolor #00101D;
 @define-color textcolor white;
 @define-color bdcolor #B9F8F7;
 @define-color bdbg rgba(0,0,0,.8);
-
+@define-color txtshadowsong rgba(0,0,0,.6);
 /* Terminal Padding */
 
 VteTerminal, vte-terminal {
@@ -46,7 +46,7 @@ VteTerminal, vte-terminal {
 
 #launcher-8 button {
 	color: @textcolor;
-  padding: 0 1rem;
+  padding: 0 1rem 0 0.75rem;
 }
 
 /* Clock, obviously */
@@ -159,11 +159,10 @@ VteTerminal, vte-terminal {
 }
 
 
-
 /* CPU usage */
 
 #genmon-10 .genmon_imagebox {
-  border-width: 0 0 2px 2px;
+  border-width: 0 0 2px 0;
   border-style: solid;
   border-color: @bdlightcolor;
 }
@@ -182,9 +181,7 @@ VteTerminal, vte-terminal {
 #genmon-7 * {
 	background: transparent;
 	color: @bdsongcolor;
-}
-
-#genmon-7 * {
+  text-shadow: -2px 2px 2px @txtshadowsong;
   margin-left: 0.75rem;
 }
 
@@ -209,7 +206,14 @@ VteTerminal, vte-terminal {
 #clock-9 > *,
 #windowmenu-47 > *,
 #launcher-26 > *, #launcher-27 > *,  #launcher-21 > *,  #launcher-25 > *,  #launcher-22 > *,  #launcher-24 > * {
-  border-bottom: 1px solid @bdcolor;
+  border-bottom: 2px solid @bdcolor;
+}
+
+#launcher-5 *:hover,
+#launcher-5 *:active,
+#applicationsmenu-13 *:hover,
+#applicationsmenu-13 *:checked {
+  background-color: transparent;
 }
 
 #genmon-10 .genmon_imagebox,
