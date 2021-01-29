@@ -1,381 +1,77 @@
-
-@define-color selected_bg_color rgba(255, 255, 255, 0.75);
-@define-color selected_fg_color white;
-
-/* Panel itself */
-@define-color selected_bgpanel_color transparent;
-
-/* Items of panel */
-@define-color selected_item_color white;
-@define-color not_selected_item_color white;
-
-
-@define-color background_item_color rgba(0,0,0,.8);
-@define-color border_item_color rgba(255, 255, 255, 0.25);
-@define-color panel_border_colour rgba(152,234,222,0.8);
-
-
-
-
-
-.xfce4-panel.background.horizontal.panel {
-  border: 0;
-  background: transparent;
-  /*background: rgba(255,255,255,0.175);*/
-  margin: 0;
-  font-weight: bolder;
-  border-bottom: 1px solid @panel_border_colour;
-  box-shadow: -2px 2px 8px 2px black;
-  text-shadow: -2px 2px 2px rgba(0,0,0,0.85);
-}
-
-.xfce4-panel:not(.horizontal) {
-  border: 0;
-  background: transparent;
-  margin: 0;
-  font-weight: bolder;
-  text-shadow: -2px 2px 2px rgba(0,0,0,0.85);
-}
-
-
-
-.xfce4-panel.background.panel:not(.horizontal) {
-  text-shadow: -2px 2px 2px black;
-}
-
-#launcher-8 > * {
-  border-bottom: 1px solid @panel_border_colour;
-}
-
-#launcher-8 button {
-	color: white;
-  margin-right: 1.5rem;
-}
-
-
-
-
-/* Windows of panel */
-
-@define-color bg_window transparent;
-
-.tasklist .toggle:checked,
-.tasklist .toggle:active {
-
-}
-
-
-
-
-
-/* Buttons of panel */
-
-.xfce4-panel button {
-  color: @not_selected_item_color;
-
-}
-
-.xfce4-panel button:active,
-.xfce4-panel button:checked,
-.xfce4-panel button:hover {
-  color: @selected_item_color;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#clock-button:checked,
-#clock-button:active,
-#clock-button:hover {
-  background-color:  transparent;
-}
-
-
-#xfce4-notification-plugin {
-  background-color: transparent;
-  color: white;
-
-  padding: 0 5px 0 10px;
-  margin-left: -8px;
-}
-
-#xfce4-power-manager-plugin {
-  background-color:  transparent;
-
-  color: white;
-}
-
-
-
-
-
-
-/* Workspaces in panel*/
-
-
-
-
-
-
-
-
-
-/*
-You can type here any CSS rule recognized by GTK+.
-You can temporarily disable this custom CSS by clicking on the “Pause” button above.
-
-Changes are applied instantly and globally, for the whole application.
-*/
-
-#launcher-8 button {
-	color: white;
-	margin-left: 1.5rem;
-	padding: 0;
-}
-
-#clock-9 button {
-	padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-
-
-/* Pulse audio */
-
-
-
-
-#pulseaudio-button {
-  background-color:  transparent;
-  color: @items_color_right;
-
-  padding: 0 4px 0 4px;
-  margin-right: -2px;
-}
-
-#pulseaudio-button:checked {
-
-}
-
-#pulseaudio-button:active,
-#pulseaudio-button:hover {
-
-}
-
-
-
-
-
-#xfce4-sensors-plugin button {
-      background-color:  transparent;
-}
-
-#xfce4-clipman-plugin-1 button {
-      background-color:  transparent;
-  color: @items_color_right;
-
-  padding: 0 2px 0 8px;
-}
-
-#xfce4-clipman-plugin-1 button:checked,
-#xfce4-clipman-plugin-1 button:hover,
-#xfce4-clipman-plugin-1 button:active {
- 
-}
-
-
-
-
-
-#directorymenu-24 *,
-#xfce4-clipman-plugin-1 button {
-  color: @selected_bg_color;
-}
-
-
-
-
-
-
+@define-color bdlightcolor black;
+@define-color bdsongcolor #F68FB7;
+@define-color textcolor white;
+@define-color bdcolor #B9F8F7;
+@define-color bdbg rgba(0,0,0,.8);
+
+/* Terminal Padding */
 
 VteTerminal, vte-terminal {
     padding: 14px;
 }
-#pulseaudio-button * {-gtk-icon-transform: scale(1);}
-#xfce4-notification-plugin * {-gtk-icon-transform: scale(1);}
-#xfce4-power-manager-plugin * {-gtk-icon-transform: scale(1);}
 
 
-
-
-/* Windows of panel */
-
-@define-color bg_window transparent;
-
-.tasklist .toggle:checked,
-.tasklist .toggle:active {
-  color: white;
-}
-
-.tasklist .toggle.group-button {
-  color: #18071C;
-}
-
-.tasklist .toggle.group-button * {
- 
-}
-
-
-
-/*
-You can type here any CSS rule recognized by GTK+.
-You can temporarily disable this custom CSS by clicking on the “Pause” button above.
-
-Changes are applied instantly and globally, for the whole application.
-*/
-
-
-
-
-
-#launcher-8 button {
-	color: white;
-	margin-left: 1.5rem;
-	padding: 0;
-}
-
-#pager-4 * {
-	padding: 0;
-	margin: 0;
-	
-}
-
-.xfce4-panel.background.panel:not(.horizontal) #pager-4 .toggle.flat {
-	background: url('/home/koetemagie/.config/gtk-3.0/icons/2.png');
-	background-size: 12px;
-	background-repeat: no-repeat;
-	background-position: center;
-	color: transparent;
-	text-shadow: none;
-}
-
-.xfce4-panel.background.panel:not(.horizontal) #pager-4 .toggle.flat:hover {
-	background-color: rgba(255,255,255,0.025);
-	background: url('/home/koetemagie/.config/gtk-3.0/icons/3.png');
-	background-size: 12px;
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-.xfce4-panel.background.panel:not(.horizontal) #pager-4 .toggle.flat:checked {
-	background: url('/home/koetemagie/.config/gtk-3.0/icons/1.png');
-	background-size: 12px;
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-
-
-
-
-/*
-You can type here any CSS rule recognized by GTK+.
-You can temporarily disable this custom CSS by clicking on the “Pause” button above.
-
-Changes are applied instantly and globally, for the whole application.
-*/
-
-.xfce4-panel.horizontal.panel.background {
-	 
-}
-
-
-#pager-6 > * {
-	margin-right: 1rem;
-}
-
-#pager-6 .toggle:checked {
-	background: transparent;
-  margin-right: -20px;
-}
-
-#pager-6 .toggle:not(:checked) { opacity: 0; } 
-
-#pager-6 .toggle:checked:nth-child(1) { margin-bottom: -25px; }
-#pager-6 .toggle:checked:nth-child(2) { margin-bottom: -14px; }
-#pager-6 .toggle:checked:nth-child(3) { margin-bottom: -5px; }
-#pager-6 .toggle:checked:nth-child(4) { margin-top: -3px; }
-#pager-6 .toggle:checked:nth-child(5) { margin-top: -11px; }
-#pager-6 .toggle:checked:nth-child(6) { margin-top: -19px; }
-#pager-6 .toggle:checked:nth-child(7) { margin-top: -26px; }
-
-#genmon-10 * {
-  color: #EEB782;
-  background: @background_item_color;
-}
-
-#genmon-7 * {
-  margin-left: 0.75rem;
-}
-
-
-#netload-12 * {
-  background: transparent;
-}
-
-/*
-You can type here any CSS rule recognized by GTK+.
-You can temporarily disable this custom CSS by clicking on the “Pause” button above.
-
-Changes are applied instantly and globally, for the whole application.
-*/
-
-#notification-plugin-2 > *,
-#tasklist-1 .toggle,
-.xfce4-panel.background.panel:not(.horizontal) #pager-4 > * {
-	background-color: rgba(0,0,0,0.8);
-	border-top: 2px solid @panel_border_colour;
-}
-
-.xfce4-panel.background.panel:not(.horizontal) #pager-4 .toggle.flat:checked {
-	background-color: @panel_border_colour;
-}
-
-#notification-plugin-2 > *:hover,
-#notification-plugin-2 > *:checked,
-#tasklist-1 .toggle:checked {
-	background: @panel_border_colour;
-}
 
 .xfce4-panel.background.horizontal.panel {
-	border-bottom: 1px solid @panel_border_colour;
+  margin: 0;
+  font-weight: bolder;
+  box-shadow: -2px 2px 8px 2px @bdlightcolor;
+  text-shadow: -2px 2px 2px @bdbg;
+  border-width: 4px 12px 0 12px;
+  border-style: solid;
+  border-color: transparent;
+	background: transparent;
 }
+
+.xfce4-panel.background.horizontal.panel > * > * > * {
+	background: @bdbg;
+	border-left: 4px solid transparent;
+	border-radius: 0;
+}
+
 
 .xfce4-panel:not(.horizontal) {
-}
-
-#genmon-10 * > * > * {
-	color: black;
+  border: 0;
   background: transparent;
-  padding: 0 0.6rem;
-  text-shadow: -1px 1px 2px rgba(0,0,0,0.4);
+  margin: 0;
+  font-weight: bolder;
+  text-shadow: -2px 2px 2px @bdbg;
 }
 
-#genmon-10 .genmon_imagebox {
-	background: @panel_border_colour;
+.xfce4-panel.background.panel:not(.horizontal) {
+  text-shadow: -2px 2px 2px @bdlightcolor;
 }
 
+/* Show symbol at top left */
+
+#launcher-8 button {
+	color: @textcolor;
+  padding: 0 1rem;
+}
+
+/* Clock, obviously */
+
+#clock-button button {
+	padding: 0 1rem;
+  background: @bdbg;
+  border-radius: 0;
+}
+
+#clock-button:checked,
+#clock-button:active,
+#clock-button:hover {
+  background-color: transparent;
+}
+
+/* Notification Plugin */
+
+#xfce4-notification-plugin {
+  background-color: transparent;
+  color: @textcolor;
+
+  padding: 0 5px 0 10px;
+  margin-left: -8px;
+}
 
 #notification-plugin-2 > *{
 	border-bottom: 4px solid transparent;
@@ -386,51 +82,145 @@ Changes are applied instantly and globally, for the whole application.
 	padding-left: 4px;
 }
 
+/* Blocks pager */
 
-#genmon-7 * {
-	background: transparent;
-	color: #F68FB7;
+#pager-4 * {
+	padding: 0;
+	margin: 0;	
 }
 
-.xfce4-panel.background.panel.horizontal {
-	border-top: 4px solid transparent;
-	border-left: 12px solid transparent;
-	border-right: 12px solid transparent;
-	border-bottom: none;
-	background: transparent;
+#pager-4 .toggle.flat {
+  background-color: @bdbg;
+  border-top: 2px solid @bdcolor;
+	background-image: url('/home/koetemagie/.config/gtk-3.0/icons/2.png');
+	background-size: 12px;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: transparent;
+	text-shadow: none;
 }
 
-.xfce4-panel.background.panel.horizontal > * > * > * {
-	background: rgba(0,0,0,0.8);
-	border-left: 4px solid transparent;
-	border-radius: 0;
+#pager-4 .toggle.flat:hover {
+	background-image: url('/home/koetemagie/.config/gtk-3.0/icons/3.png');
+	background-size: 12px;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
-#tasklist-1 .tasklist .toggle {
-	border-bottom: 4px solid transparent;
+#pager-4 .toggle.flat:checked {
+  background-color: @bdcolor;
+  background-image: url('/home/koetemagie/.config/gtk-3.0/icons/1.png');
+	background-size: 12px;
+	background-repeat: no-repeat;
+	background-position: center;
 }
-
-/*#tasklist-1 .tasklist .toggle > * > * {
-	margin-top: -6px;
-}*/
-
 
 #pager-4 > * {
 	border-bottom: 4px solid transparent;
 	border-left: 12px solid transparent;	
 }
 
-#netload-12 {
-	background: red;
+
+
+/* Preview name Pager */
+
+#pager-6 .toggle > *{
+  margin-right: 1.25rem;
 }
 
+#pager-6 .toggle:checked {
+	background: transparent;
+  margin-right: -20px;
+}
+
+#pager-6 .toggle:not(:checked) { opacity: 0; } 
+#pager-6 .toggle:checked:nth-child(1) { margin-bottom: -25px; }
+#pager-6 .toggle:checked:nth-child(2) { margin-bottom: -14px; }
+#pager-6 .toggle:checked:nth-child(3) { margin-bottom: -5px; }
+#pager-6 .toggle:checked:nth-child(4) { margin-top: -3px; }
+#pager-6 .toggle:checked:nth-child(5) { margin-top: -11px; }
+#pager-6 .toggle:checked:nth-child(6) { margin-top: -19px; }
+#pager-6 .toggle:checked:nth-child(7) { margin-top: -26px; }
+
+
+/* Windows of panel */
+
+#tasklist-1 .tasklist .toggle {
+	border-bottom: 4px solid transparent;
+}
+
+.tasklist .toggle:checked,
+.tasklist .toggle:active {
+  color: @textcolor;
+}
+
+.tasklist .toggle.group-button {
+  color: @bdbg;
+}
+
+
+
+/* CPU usage */
+
+#genmon-10 .genmon_imagebox {
+  border-width: 0 0 2px 2px;
+  border-style: solid;
+  border-color: @bdlightcolor;
+}
+
+#genmon-10 * > * > * {
+	color: black;
+  background: transparent;
+  padding: 0 0.6rem;
+  text-shadow: -1px 1px 2px rgba(0,0,0,0.4);
+}
+
+
+
+/* Song Preview */
+
+#genmon-7 * {
+	background: transparent;
+	color: @bdsongcolor;
+}
+
+#genmon-7 * {
+  margin-left: 0.75rem;
+}
+
+/* Internet */
+
+#netload-12 * {
+  background: transparent;
+}
+
+/* Clock left top */
 #clock-9 > * {
-  background: @background_item_color;
-  border-bottom: 1px solid @panel_border_colour;
-  border-radius: 0;
+  padding: 0 1rem;
 }
 
+
+
+
+
+/* Etc... */
+
+#launcher-8 > *,
+#clock-9 > *,
 #windowmenu-47 > *,
 #launcher-26 > *, #launcher-27 > *,  #launcher-21 > *,  #launcher-25 > *,  #launcher-22 > *,  #launcher-24 > * {
-  border-bottom: 1px solid @panel_border_colour;
+  border-bottom: 1px solid @bdcolor;
+}
+
+#genmon-10 .genmon_imagebox,
+#tasklist-1 .toggle:checked, 
+#notification-plugin-2 > *:hover,
+#notification-plugin-2 > *:checked {
+	background-color: @bdcolor;
+}
+
+#notification-plugin-2 > *,
+#tasklist-1 .toggle {
+	background-color: @bdbg;
+	border-top: 2px solid @bdcolor;
 }

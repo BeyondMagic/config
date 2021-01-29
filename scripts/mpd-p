@@ -2,12 +2,14 @@
 
 # extract %
 perc="$(mpc -f %name% | grep -o ' [^ ]*%' | sed -e 's/ (//' | sed -e 's/%//' | grep -m1 '')"
-
-# convert perc
 duration="${perc/.*}"
 elapsed=duration/2
 
-printf "$(mpc -f %artist% | grep -m1 '') - "; printf "$(mpc -f %title% | grep -m1 '')  "
+# title
+inf="$(mpc -f %artist% | grep -m1 '') - $(mpc -f %title% | grep -m1 '')"
+wdw="$(echo $inf | cut -c 1-50)"
+
+printf "$wdw  "
 
 for ((done=0; done<=$elapsed; done++))
 do
