@@ -1,15 +1,15 @@
 <div align="center"><img src="/theme/iume/prev.png"></img></div>
 
-# config
+<h1 align="center">config</h1>
 <p align="center">Personal configuration for my desktop, it surely changed a lot, but I always loved the static WM that I use and always used since my first install of Linux. A little bit of pre information, this desktop is meant to be very, very lightweight since it was made in a 2006 computer (with no upgrades); the ricing yet is beautiful.</p>
 
 <p align="center">It is entirely made upon *xfce4*, 'why?', well, it is not every day that you see a *xfce4* complete ricing, right? So I had to build one.</p>
 
 <p align="center">Manjaro 20.2 Nibia</p>
 
-## Apps :?
-
 ---
+
+## Apps :?
 
 **Base**
 
@@ -41,7 +41,7 @@
 
 ---
 
-## Config
+## Configuration of programs
 
 **Firefox-Developer-Edition**
   - **Extensions** :
