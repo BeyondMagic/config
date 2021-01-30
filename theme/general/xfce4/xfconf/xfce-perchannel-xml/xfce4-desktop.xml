@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-desktop" version="1.0">
+  <property name="backdrop" type="empty">
+    <property name="screen0" type="empty">
+      <property name="monitorVGA1" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/koetemagie/Imagens/Reflexivo/Wallpaper (25).png"/>
+          <property name="backdrop-cycle-enable" type="bool" value="false"/>
+          <property name="backdrop-cycle-period" type="int" value="6"/>
+        </property>
+        <property name="workspace1" type="empty">
+          <property name="color-style" type="int" value="3"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/home/koetemagie/Imagens/Reflexivo/wall55-2.png"/>
+          <property name="backdrop-cycle-enable" type="bool" value="false"/>
+        </property>
+        <property name="workspace2" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/koetemagie/Imagens/Reflexivo/gabriel-garcia-marengo-DWTNVZ631rs-unsplash.jpg"/>
+        </property>
+        <property name="workspace3" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/home/koetemagie/BeyondMagic/Design/pp.jpg"/>
+        </property>
+        <property name="workspace4" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/koetemagie/Imagens/Reflexivo/alexander-andrews-vGCErDhrc3E-unsplash.jpg"/>
+        </property>
+        <property name="workspace5" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="4"/>
+          <property name="last-image" type="string" value="/home/koetemagie/BeyondMagic/Design/Desktop/zBC1ZH9.jpg"/>
+        </property>
+        <property name="workspace6" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/koetemagie/Imagens/OCs/amity.png"/>
+        </property>
+        <property name="workspace7" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/koetemagie/Imagens/OCs/amity.png"/>
+        </property>
+      </property>
+      <property name="monitor0" type="empty">
+        <property name="image-path" type="string" value="/home/koetemagie/Imagens/OCs/amity.png"/>
+        <property name="image-show" type="bool" value="true"/>
+        <property name="image-style" type="int" value="0"/>
+      </property>
+    </property>
+    <property name="single-workspace-mode" type="bool" value="true"/>
+    <property name="single-workspace-number" type="int" value="3"/>
+  </property>
+  <property name="windowlist-menu" type="empty">
+    <property name="show" type="bool" value="false"/>
+  </property>
+  <property name="desktop-icons" type="empty">
+    <property name="style" type="int" value="2"/>
+    <property name="icon-size" type="uint" value="36"/>
+    <property name="gravity" type="int" value="1"/>
+    <property name="file-icons" type="empty">
+      <property name="show-home" type="bool" value="false"/>
+      <property name="show-filesystem" type="bool" value="false"/>
+      <property name="show-trash" type="bool" value="false"/>
+      <property name="show-removable" type="bool" value="false"/>
+    </property>
+    <property name="single-click" type="bool" value="false"/>
+  </property>
+  <property name="last" type="empty">
+    <property name="window-width" type="int" value="749"/>
+    <property name="window-height" type="int" value="634"/>
+  </property>
+  <property name="desktop-menu" type="empty">
+    <property name="show" type="bool" value="false"/>
+  </property>
+</channel>
