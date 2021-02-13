@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xfce4-panel -q; GTK_THEME=nttcp xfce4-panel

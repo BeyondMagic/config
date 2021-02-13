@@ -9,12 +9,14 @@ elapsed=duration/2
 inf="$(mpc -f %artist% | grep -m1 '') - $(mpc -f %title% | grep -m1 '')"
 wdw="$(echo $inf | cut -c 1-50)"
 
-printf "$wdw  "
+printf "$wdw  \`- .▀+▄" 
 
 for ((done=0; done<=$elapsed; done++))
 do
   printf "■"
 done
+
+printf "▀ *▄. - '  .   '" 
 
 printf "\n"
 
