@@ -1,4 +1,3 @@
-alias mdemonde='youtube-dl -o "~/Música/Libraria/%(title)s.%(ext)s" --download-archive ~/Programas/github_old/youtube-dl/a.txt --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)" --playlist-end 100 -x -i -x -f bestaudio "https://www.youtube.com/playlist?list=PLZx2EchsfnlgoXkZtHaNrAta_hIl4wkXA"'
 alias si='f() { xdg-open https://www.google.com/search?tbm=isch\&tbs=imgo:1,isz:l,iar:s\&q=Album\%20$( echo "$@" | sed "s/ /\%20/g"); unset -f f; }; f'
 alias nd="cd ~/Programas/github_old/todoncli/ && node todoncli.js"
 alias rq="node ~/Programas/github_new/quotixterminal/loadquote.js"
@@ -25,7 +24,7 @@ see() {
 }
 
 seeytb() {
-    nohup mpv "$@" --hwdec --vo=xv --ytdl-format=22 &
+    nohup mpv "$@" --hwdec --vo=xv --ytdl-format=best &
     exec sleep 0
 }
 

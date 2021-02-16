@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="accessibility" version="1.0">
+  <property name="FindCursor" type="bool" value="false"/>
+  <property name="MouseKeys" type="empty">
+    <property name="Delay" type="int" value="120"/>
+  </property>
+</channel>

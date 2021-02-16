@@ -1,0 +1,239 @@
+@define-color shaddark rgba(0,0,0,.5);
+
+@define-color top1 #7ED5E1;     @define-color topf1 black;   @define-color tops1 #9EF0ED;
+@define-color top2 #16000B;     @define-color topf2 #FECB56;
+@define-color top3 transparent; @define-color topf3 black;   @define-color tops3 #2D1F26;
+
+@define-color bot3 white; 			@define-color botf3 black;
+
+@define-color pagerbg rgb(2, 18, 50);
+@define-color pagerf1 #F7E7B0;  
+
+/*
+ * Terminal Padding
+ * */
+
+VteTerminal, vte-terminal {
+    padding: 11px;
+}
+
+/*
+ * Blocks pager
+ * */
+
+#pager-4 .toggle:nth-child(1)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/shell.png'); }
+
+#pager-4 .toggle:nth-child(2)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/fox.png'); }
+
+#pager-4 .toggle:nth-child(3)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/code.png'); }
+
+#pager-4 .toggle:nth-child(4)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/image.png'); }
+
+#pager-4 .toggle:nth-child(5)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/jp.png'); }
+
+#pager-4 .toggle:nth-child(6)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/song.png'); }
+
+#pager-4 .toggle:nth-child(7)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/book.png'); }
+
+#pager-4 .toggle:nth-child(8)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/movie.png'); }
+
+#pager-4 .toggle:nth-child(9)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/home.png'); }
+
+#pager-4 .toggle:checked:nth-child(1)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/shell-hover.png'),
+	linear-gradient(45deg, transparent 25%, @pagerf1 24%, @pagerf1 75%, transparent 76%); }
+
+#pager-4 .toggle:checked:nth-child(2)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/fox-hover.png'),
+	linear-gradient(45deg, transparent 25%, @pagerf1 24%, @pagerf1 75%, transparent 76%); }
+
+#pager-4 .toggle:checked:nth-child(3) {
+	background-image: url('/home/koetemagie/.config/gtk-3.0/icons/code-hover.png'),
+	linear-gradient(45deg, transparent 25%, @pagerf1 24%, @pagerf1 75%, transparent 76%); }
+
+#pager-4 .toggle:checked:nth-child(4)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/image-hover.png'),
+	linear-gradient(45deg, transparent 25%, @pagerf1 24%, @pagerf1 75%, transparent 76%); }
+
+#pager-4 .toggle:checked:nth-child(5)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/jp-hover.png'),
+	linear-gradient(45deg, transparent 25%, @pagerf1 24%, @pagerf1 75%, transparent 76%); }
+
+#pager-4 .toggle:checked:nth-child(6)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/song-hover.png'),
+	linear-gradient(45deg, transparent 25%, @pagerf1 24%, @pagerf1 75%, transparent 76%); }
+
+#pager-4 .toggle:checked:nth-child(7)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/book-hover.png'),
+	linear-gradient(45deg, transparent 25%, @pagerf1 24%, @pagerf1 75%, transparent 76%); }
+
+#pager-4 .toggle:checked:nth-child(8)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/movie-hover.png'),
+	linear-gradient(45deg, transparent 25%, @pagerf1 24%, @pagerf1 75%, transparent 76%); }
+
+#pager-4 .toggle:checked:nth-child(9)
+	{ background-image: url('/home/koetemagie/.config/gtk-3.0/icons/home-hover.png'),
+	linear-gradient(45deg, transparent 25%, @pagerf1 24%, @pagerf1 75%, transparent 76%); }
+
+#pager-4 .horizontal {
+	background-image: linear-gradient(45deg, @pagerbg 90%, transparent 91%);
+	padding-right: 2rem;
+	border-radius: 0 5px 0 0;
+}
+
+#pager-4 .toggle {
+	background-size: 15px, cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: transparent;
+	text-shadow: none;
+}
+
+#pager-4 .toggle:hover,
+#pager-4 .toggle:active,
+#pager-4 .toggle:checked {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+/*
+ * Windows | #tasklist-1 > .horizontal > .tasklist > .toggle > .horizontal > 
+ * #tasklist-1 > .horizontal > .tasklist > .toggle:nth-child(1)
+ * */
+
+#tasklist-1 * {
+	padding: 0; margin: 0;
+}
+
+#tasklist-1 > .horizontal > .tasklist > .toggle {
+	padding: 3px 4px 3px 1px;
+}
+
+#tasklist-1 > .horizontal > .tasklist > .toggle > * {
+	opacity: 0.5;
+}
+
+#tasklist-1 > .horizontal > .tasklist > .toggle > .horizontal {
+	margin-right: 1px;
+} 
+
+#tasklist-1 > .horizontal > .tasklist > .toggle:hover {
+	background-color: transparent;
+}
+
+#tasklist-1 > .horizontal > .tasklist > .toggle:checked > * {
+	opacity: 1;
+}
+
+#tasklist-1 > .horizontal > .tasklist > .toggle:checked {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+#tasklist-1 > .horizontal > .tasklist > .toggle:nth-child(2) {
+ 	background-image: linear-gradient(135deg, transparent 35%, @bot3 16%);
+	padding-left: 1.25rem; margin-left: -1.25rem;;
+} 
+
+
+#tasklist-1 > .horizontal {
+	background-image: linear-gradient(135deg, transparent 35%, @bot3 16%);
+	padding-left: 2.5rem;
+}
+
+/*
+ * Spacements
+ * */
+
+#clock-9 > * {
+	padding: 0 2.5rem 0 3rem;
+	color: @topf1;
+	text-shadow: -2px 1px 2px @shaddark;
+
+	background-image: url('/home/koetemagie/.config/gtk-3.0/icons/clock.png'),
+		linear-gradient(135deg, @tops1 13%, @top1 14%, @top1 95%, @tops3 96%);
+	background-size: 15px, cover;
+	background-repeat: no-repeat, no-repeat;
+	background-position: 1rem 1px, center;
+}
+
+#clock-9 > *:hover,
+#clock-9 > *:checked {
+	box-shadow: none;
+	background-color: transparent;
+}
+
+/*
+ * CPU
+ * */
+
+#genmon-10 > * > * {
+	background-image:	 url('/home/koetemagie/.config/gtk-3.0/icons/thermometer.png'),
+		linear-gradient(135deg, @tops3 35%, @top2 36%, @top2 84%, @top3 85%);
+	background-size: 15px, cover;
+	background-repeat: no-repeat, no-repeat;
+	background-position: 0.5rem 1px, center;
+	padding: 0 1.5rem 0 2rem;
+	color: @topf2;
+}
+
+/*
+ * Song
+ * */
+
+#genmon-7 > * > * {
+	background-image:	 url('/home/koetemagie/.config/gtk-3.0/icons/musical-note.png'),
+		linear-gradient(135deg, @top3 84%, transparent 85%);
+	background-size: 15px, cover;
+	background-repeat: no-repeat, no-repeat;
+	background-position: 0.5rem 1px, center;
+	padding: 0 1.5rem 0 2rem;
+	color: @topf3;
+	text-shadow: -2px 1px 2px @shaddark;
+}
+
+/*
+ * Network : #netload-12 > * > .horizontal
+ * */
+
+#netload-12 > * {
+	background-color: white;
+}
+
+#netload-12 *,
+#netload-12 > * > .horizontal {
+	outline-width: 0; outline-offset: 0; outline-style: none; outline-color: red;
+	border-image-width: 0;
+	border: 0;
+}
+
+#netload-12 > * > .horizontal > label {
+	text-shadow: 2px -1px 2px rgba(244,61,46,0.75);
+}
+
+/*
+ * Notification
+ * */
+
+#notification-plugin-2 > * {
+	background-image: linear-gradient(45deg, transparent 34%, #DFD2D1 35%);
+	padding: 0 0.5rem 0 2rem;
+}
+
+#notification-plugin-2 > *:checked,
+#notification-plugin-2 > *:hover {
+	background-color: transparent;
+} 
+
+#notification-plugin-2 > *:checked {
+	box-shadow: none;
+}

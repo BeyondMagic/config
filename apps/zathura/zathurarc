@@ -1,39 +1,40 @@
-# zathurarc-dark
+set notification-error-bg       "#fbf1c7" # bg
+set notification-error-fg       "#9d0006" # bright:red
+set notification-warning-bg     "#fbf1c7" # bg
+set notification-warning-fg     "#b57614" # bright:yellow
+set notification-bg             "#fbf1c7" # bg
+set notification-fg             "#79740e" # bright:green
 
-set font                        "inconsolata 9"
-set default-bg                  "#000306" #00
-set default-fg                  "#202020" #01
+set completion-bg               "#d5c4a1" # bg2
+set completion-fg               "#3c3836" # fg
+set completion-group-bg         "#ebdbb2" # bg1
+set completion-group-fg         "#928374" # gray
+set completion-highlight-bg     "#076678" # bright:blue
+set completion-highlight-fg     "#d5c4a1" # bg2
 
-set statusbar-bg                "#F9E9A3" #01
-set statusbar-fg                "#000D17" #04
+# Define the color in index mode
+set index-bg                    "#d5c4a1" # bg2
+set index-fg                    "#3c3836" # fg
+set index-active-bg             "#076678" # bright:blue
+set index-active-fg             "#d5c4a1" # bg2
 
-set inputbar-bg                 "#EFA3AB" #00 currently not used
-set inputbar-fg                 "#001621" #02
+set inputbar-bg                 "#fbf1c7" # bg
+set inputbar-fg                 "#3c3836" # fg
 
-set notification-error-bg       "#AC4142" #08
-set notification-error-fg       "#151515" #00
+set statusbar-bg                "#053F8F" # bg2
+set statusbar-fg                "#E9E9EA" # fg
 
-set notification-warning-bg     "#AC4142" #08
-set notification-warning-fg     "#151515" #00
+set highlight-color             "#b57614" # bright:yellow
+set highlight-active-color      "#af3a03" # bright:orange
 
-set highlight-color             "#F4BF75" #0A
-set highlight-active-color      "#6A9FB5" #0D
+set default-bg                  "#ffffff" # bg
+set default-fg                  "#3c3836" # fg
+set render-loading              true
+set render-loading-bg           "#ffffff" # bg
+set render-loading-fg           "#3c3836" # fg
 
-set completion-highlight-fg     "#303030" #02
-set completion-highlight-bg     "#75B5AA" #0C
-
-set completion-bg               "#303030" #02
-set completion-fg               "#75B5AA" #0C
-
-set notification-bg             "#90A959" #0B
-set notification-fg             "#151515" #00
-
-set recolor-lightcolor          "#000306" #00
-set recolor-darkcolor           "#E0E0E0" #06
+# Recolor book content's color
+set recolor-lightcolor          "#ffffff" # bg
+set recolor-darkcolor           "#3c3836" # fg
 set recolor                     "true"
-
-# setting recolor-keep true will keep any color your pdf has.
-# if it is false, it'll just be black and white
-set recolor-keephue             "true"
-
-# Rest of your configs go here:
+# set recolor-keephue             true      # keep original color

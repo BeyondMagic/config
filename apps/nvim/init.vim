@@ -1,3 +1,6 @@
+
+" Keybinds ====
+" Shift + NumberKey to select
 nmap <S-Up> v<Up>
 nmap <S-Down> v<Down>
 nmap <S-Left> v<Left>
@@ -9,73 +12,83 @@ vmap <S-Right> <Right>
 imap <S-Up> <Esc>v<Up>
 imap <S-Down> <Esc>v<Down>
 imap <S-Left> <Esc>v<Left>
-imap <S-Right> <Esc>v<Right>
+imap <S-Right> <Esc><Right>v<Right>
+inoremap <S-Home> <Left><Esc>v<Home>
+inoremap <S-End> <Esc>v<End><Left>
+nnoremap <S-Home> <Left><Esc>v<Home>
+nnoremap <S-End> <Esc>v<End><Left>
+
+" Normal Paste & Copy
 vmap <C-c> y<Esc>i
 vmap <C-x> d<Esc>i
-map <C-v> pi
-imap <C-v> <Esc>pi
+map <C-v> pi<Right>
+imap <C-v> <Esc>pi<Right>
 imap <C-z> <Esc>ui
-imap <C-k> <Esc> :Goyo<CR>i
-nmap <C-k> :Goyo<CR>
 
-"
+" Zen Mode
+imap <C-k> <Esc> :Goyo<CR>i
+nmap <C-f> :Goyo<CR>
+map <C-k> :Goyo<CR>
+
+" Plugins
 " PLUG
-" 
+"
 call plug#begin('~/.vim/plugged')
 
-" Vue.js Syntax
-Plug 'othree/javascript-libraries-syntax.vim'
-let g:used_javascript_libs = 'vue'
-Plug 'posva/vim-vue'
-let g:vue_pre_processors = ['typescript']
+  " Vue.js Syntax
+  Plug 'othree/javascript-libraries-syntax.vim'
+  let g:used_javascript_libs = 'vue'
+  Plug 'posva/vim-vue'
+  let g:vue_pre_processors = ['typescript']
 
-" Typescript vim
-Plug 'leafgarland/typescript-vim'
-Plug 'tasn/vim-tsx'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Typescript vim
+  Plug 'leafgarland/typescript-vim'
+  Plug 'tasn/vim-tsx'
+  "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Julia Vim
-Plug 'JuliaEditorSupport/julia-vim'
+  " Julia Vim
+  Plug 'JuliaEditorSupport/julia-vim'
 
-" HTML
-Plug 'mattn/emmet-vim'
+  " HTML
+  Plug 'mattn/emmet-vim'
 
-" color preivew
-Plug 'ap/vim-css-color'
+  " color preivew
+  Plug 'ap/vim-css-color'
+  " Open CTRL P
+  Plug 'ctrlpvim/ctrlp.vim'
 
-" Themes
-"Plug 'ayu-theme/ayu-vim'
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+  " Jade & Pug
+  Plug 'digitaltoad/vim-jade'
 
-" Open CTRL P
- Plug 'ctrlpvim/ctrlp.vim'
+  " SASS & SCSS
+  Plug 'cakebaker/scss-syntax.vim'
+  Plug 'tpope/vim-haml'
 
-" Jade & Pug
-Plug 'digitaltoad/vim-jade'
+  " ZEN MODE
+  Plug 'junegunn/goyo.vim'
 
-" SASS & SCSS
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'tpope/vim-haml'
+  " Auto Pairs
+  Plug 'jiangmiao/auto-pairs' 
+  
+  " More syntax
+  Plug 'sheerun/vim-polyglot'
 
-" ZEN MODE
-Plug 'junegunn/goyo.vim'
+Plug 'bluz71/vim-moonfly-statusline'
 
-map <C-f> :Goyo<CR>
-
-" Useful file opener (call it by Ctrl-p)
+  " Themes
+  "Plug 'ayu-theme/ayu-vim'
+  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 set wildignore+=*/tmp*/,*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log
 
-"let g:vue_pre_processors = ['scss', 'typescript']
-"let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-emmet', 'coc-tslint', 'coc-prettier']
-
 cal plug#end()
 
-
-
+" Goyo
 let g:goyo_width = '75%'
 let g:goyo_height = '75%'
 
+" Extra
 set nocompatible
 set foldcolumn=1
 set wrap
@@ -90,7 +103,7 @@ set nofoldenable
 set cursorline
 set fileformat=unix
 set scrolloff=10
-"set colorcolumn=79
+
 syntax on
 filetype on
 filetype plugin on
@@ -104,11 +117,14 @@ syntax on
 
 set termguicolors
 
-let g:material_terminal_italics = 1
-let g:material_theme_style = 'darker'
-colorscheme material
-"let ayucolor="dark"
-""colorscheme ayu
+set background=light
+"let g:material_terminal_italics = 1
+"let g:material_theme_style = 'darker'
+colorscheme PaperColor
+
+" For syntax
+set nocompatible
+
 
 
 setf sass
@@ -130,7 +146,8 @@ hi! Normal ctermbg=NONE guibg=NONE
 set notermguicolors
 set termguicolors
 
-
+" status color
+hi StatusLine guibg=#6F9AF6 guifg=white
 
 function! s:goyo_leave()
   hi! Normal ctermbg=NONE guibg=NONE
@@ -138,6 +155,11 @@ function! s:goyo_leave()
   set termguicolors
 endfunction
 
-
+" first, enable status line always
+set laststatus=2
 
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+  " reset xfce4-panel after changes
+    autocmd BufWritePost /home/koetemagie/.config/gtk-3.0/gtk.css !xfce4-panel -r
+

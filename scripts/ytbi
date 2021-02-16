@@ -1,0 +1,74 @@
+#!/bin/bash
+
+#####################################
+# Dependecies
+# bash (obviously)
+# youtube-dl
+# mpv (to watch videos)
+# curl
+# yad (for gui)
+# dmenu (parse faster your query)
+# youtube developer api key (get your own)
+#####################################
+
+
+#####################################
+# Variables
+# Put your own API KEY
+#####################################
+APIKEY="............................................."
+APIURL="https://www.googleapis.com/youtube/v3/search"
+NORESULTS=15
+DOWNURL="https://www.youtube.com/watch?v="
+SEARCH=$(echo "" | dmenu -nb '#ffffff' -sf '#1e1e1e' -sb '#29F7C2' -nf '#1e1e1e' -fn 'Noto Sans Regular-11' -p 'ytbi')
+SEARCH=$(echo $SEARCH | sed 's/ /%20/g')
+QUERY="part=snippet&maxResults=$NORESULTS&q=$SEARCH&type=video&key=$APIKEY"
+
+
+#####################################
+# Functions
+# down  : download video using youtube-dl
+# watch : watch video in mpv
+#####################################
+down() {
+    youtube-dl -f best "$DOWNURL$1"
+}
+
+watch() {
+    mpv "$DOWNURL$1" --hwdec --vo=xv --ytdl-format=best >/dev/null
+}
+
+
+#####################################
+# Download & Sanatize & Gui
+# download the page using api and curl
+# curl to a file
+# then shows gui of the results
+#####################################
+curl -s -i -G -d "$QUERY" "$APIURL" | sed '1,14d' | jq '.items[] | .id.videoId, .snippet.title, .snippet.description' > yt.search
+SELECTION=$(cat yt.search | sed 's/^\"\"$/\"No entry\"/' | sed 's/&/+/g' | sed '/^[^ ]*$/ i \"FALSE\"' | yad --center --checklist --list --width=1000 --height=800 --column=Check --column=ID --column=Title --column=Description --button='gtk-cancel':0 --button='Download':2 --button='watch':4)
+
+
+#####################################
+# POST-ACTIONS
+# do what you chose in the gui
+# download or watch multiple videos
+#####################################
+ACTION=$?
+case $ACTION in
+    0)
+        echo "cancelled"
+        exit
+        ;;
+    *)
+        for i in $(echo $SELECTION | sed 's/|/\n/g' | grep -P "^\"[^ ]*\"$" | sed 's/\"//g'); do 
+            if [ $ACTION -eq "2" ]; then #the download button was pressed 
+                down "$i"
+            else #the watch button was pressed
+                watch "$i"
+            fi
+        done
+    ;;
+esac
+
+rm yt.search

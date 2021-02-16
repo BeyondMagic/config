@@ -1,0 +1,70 @@
+configuration {
+  drun-display-format: "{name}";
+  font: "Noto Sans 11";
+  modi: "drun,run,window";
+  fullscreen: false;
+  sidebar-mode: true;
+  position: 0;
+  disable-history: false;
+}
+
+* {
+  bg: white;
+  bg-alt: #F84D16;
+  fg: #080808;
+  fg-alt: #A0A0AB;
+  clean: white;
+
+  background-color: @bg;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+element, entry, prompt {
+  padding: 5 10;
+  text-color: @fg;
+}
+
+element selected {
+  background-color: @bg-alt;
+  text-color: @bg;
+}
+
+inputbar {
+  children: [entry];
+}
+
+listview {
+  lines: 10;
+  scrollbar: false;
+}
+
+mainbox {
+  children: [inputbar, listview];
+
+  border: 4;
+  border-color: @bg-alt;
+}
+
+scrollbar, element, listview, entry {
+  background-color: @clean;
+}
+
+
+
+scrollbar {
+  handle-color: @fg;
+  padding: 3;
+  margin: 0 0 0 10;
+}
+
+window {
+  border: 1; 
+  padding: 7;
+  width: 25%;
+  height: 60%;
+  background-color: @clean;
+
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="pointers" version="1.0">
+  <property name="USB_OPTICAL_MOUSE_" type="empty">
+    <property name="RightHanded" type="bool" value="false"/>
+    <property name="ReverseScrolling" type="bool" value="false"/>
+    <property name="Threshold" type="int" value="1"/>
+    <property name="Acceleration" type="double" value="5.600000"/>
+  </property>
+  <property name="SZH_usb_keyboard_Consumer_Control" type="empty">
+    <property name="RightHanded" type="bool" value="false"/>
+    <property name="Threshold" type="int" value="4"/>
+    <property name="Acceleration" type="double" value="2.000000"/>
+  </property>
+</channel>
