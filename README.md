@@ -17,7 +17,7 @@
 - **DM** : [xfce4](https://www.xfce.org/)
 - **Shell** : [zsh](https://ohmyz.sh/) ([oh my zsh](https://github.com/ohmyzsh/ohmyzsh))
 - **Terminal** : [xfce4-terminal](https://gitlab.xfce.org/apps/xfce4-terminal)
-- **Panel** : [xfce4-panel]([xfce4](https://www.xfce.org/) (yes, it is)
+- **Panel** : [xfce4-panel](https://www.xfce.org/) (yes, it is)
 - **Text Editor** : [neovim](https://neovim.io/)
 - **File Manager** : [n³](https://github.com/jarun/nnn/) & [thunar](https://www.xfce.org/)
 - **Application Launcher** : [rofi](https://github.com/davatorium/rofi)
@@ -27,10 +27,12 @@
 - **PDF Viewer** : [zathura](https://pwmt.org/projects/zathura/)
 - **Image viewer** : [sxiv](https://github.com/muennich/sxiv)
 - **Browser** : [Firefox-Developer-Edition](https://www.mozilla.org/en-US/firefox/developer/)
+
 ---
 
 **Additional**
 
+- **Keyboard Input (JP)** :fcitx-mozc
 - **Mathematic Solver** : [sagemath](https://www.sagemath.org/)
 - **Torrents :)** : [qBitTorrent](https://www.qbittorrent.org/)
 - **Messenger** : [Telegram](https://telegram.org/)
@@ -62,9 +64,6 @@
 **fce4-terminal**
   - **General** :
   - [**terminalrc**](apps/xfce4-terminal/terminalrc) - ~/.config/xfce4-terminal/
-  - **Colours** :
-  - #120D1E, #665757, #CB7872, #C9704C, #9DB995, #9EB247, #E6BB7A, #3F4673, #090416, #A3D5EC, #C5B8AA, #A37A28, #BFCEE2, #BFCEE2, #C693DD, #C693DD
-  - **Fonts** :
   - [Meslo Nerd Font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k)
 
 **zathura**
@@ -116,6 +115,8 @@
   - **Advanced** :
   - To screen borders
 
+---
+
 ## Tweaks - ADD
 
 - **unclutter --timeout 1** : Hides mouse after 1 second.
@@ -125,6 +126,8 @@
 - **candy-icons** : Icons of application/system
 - **nttcp** : Theme of the system
 
+
+---
 
 ## Xfce4-panel
 
