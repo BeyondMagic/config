@@ -1,0 +1,21 @@
+#!/bin/bash
+
+####################
+# Variables
+####################
+DATE=$(date +%H%M)
+O="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+####################
+# Loop through lines
+####################
+
+while read p; do
+  STARTHOUR=$(echo "$p" | sed -r "s_:__g" | cut -c 1-4)
+  ENDHOUR=$(echo "$p" | sed -r "s_:__g" | cut -c 6-9)
+  TASK=$(echo "$p" | sed -r "s_:__g" | cut -c 13-)
+
+  if [[ "$DATE" -ge "$STARTHOUR" ]] && [[ "$DATE" -le "$ENDHOUR" ]]; then
+    echo "$TASK"
+  fi
+
+done < $O/routine.now
