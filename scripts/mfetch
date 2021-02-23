@@ -1,5 +1,6 @@
 #!/bin/sh
-# read system info
+# Small fetch script preconfigured :)
+
 read -r host < /proc/sys/kernel/hostname
 read -r kernel < /proc/sys/kernel/osrelease
 . /etc/os-release

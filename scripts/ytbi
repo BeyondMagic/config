@@ -1,4 +1,6 @@
 #!/bin/bash
+# This is to load video from youtube into a list for dmenu
+# And then download or watch it in mpv
 
 #####################################
 # Dependecies
@@ -20,7 +22,7 @@ APIKEY="............................................."
 APIURL="https://www.googleapis.com/youtube/v3/search"
 NORESULTS=15
 DOWNURL="https://www.youtube.com/watch?v="
-SEARCH=$(echo "" | dmenu -nb '#ffffff' -sf '#1e1e1e' -sb '#29F7C2' -nf '#1e1e1e' -fn 'Noto Sans Regular-11' -p 'ytbi')
+SEARCH=$(echo "" | dmenu -p 'ytbi')
 SEARCH=$(echo $SEARCH | sed 's/ /%20/g')
 QUERY="part=snippet&maxResults=$NORESULTS&q=$SEARCH&type=video&key=$APIKEY"
 

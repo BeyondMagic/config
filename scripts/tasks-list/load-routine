@@ -1,0 +1,21 @@
+#!/bin/bash
+# by BeyondMagic 16/02/21
+# Show task of the day based on a file like:
+
+# 12:30-13:00 | Lunch
+# 13:00-14:00 | Something else ...
+
+DATE=$(date +%H%M | sed -r "s_^0+__gm")
+O="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+
+while read p; do
+  STARTHOUR=$(echo "$p" | sed -r "s_:__g" | cut -c 1-4 | sed -r "s_^0+__g")
+  ENDHOUR=$(echo "$p" | sed -r "s_:__g" | cut -c 6-9 | sed -r "s_^0+__g")
+  TASK=$(echo "$p" | sed -r "s_:__g" | cut -c 13-)
+
+  if [[ "$DATE" -ge "$STARTHOUR" ]] && [[ "$DATE" -le "$ENDHOUR" ]]; then
+    printf "$TASK"
+  fi
+
+done < $O/routine.now

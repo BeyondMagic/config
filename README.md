@@ -121,20 +121,15 @@
 
 - **unclutter --timeout 1** : Hides mouse after 1 second.
 - **pixelfun3** : Mouse cursor (wish there was one left-handed)
-- **Noto Sans Regular** : Main font
-- **Noto Sans Mono Regular** : Main mono font (not terminal's)
+- **Noto Sans CJK JP Regular** : Main font
+- **Noto Sans Mono CJK JP Regular** : Main mono font (not terminal's)
 - **candy-icons** : Icons of application/system
 - **nttcp** : Theme of the system
 
 
 ---
 
-## Xfce4-panel
+### lemonbar + succade
 
-<p align="center">The panel is definitely the hardest part of this setup, not to set up on your computer, but to made it. Xfce4-panel is very limited and was never meant to ricing, so it's pure try and error every time you want to add something cool. And all of that was even using the debugger.</p>
-
-<p align="center">To start, quit your xfce4-panel with <strong>xfce4-panel -q</strong>, and then start it with <strong>GTK_DEBUG=interactive xfce4-panel</strong> in your terminal, it will open a new window. Copy the icons folder of <a href="/theme/icons">icons</a> into <strong>~/.config/gtk-3.0/<strong> go to Styles/CSS and paste the <a href="theme/gtk.css"><strong>gtk.css</strong></a> because you'll need to start editing it in order to see it working fine in your panels.</p>
-
-<p align="center">The scripts of **generic monitors** are <a href="config/scripts">here</a>.</p>
-
-<p align="center">The rest is with you... :)</p>
+Install (https://github.com/ryanoasis/powerline-extra-symbols)[powerline-extra-symbols] for better fonts.
+Install `xorg-xlsfonts` & `xorg-xfontsel`, use `xlsfonts` to get font names and use it to succade.
