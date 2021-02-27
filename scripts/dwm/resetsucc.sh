@@ -1,4 +1,3 @@
 killall succade
 
-nohup succade &
-exec sleep 0
+succade>/dev/null &
