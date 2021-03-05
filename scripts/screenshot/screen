@@ -1,4 +1,0 @@
-killall unclutter
-import png:- | xclip -selection clipboard -t image/png
-unclutter --timeout 1 & disown
-exit

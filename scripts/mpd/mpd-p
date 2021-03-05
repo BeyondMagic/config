@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-# Show small information of mpd player using mpc
-
-artist="$(mpc -f %artist% | grep -m1 '' | sed -r 's_volume: \w+.*__gm')"
-title="$(mpc -f %title% | grep -m1 ''| sed -r 's_olume|epeat|andom|ingle|onsume__gm')"
-perc="$(mpc -f %name% | grep -o ' [^ ]*%' | sed -e 's/ (//' | grep -m1 '')"
-echo "$(echo $artist | cut -c 1-20 ) - $(echo $title | cut -c 1-34) ${perc}"
