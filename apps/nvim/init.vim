@@ -1,6 +1,5 @@
-
-" Keybinds ====
-" Shift + NumberKey to select
+" Keybinds
+"   Shift + NumberKey to select
 nmap <S-Up> v<Up>
 nmap <S-Down> v<Down>
 nmap <S-Left> v<Left>
@@ -18,19 +17,19 @@ inoremap <S-End> <Esc>v<End><Left>
 nnoremap <S-Home> <Left><Esc>v<Home>
 nnoremap <S-End> <Esc>v<End><Left>
 
-" Normal Paste & Copy
+"   Normal Paste & Copy
 vmap <C-c> y<Esc>i
 vmap <C-x> d<Esc>i
 map <C-v> pi<Right>
 imap <C-v> <Esc>pi<Right>
 imap <C-z> <Esc>ui
 
-" Zen Mode
+"   Zen Mode
 imap <C-k> <Esc> :Goyo<CR>i
 nmap <C-f> :Goyo<CR>
 map <C-k> :Goyo<CR>
 
-" Plugins
+"   Plugins
 " PLUG
 "
 call plug#begin('~/.vim/plugged')
@@ -68,17 +67,17 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/goyo.vim'
 
   " Auto Pairs
-  Plug 'jiangmiao/auto-pairs' 
+  "Plug 'jiangmiao/auto-pairs' 
   
   " More syntax
-  Plug 'sheerun/vim-polyglot'
+  "Plug 'sheerun/vim-polyglot'
 
-Plug 'bluz71/vim-moonfly-statusline'
+  Plug 'bluz71/vim-moonfly-statusline'
 
   " Themes
   "Plug 'ayu-theme/ayu-vim'
   Plug 'NLKNguyen/papercolor-theme'
-  Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+  "Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 set wildignore+=*/tmp*/,*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log
 
@@ -133,7 +132,12 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set nu
-set clipboard=unnamedplus
+
+"		set live mouse in nvim
+set mouse=a
+
+"		set clipboard to system
+set clipboard+=unnamedplus
 
 if has('termguicolors') && $TERM_PROGRAM ==# 'iTerm.app'
   set t_8f=^[[38;2;%lu;%lu;%lum
@@ -160,6 +164,27 @@ set laststatus=2
 
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-  " reset xfce4-panel after changes
-    autocmd BufWritePost /home/koetemagie/.config/gtk-3.0/gtk.css !xfce4-panel -r
+  " reset succade after changes
+  autocmd BufWritePost /home/koetemagie/.config/succade/succaderc !killall succade ; succade & disown
+ 
+  " reset bottom bar 
+  autocmd BufWritePost /home/koetemagie/BeyondMagic/GITHUB/magicbar/bottom.sh !sh $HOME/BeyondMagic/GITHUB/magicbar/bottom.sh
 
+  " reset top bar
+  autocmd BufWritePost /home/koetemagie/BeyondMagic/GITHUB/magicbar/top.sh !sh $HOME/BeyondMagic/GITHUB/magicbar/top.sh 
+ 
+  " reset xbindkeys
+  autocmd BufWritePost /home/koetemagie/.xbindkeysrc !killall xbindkeys & xbindkeys
+
+
+function! ClipboardYank()
+  call system('xclip -i -selection clipboard', @@)
+endfunction
+
+function! ClipboardPaste()
+  let @@ = system('xclip -o -selection clipboard')
+endfunction
+
+vnoremap <silent> y y:call ClipboardYank()<cr>
+vnoremap <silent> d d:call ClipboardYank()<cr>
+nnoremap <silent> p :call ClipboardPaste()<cr>p
