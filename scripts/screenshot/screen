@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+# This takes a screenshot using imagemagic and puts unclutter back to its state
+
+killall unclutter
+import png:- | xclip -selection clipboard -t image/png
+unclutter --timeout 1 & disown
+exit
