@@ -30,14 +30,19 @@ _icon_sensors() {
 
 _clock() {
 
-  icon=" 神"; affix=""; fg="#123456"; bg="#ECF3FA"; f_bg="#ffffff"
+  icon=" 神"
+  affix=""
+  fg="#123456"; bg="#ECF3FA"; f_bg="#ffffff"
 
   prefix="%{O-3}$(_icon_right "$icon" "$affix" "$fg" "$bg" "$f_bg")"
 
   while :; do
-    echo 'C' "$prefix%{B#ffffff F#123456}$(date | sed 's/ -03//')"
+
+    echo 'C' "$prefix%{B#ffffff F#123456}$(date | sed -r -e 's/ -03//' -e 's/:/%{F#BDCDD7}:%{F#123456}/g')"
     sleep 1
+
   done
+
 }
 
 
@@ -69,37 +74,6 @@ _sensors() {
   done
 }
 
-
-
-
-_icon_music() {
-  icon="$1"; bg_icon="$2"; fg_icon="$3"
-  
-  echo "%{T3 B#FFFFFF F#2b2b2b}%{F$fg_icon}$icon%{F#FFFFFF B#EFEFEF}%{T2}%{F#2b2b2b}"
-}
-
-
-
-_music() {
-  icon_paused=""; icon_running=" "; dance="є(｡･◇･)э  "
-
-  while :; do
-    mmm="$(_icon_music "$icon_running" "#EFEFEF" "#F76DB6" )"
-
-    song="$($HOME/github/scripts/mpd/mpd-status.sh "#F76DB6" "#0D2331")"
-
-    ## test dance
-      [ "$dance" = "є(｡･◇･)э  " ] && dance="є(･◇･｡)э  " || dance="є(｡･◇･)э  "
-
-      [ "$song" = "| •́ ◇ •̀ |" ] && { mmm="$(_icon_music "${icon_running} " "#FFFFFF" "#0D2331" )"; dance=""; }
-
-    echo 'M' "%{T1 O-4}$mmm $dance $song  %{B- F-}"
-
-    sleep 2
-  done
-}
-
-#_music
 
 # Function of the bottom bar for Lemonbar
 #   Modules are
