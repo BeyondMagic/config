@@ -1,6 +1,0 @@
-Command=/home/koetemagie/BeyondMagic/GITHUB/config/scripts/sensors
-UseLabel=0
-Text=(genmon)
-UpdatePeriod=3000
-Font=Noto Sans 11
-

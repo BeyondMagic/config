@@ -1,0 +1,130 @@
+#--------------------------------------------------------------------------------
+# Directories
+#--------------------------------------------------------------------------------
+
+
+ncmpcpp_directory = ~/.config/ncmpcpp
+lyrics_directory  = ~/.config/ncmpcpp/lyrics
+mpd_music_dir     = ~/music/libraria
+
+
+#--------------------------------------------------------------------------------
+# Behaviour
+#--------------------------------------------------------------------------------
+
+
+#             message_delay_time = 0
+autocenter_mode                  = "yes"
+centered_cursor                  = "yes"
+ignore_leading_the               = "yes"
+allow_for_physical_item_deletion = "no"
+colors_enabled                   = "yes"
+
+
+#--------------------------------------------------------------------------------
+# Visualizer
+#--------------------------------------------------------------------------------
+
+
+#visualizer_fifo_path         = /tmp/mpd.fifo
+#visualizer_output_name       = "mpd_visualizer"
+#visualizer_in_stereo         = "yes"
+#visualizer_sample_multiplier = 2
+#visualizer_sync_interval     = 30i
+
+
+#--------------------------------------------------------------------------------
+# Appereance
+#--------------------------------------------------------------------------------
+
+
+colors_enabled        = "yes"
+playlist_display_mode = "columns"
+browser_display_mode  = "columns"
+
+
+#--------------------------------------------------------------------------------
+# Window
+#--------------------------------------------------------------------------------
+
+
+song_window_title_format = "mpd {%a - }{%t}|{%f}"
+statusbar_visibility     = "yes"
+header_visibility        = "no"
+titles_visibility        = "no"
+
+
+#--------------------------------------------------------------------------------
+# Progress
+#--------------------------------------------------------------------------------
+
+
+#progressbar_look = "⠒⠒⠐"
+#progressbar_look = "•••"
+#progressbar_look = "---"
+#progressbar_look = "▀▀ "
+progressbar_look = "╼o"
+#progressbar_look = "━━━"
+#progressbar_look = "━━─"
+#progressbar_look = "◾◾◽"
+#progressbar_look = "─╼─"
+
+
+#--------------------------------------------------------------------------------
+# Colours for entire ncmpcpp, change here for your own needs
+#   With a script, it's quite easy to change it :)
+#--------------------------------------------------------------------------------
+
+
+empty_tag_color             = "white"
+header_window_color         = "white"
+volume_color                = "white"
+state_line_color            = "blue"
+state_flags_color           = "blue"
+main_window_color           = "blue"
+color1                      = "blue"
+color2                      = "cyan"
+main_window_highlight_color = "white"
+progressbar_color           = "blue"
+statusbar_color             = "white"
+active_column_color         = "white"
+window_border_color         = "white"
+active_window_border        = "magenta"
+
+
+#--------------------------------------------------------------------------------
+# Header
+#--------------------------------------------------------------------------------
+
+alternative_header_first_line_format  = {$6$b%a$9} {$7%t$6}
+alternative_header_second_line_format = {$7%b$9} {$6(%y)$9}
+
+
+
+
+alternative_ui_separator_color        = color_header_simple
+header_window_color                   = red
+display_volume_level                  = yes
+statusbar_color                       = red
+current_item_prefix                   = $(3)$b
+current_item_suffix                   = $/b
+selected_item_prefix                  = $(white_red)$b
+selected_item_suffix                  = $/b$(end)
+browser_playlist_prefix = "$3Playlist$3"
+progressbar_color = "black"
+progressbar_elapsed_color = "red"
+now_playing_prefix = "$b"
+now_playing_suffix = "$/b"
+song_status_format = "$b$6%t$/b {$2by} $b$6%a$8$/b"
+song_list_format = $(white){%a}$(end) $(black){%t}$(end) $R $(red){%b}$(end) $(magenta)({%l})$(end)
+
+
+statusbar_time_color = "red"
+player_state_color = "blue"
+volume_color = "blue"
+state_flags_color = "red"
+song_columns_list_format = "(15)[default]{lr}(1)[]{}(40)[black]{a}(40)[red]{t}"
+empty_tag_color = red
+discard_colors_if_item_is_selected = yes
+main_window_color = "red"
+state_line_color = "blue"

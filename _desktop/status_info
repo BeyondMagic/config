@@ -1,0 +1,48 @@
+#!/usr/bin/env sh
+#
+# LemonBar config
+#
+# BeyondMagic © 2021
+
+# Song
+#   top bar 3rd module
+
+
+. $HOME/desktop/colours
+
+
+# Functions
+#   Sub-Functions
+#     Micro-Functions
+
+# Run formated song
+_run_song() {
+
+  song="$($HOME/github/scripts/bars/top_bar/mpd/__status "$first_running_song_name" "$second_running_song_name" "$limit_extra_length")"
+
+  # dance loop
+  #  [ "$dance" = "$dance_r" ] && dance="$dance_l" || dance="$dance_r"
+ 
+  current=$(mpc current)
+   before=$(mpc playlist | grep -B1 "$current" | head -n 1)
+    after=$(mpc queued)
+
+  # No before?
+  [ "$before" ] || before=$(mpc playlist | grep -s -B1 -P "[一-$current]" | head -n 1)
+
+
+  # If this is the first song of the playlist, then just outputs nothing as before
+  [ "$before" = "$current" ] && before="" || {
+
+    # Reduce length if it's bigger than 40 characters
+    [ ${#before} -gt $song_limit ] && before="$(echo "$before" | cut -c -$song_limit)..."
+
+  }
+
+  [ "$after" ] && after="$(echo "$after" | cut -c -$song_limit)..."
+
+
+  echo 'M' "%{T4 F$neighbors_fg}$before  %{T2 F$first_running_song_name}$song  %{T4 F$neighbors_fg}$after%{T1 B- F-}"
+
+}
+

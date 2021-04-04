@@ -1,0 +1,89 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"
+[
+ <!ATTLIST svg
+  xmlns:xlink CDATA #FIXED "http://www.w3.org/1999/xlink">
+]>
+<!-- Created with Sodipodi ("http://www.sodipodi.com/") -->
+<svg
+   id="svg1"
+   sodipodi:version="0.28"
+   width="640pt"
+   height="640pt"
+   sodipodi:docname="/home/tom/Pics/Cursors/yellowdot/sources/watch/watch.svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   sodipodi:docbase="/home/tom/Pics/Cursors/yellowdot/sources/watch/">
+  <defs
+     id="defs3">
+    <linearGradient
+       id="linearGradient8">
+      <stop
+         style="stop-color:#000;stop-opacity:1;"
+         offset="0"
+         id="stop9" />
+      <stop
+         style="stop-color:#fff;stop-opacity:1;"
+         offset="1"
+         id="stop10" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient8"
+       id="linearGradient11"
+       x1="0.880597"
+       y1="0.585971"
+       x2="0.119403"
+       y2="0.203125"
+       gradientUnits="objectBoundingBox"
+       gradientTransform="translate(2.362e-08,7.70842e-08)"
+       spreadMethod="reflect" />
+    <linearGradient
+       xlink:href="#linearGradient8"
+       id="linearGradient12" />
+    <radialGradient
+       xlink:href="#linearGradient8"
+       id="radialGradient31"
+       cx="0.5"
+       cy="0.5"
+       fx="0.5"
+       fy="0.5"
+       r="0.5"
+       gradientUnits="objectBoundingBox"
+       gradientTransform="translate(-1.55528e-08,6.44504e-10)"
+       spreadMethod="pad" />
+  </defs>
+  <sodipodi:namedview
+     id="base" />
+  <path
+     sodipodi:type="arc"
+     style="font-size:12;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.99514;stroke-dasharray:none;"
+     id="path20"
+     d="M 537.071640 371.339539 A 117.133957 113.395645 0 1 0 302.803726,371.339539 A 117.134 113.396 0 1 0 537.072 371.34 L 419.937683 371.339539 z"
+     sodipodi:cx="419.937683"
+     sodipodi:cy="371.339539"
+     sodipodi:rx="117.133957"
+     sodipodi:ry="113.395645"
+     transform="matrix(2.24098,-0.141402,0.145913,2.17171,-648.977,-431.689)" />
+  <path
+     sodipodi:type="arc"
+     style="font-size:12;fill:#efedd3;fill-rule:evenodd;stroke:#000000;stroke-width:17.5;fill-opacity:1;stroke-dasharray:none;"
+     id="path13"
+     d="M 537.071640 371.339539 A 117.133957 113.395645 0 1 0 302.803726,371.339539 A 117.134 113.396 0 1 0 537.072 371.34 L 419.937683 371.339539 z"
+     sodipodi:cx="419.937683"
+     sodipodi:cy="371.339539"
+     sodipodi:rx="117.133957"
+     sodipodi:ry="113.395645"
+     transform="matrix(0.997887,-0.0649736,0.0649736,0.997887,-100.637,-26.6535)" />
+  <path
+     sodipodi:type="arc"
+     style="font-size:12;fill:#ffc736;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:17.5;stroke-opacity:1;stroke-dasharray:none;"
+     id="path14"
+     d="M 434.890991 122.118378 A 61.059204 61.059189 0 1 0 312.772583,122.118378 A 61.0592 61.0592 0 1 0 434.891 122.118 L 373.831787 122.118378 z"
+     sodipodi:cx="373.831787"
+     sodipodi:cy="122.118378"
+     sodipodi:rx="61.059204"
+     sodipodi:ry="61.059189"
+     transform="matrix(0.997887,-0.0649736,0.0649736,0.997887,-42.7685,-19.7824)" />
+</svg>

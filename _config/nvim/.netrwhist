@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/magic/github/config/_desktop'
+let g:netrw_dirhist_8='/home/magic/.config/zsh'
+let g:netrw_dirhist_7='/home/magic/music/playlists'
+let g:netrw_dirhist_6='/home/magic/github/FirefoxCSS-Store.github.io/dev/pug/layout'
+let g:netrw_dirhist_5='/home/magic/github/scripts'
+let g:netrw_dirhist_4='/home/magic/github/home/distdata'
+let g:netrw_dirhist_3='/home/magic/yellowdotlefthanded/XCursors_HowTo'
+let g:netrw_dirhist_2='/home/magic/github/scripts/pulseaudio'
+let g:netrw_dirhist_1='/home/magic/github/scripts/bars/top_bar/pulse_audio'
+let g:netrw_dirhist_0='/home/magic/.config'

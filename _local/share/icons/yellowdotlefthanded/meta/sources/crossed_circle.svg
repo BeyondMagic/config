@@ -1,0 +1,58 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"
+[
+ <!ATTLIST svg
+  xmlns:xlink CDATA #FIXED "http://www.w3.org/1999/xlink">
+]>
+<!-- Created with Sodipodi ("http://www.sodipodi.com/") -->
+<svg
+   id="svg1"
+   sodipodi:version="0.28"
+   width="640pt"
+   height="640pt"
+   sodipodi:docbase="/home/tom/Pics/Cursors/yellowdot/sources/"
+   sodipodi:docname="/home/tom/Pics/Cursors/yellowdot/sources/crossed_circle.svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs
+     id="defs3">
+    <linearGradient
+       id="linearGradient8">
+      <stop
+         style="stop-color:#ffc736;stop-opacity:0.811765;"
+         offset="0.000000"
+         id="stop9" />
+      <stop
+         style="stop-color:#efedd3;stop-opacity:0.67451;"
+         offset="1.000000"
+         id="stop10" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient8"
+       id="linearGradient11" />
+    <linearGradient
+       xlink:href="#linearGradient8"
+       id="linearGradient12" />
+    <radialGradient
+       xlink:href="#linearGradient8"
+       id="radialGradient31"
+       cx="0.5"
+       cy="0.5"
+       fx="0.5"
+       fy="0.5"
+       r="0.5"
+       gradientUnits="objectBoundingBox"
+       gradientTransform="translate(-1.55528e-08,6.44504e-10)"
+       spreadMethod="pad" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     showgrid="true"
+     snaptogrid="true" />
+  <path
+     style="font-size:12;fill:url(#linearGradient11);fill-rule:evenodd;stroke:#000000;stroke-width:25.5;fill-opacity:1;"
+     d="M 531.496 312.795 C 531.496 435.039 432.283 534.252 310.039 534.252 C 187.795 534.252 88.5827 435.039 88.5827 312.795 C 88.5827 190.551 187.795 91.3386 310.039 91.3386 C 432.283 91.3386 531.496 190.551 531.496 312.795 z M 356.49 309.193 L 442.913 395.373 L 399.702 438.463 L 313.28 352.283 L 226.857 438.464 L 183.646 395.374 L 270.068 309.192 L 183.646 223.012 L 225.801 180.975 L 313.279 266.102 L 399.702 179.921 L 442.913 223.012 L 356.49 309.193 z "
+     id="path39" />
+</svg>

@@ -1,0 +1,109 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"
+[
+ <!ATTLIST svg
+  xmlns:xlink CDATA #FIXED "http://www.w3.org/1999/xlink">
+]>
+<!-- Created with Sodipodi ("http://www.sodipodi.com/") -->
+<svg
+   id="svg1"
+   sodipodi:version="0.28"
+   width="640pt"
+   height="640pt"
+   sodipodi:docbase="/home/tom/Pics/Cursors/yellowdot/sources/"
+   sodipodi:docname="/home/tom/Pics/Cursors/yellowdot/sources/draped_box.svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs
+     id="defs3">
+    <linearGradient
+       id="linearGradient8">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0.000000"
+         id="stop9" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1.000000"
+         id="stop10" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient8"
+       id="linearGradient11"
+       x1="0.896574"
+       y1="1.19697"
+       x2="0.142239"
+       y2="-0.121212"
+       gradientUnits="objectBoundingBox"
+       gradientTransform="matrix(1,-3.34497e-06,-1.84757e-05,1,-1.75421e-09,3.21458e-08)"
+       spreadMethod="pad" />
+    <linearGradient
+       xlink:href="#linearGradient8"
+       id="linearGradient12" />
+    <radialGradient
+       xlink:href="#linearGradient8"
+       id="radialGradient31"
+       cx="0.5"
+       cy="0.5"
+       fx="0.5"
+       fy="0.5"
+       r="0.5"
+       gradientUnits="objectBoundingBox"
+       gradientTransform="translate(-1.55528e-08,6.44504e-10)"
+       spreadMethod="pad" />
+  </defs>
+  <sodipodi:namedview
+     id="base" />
+  <rect
+     style="fill-rule:evenodd;stroke:none;fill:#808080;fill-opacity:0.508197;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     id="rect70"
+     x="171.972138"
+     y="-47.080709"
+     width="514.999805"
+     height="77.499971"
+     rx="0.000000"
+     ry="0.000000"
+     transform="matrix(-0.706254,0.707958,-0.707958,-0.706254,607.35,-12.5132)" />
+  <rect
+     style="fill-rule:evenodd;stroke:none;fill:#808080;fill-opacity:0.508197;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;"
+     id="rect68"
+     x="171.972138"
+     y="-47.080709"
+     width="514.999805"
+     height="77.499971"
+     rx="0.000000"
+     ry="0.000000"
+     transform="matrix(0.707958,0.706254,-0.706254,0.707958,0,0)" />
+  <path
+     sodipodi:type="arc"
+     style="fill-rule:evenodd;stroke:#000000;fill:#ff0000;fill-opacity:1;stroke-opacity:1;stroke-width:17.5;stroke-linejoin:miter;stroke-linecap:butt;stroke-dasharray:none;"
+     id="path66"
+     d="M 410.000000 304.375000 A 78.750000 76.250000 0 1 0 252.500000,304.375000 A 78.75 76.25 0 1 0 410 304.375 L 331.250000 304.375000 z"
+     sodipodi:cx="331.250000"
+     sodipodi:cy="304.375000"
+     sodipodi:rx="78.750000"
+     sodipodi:ry="76.250000"
+     transform="translate(-17.5,-2.5)" />
+  <path
+     style="fill:#ffc736;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:10;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.811765;stroke-dasharray:none;"
+     d="M 105 250.625 C 107.5 250.625 247.5 250.625 247.5 250.625 C 247.5 250.625 247.5 108.125 247.5 108.125 C 247.5 108.125 102.5 253.125 105 250.625 z "
+     id="path71"
+     transform="translate(7.5,0)" />
+  <path
+     style="fill:#ffc736;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:10;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.811765;stroke-dasharray:none;"
+     d="M 105 250.625 C 107.5 250.625 247.5 250.625 247.5 250.625 C 247.5 250.625 247.5 108.125 247.5 108.125 C 247.5 108.125 102.5 253.125 105 250.625 z "
+     id="path72"
+     transform="matrix(2.65358e-17,1,-1,2.65358e-17,620.625,0.625)" />
+  <path
+     style="fill:#ffc736;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:10;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.811765;stroke-dasharray:none;"
+     d="M 105 250.625 C 107.5 250.625 247.5 250.625 247.5 250.625 C 247.5 250.625 247.5 108.125 247.5 108.125 C 247.5 108.125 102.5 253.125 105 250.625 z "
+     id="path73"
+     transform="matrix(-1,5.30716e-17,-5.30716e-17,-1,620,606.25)" />
+  <path
+     style="fill:#ffc736;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:10;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.811765;stroke-dasharray:none;"
+     d="M 105 250.625 C 107.5 250.625 247.5 250.625 247.5 250.625 C 247.5 250.625 247.5 108.125 247.5 108.125 C 247.5 108.125 102.5 253.125 105 250.625 z "
+     id="path74"
+     transform="matrix(-7.96074e-17,-1,1,-7.96074e-17,1.875,603.125)" />
+</svg>

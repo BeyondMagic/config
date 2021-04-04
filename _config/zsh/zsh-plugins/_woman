@@ -1,0 +1,3 @@
+#compdef woman
+
+_alternative "args:recipe name:($(woman --list | sed 's/ /\\ /g'))"

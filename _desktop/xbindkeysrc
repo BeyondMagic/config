@@ -1,0 +1,92 @@
+#/usr/bin/xbindkeys rc
+#
+# If you edit this file, do not forget to uncomment any lines
+# that you change.
+# The pound(#) symbol may be used anywhere for comments.
+#
+# To specify a key, you can use 'xbindkeys --key' or
+# 'xbindkeys --multikey' and put one of the two lines in this file.
+#
+# The format of a command line is:
+#    "command to start"
+#       associated key
+#
+# BeyondMagic © 2021
+
+
+# seek lesss mpd
+"mpc -q seek +1%"
+    m:0x58 + c:86
+      Super + Alt + +
+
+# seek more mpd
+"mpc -q seek -1%"
+    m:0x58 + c:82
+      Super + Alt + -
+
+# increase volume of mpc
+"mpc -q volume $(( $(mpc | grep --line-buffered -hoE '[0-9]{2}' | tail -n 1) + 1 ))"
+   m:0x50 + c:86 
+      Super + +
+
+# decrease volume of mpc
+"mpc -q volume $(( $(mpc | grep --line-buffered -hoE '[0-9]{2}' | tail -n 1) - 1 ))"
+   m:0x50 + c:82 
+      Super + -
+
+
+# toggle mpd
+"mpc toggle"
+    m:0x50 + c:33
+      Super + p
+
+# open a simple youtube video cli opener with mpv
+"YTFZF_PLAYER_FORMAT='mpv --save-position-on-quit --hwdec --vo=xv --ytdl-format=best' ytfzf -D -l"
+    m:0x50 + c:90
+      Super + 0
+
+
+# take screenshot, duh
+"$HOME/github/scripts/screenshot/screen"
+    m:0x10 + c:107
+      Printscr
+
+# take screenshot, duh
+"$HOME/github/scripts/screenshot/fullscreen"
+    m:0x50 + c:107
+      Super + Printscr
+
+# Run colour picker of screen
+"$HOME/github/scripts/colour/pick"
+   m:0x18 + c:107
+     Alt + Printscr
+
+# Run colour picker of screen
+"$HOME/github/scripts/colour/pick"
+   m:0x14 + c:107
+     Ctrl + Printscr
+
+# simple terminal with float status
+"st -T floatst"
+    m:0x50 + c:22
+      Super + Back
+
+# increase volume of pulseaudio
+"$HOME/github/scripts/pulseaudio/set_volume increase"
+    m:0x58 + c:21
+      Super + Alt + equal (plus)
+
+# decrease volume of pulseaudio
+"$HOME/github/scripts/pulseaudio/set_volume"
+    m:0x58 + c:20
+      Super + Alt + underline (minus)
+
+# run emoji list dmenu
+"$HOME/github/scripts/emojis/loademoji"
+   m:0x50 + c:118
+     Super + Insert
+
+# Run colour picker of screen
+"$HOME/github/scripts/quotes/lock"
+   m:0x18 + c:46
+     Alt + L

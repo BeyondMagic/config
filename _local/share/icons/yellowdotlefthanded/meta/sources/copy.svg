@@ -1,0 +1,87 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"
+[
+ <!ATTLIST svg
+  xmlns:xlink CDATA #FIXED "http://www.w3.org/1999/xlink">
+]>
+<!-- Created with Sodipodi ("http://www.sodipodi.com/") -->
+<svg
+   id="svg1"
+   sodipodi:version="0.28"
+   width="640pt"
+   height="640pt"
+   sodipodi:docname="/home/tom/Pics/Cursors/yellowdot/sources/copy.svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   sodipodi:docbase="/home/tom/Pics/Cursors/yellowdot/sources/">
+  <defs
+     id="defs3">
+    <linearGradient
+       id="linearGradient16">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0.000000"
+         id="stop17" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1.000000"
+         id="stop18" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient8">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0.000000"
+         id="stop9" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1.000000"
+         id="stop10" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient8"
+       id="linearGradient11"
+       x1="-0.0454553"
+       y1="0.0390587"
+       x2="0.215919"
+       y2="0.515625"
+       gradientUnits="objectBoundingBox"
+       gradientTransform="matrix(1,-2.17369e-06,-1.90886e-05,1,-1.88636e-08,-1.69171e-08)"
+       spreadMethod="reflect" />
+    <linearGradient
+       xlink:href="#linearGradient16"
+       id="linearGradient12"
+       x1="0.0454362"
+       y1="0.125"
+       x2="1.18182"
+       y2="1.125"
+       gradientUnits="objectBoundingBox"
+       gradientTransform="matrix(1,0,0,1,-6.1245e-08,-3.26631e-09)"
+       spreadMethod="pad" />
+    <radialGradient
+       xlink:href="#linearGradient8"
+       id="radialGradient31"
+       cx="0.5"
+       cy="0.5"
+       fx="0.5"
+       fy="0.5"
+       r="0.5"
+       gradientUnits="objectBoundingBox"
+       gradientTransform="translate(-1.55528e-08,6.44504e-10)"
+       spreadMethod="pad" />
+  </defs>
+  <sodipodi:namedview
+     id="base" />
+  <path
+     style="fill:#efedd3;fill-rule:evenodd;stroke:#868686;stroke-opacity:0.459016;stroke-width:22.375;stroke-linejoin:round;stroke-linecap:butt;fill-opacity:0.811765;stroke-dasharray:none;"
+     d="M 150.779 153.271 C 150.779 153.271 145.794 634.268 145.794 634.268 C 145.794 634.268 467.29 631.776 467.29 631.776 C 467.29 631.776 469.782 155.763 469.782 155.763 C 469.782 155.763 148.287 150.779 150.779 153.271 z "
+     id="path15"
+     transform="translate(194.392,-39.8754)" />
+  <path
+     style="fill:#ffc736;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-width:22.375;stroke-linejoin:round;stroke-linecap:butt;fill-opacity:0.811765;stroke-dasharray:none;"
+     d="M 150.779 153.271 C 150.779 153.271 145.794 634.268 145.794 634.268 C 145.794 634.268 467.29 631.776 467.29 631.776 C 467.29 631.776 469.782 155.763 469.782 155.763 C 469.782 155.763 148.287 150.779 150.779 153.271 z "
+     id="path12"
+     transform="translate(-14.9533,79.7507)" />
+</svg>

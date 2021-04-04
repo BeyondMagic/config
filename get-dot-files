@@ -1,0 +1,94 @@
+#!/usr/bin/env sh
+#
+# Description
+#   Just get dotfiles from a bunch of locations
+#
+# BeyondMagic © 2021
+
+
+#--------------------------------------------------------------------------------
+# Unset all variables
+#--------------------------------------------------------------------------------
+
+
+unset h o c d
+
+
+#--------------------------------------------------------------------------------
+# Define Variables
+#--------------------------------------------------------------------------------
+
+
+h=$HOME
+o=$(cd -- "$(dirname "$0")" >/dev/null 2>&1 && pwd -P)
+c=$h/.config
+d=$h/desktop
+
+
+#--------------------------------------------------------------------------------
+# Verify/Create folders
+#--------------------------------------------------------------------------------
+
+
+mkdir -p $o/_local/share
+mkdir -p $o/_config/mpd
+mkdir -p $o/_config/ncmpcpp
+mkdir -p $o/_config/zsh
+mkdir -p $o/_desktop
+
+
+#--------------------------------------------------------------------------------
+# Adjacent information
+#--------------------------------------------------------------------------------
+
+
+cp -rf $d/colours \
+       $d/icons \
+       $d/status_info \
+       $d/xbindkeysrc \
+    -t $o/_desktop/
+
+
+#--------------------------------------------------------------------------------
+# Main information
+#--------------------------------------------------------------------------------
+
+
+cp -rf $h/.zshrc $o/_zshrc
+cp -rf $h/.xinitrc $o/_xinitrc
+
+
+#--------------------------------------------------------------------------------
+# Applications information of .config
+#--------------------------------------------------------------------------------
+
+
+cp -rf $c/GIMP/2.10/splashes \
+       $c/dunst \
+       $c/fcitx5 \
+       $c/gtk-2.0 \
+       $c/gtk-3.0 \
+       $c/mozc \
+       $c/nvim \
+       $c/picom \
+       $c/visualboyadvance-m \
+       $c/zathura \
+    -t $o/_config/
+
+cp -rf $c/mpd/mpd.conf $o/_config/mpd/
+cp -rf $c/ncmpcpp/config $o/_config/ncmpcpp/
+cp -rf $c/zsh/zsh-plugins \
+       $c/zsh/.zcompdump \
+       $c/zsh/.zshrc \
+    -t $o/_config/zsh
+
+
+#--------------------------------------------------------------------------------
+# Local share
+#--------------------------------------------------------------------------------
+
+
+cp -rf $h/.local/share/fcitx5 \
+       $h/.local/share/icons \
+    -t $o/_local/share
+
