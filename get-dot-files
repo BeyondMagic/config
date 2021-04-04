@@ -35,6 +35,7 @@ mkdir -p $o/_config/mpd
 mkdir -p $o/_config/ncmpcpp
 mkdir -p $o/_config/zsh
 mkdir -p $o/_desktop
+mkdir -p $o/etc
 
 
 #--------------------------------------------------------------------------------
@@ -56,7 +57,7 @@ cp -rf $d/colours \
 
 cp -rf $h/.zshrc $o/_zshrc
 cp -rf $h/.xinitrc $o/_xinitrc
-
+cp -rf /etc/doas.conf $o/etc/
 
 #--------------------------------------------------------------------------------
 # Applications information of .config
@@ -98,4 +99,5 @@ cp -rf $h/.local/share/fcitx5 \
 #--------------------------------------------------------------------------------
 
 
-#git rm -rf --cached _config/nvim/plugged/
+rm -rf --cached _config/nvim/plugged/
+git rm -rf --cached _config/nvim/plugged/

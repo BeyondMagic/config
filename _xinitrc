@@ -9,6 +9,7 @@
 # Environment Variables
 #---------------------------------------------------------------------------------
 
+
 export NO_AT_BRIDGE=1
 export XMODIFIERS="@im=fcitx5"
 export GTK_IM_MODULE=fcitx5
@@ -76,12 +77,9 @@ rm -rf "$HOME/.zlogin" "$HOME/.xsession-errors" "$HOME/.xsession" "$HOME/.lyrics
 #   Lock screen because yes
 eval "sleep 3; lock" & 
 
-#   Lock after 8 minutes of inactivity
-xautolock -time 8 -locker "lock" &
-
 #   Sleep after 12 minutes of inactivity
 xautolock -time 5 -locker "lock" &
-xautolock -time 7 -locker "zzz" &
+xautolock -time 7 -locker "doas zzz" &
 
 #   Reset xbindkeys ??? a few keybinds only work with this
 killall xbindkeys; xbindkeys -f "$HOME/desktop/xbindkeysrc"
