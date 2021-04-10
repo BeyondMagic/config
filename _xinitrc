@@ -26,7 +26,7 @@ export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export ZDOTDIR="$HOME/.config/zsh"
 export LESSHISTFILE=/dev/null
 export XDG_CONFIG_HOME="$HOME/.config/"
-export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$HOME/github/scripts/root:$HOME/github/scripts/screenshot:$HOME/github/scripts/colour:$HOME/github/scripts/quotes:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$HOME/github/scripts/root:$HOME/github/scripts/system:$HOME/github/scripts/screenshot:$HOME/github/scripts/colour:$HOME/github/scripts/quotes:$PATH"
 
 
 #--------------------------------------------------------------------------------
@@ -79,10 +79,11 @@ eval "sleep 3; lock" &
 
 #   Sleep after 12 minutes of inactivity
 xautolock -time 5 -locker "lock" &
-xautolock -time 7 -locker "doas zzz" &
+xautolock -time 7 -locker "doas zzz && notify-send.sh ... woke up ..." &
 
 #   Reset xbindkeys ??? a few keybinds only work with this
-killall xbindkeys; xbindkeys -f "$HOME/desktop/xbindkeysrc"
+killall xbindkeys; xbindkeys -f "$HOME/desktop/xbindkeysrc" &
 
 #   Start Window Manager
 exec dwm
+

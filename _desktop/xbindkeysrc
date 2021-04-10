@@ -15,12 +15,12 @@
 
 
 # seek lesss mpd
-"mpc -q seek +1%"
+"mpc -q seek +00:00:04"
     m:0x58 + c:86
       Super + Alt + +
 
 # seek more mpd
-"mpc -q seek -1%"
+"mpc -q seek -00:00:04"
     m:0x58 + c:82
       Super + Alt + -
 

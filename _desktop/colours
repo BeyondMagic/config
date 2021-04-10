@@ -21,7 +21,7 @@ fg_selected_occupied="#ffffff"; fg_unselect_occupied="#82CDD2"
            layout_fg="#14181B";            layout_bg="#ffffff"
 
 # Titles : Center
-title_name_fg="#FFFFFF"; title_name_bg="#1D1D1D"
+title_name_fg="#FFFFFF"
 title_icon_fg="#FF5EA4"
 
 # Memory : Right
@@ -60,7 +60,6 @@ task_fg_icon="#243F76"
 
 # Power Button : Right
     power_fg="#FaFaFa"; power_bg="#C92430"
-power_before="#000000"
 
 
 #--------------------------------------------------------------------------------

@@ -99,5 +99,4 @@ cp -rf $h/.local/share/fcitx5 \
 #--------------------------------------------------------------------------------
 
 
-rm -rf --cached _config/nvim/plugged/
-git rm -rf --cached _config/nvim/plugged/
+rm -rf $o/_config/nvim/plugged/ $o/_config/nvim/autoload

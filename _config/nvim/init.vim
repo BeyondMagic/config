@@ -43,20 +43,29 @@ nmap <S-Right> v<Right>
 "nmap <C-f> :Goyo<CR>
 
 
-"-----------------------------------------------------------------
+"-------------------------------------------------------------------
 " Keybinds <vmap>
 "-------------------------------------------------------------------
 
 
+xnoremap <silent> <cr> "*y:silent! let searchTerm = '\V'.substitute(escape(@*, '\/'), "\n", '\\n', "g") <bar> let @/ = searchTerm <bar> echo '/'.@/ <bar> call histadd("search", searchTerm) <bar> set hls<cr>
+
+
+"-----------------------------------------------------------------------------
+" Keybinds <vmap>
+"-----------------------------------------------------------------------------
+
+
+"vmap <Backspace> Delete
 vmap <S-Up> <Up>
 vmap <S-Down> <Down>
 vmap <S-Left> <Left>
 vmap <S-Right> <Right>
-vmap <C-c> y<Esc>i
-vmap <C-x> d<Esc>i
+vmap <C-c> may`ai
+vmap <C-x> mad`ai
 
 
-"-----------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Keybinds <imap>
 "
 " TODO (HELP NEEDED)
@@ -65,19 +74,21 @@ vmap <C-x> d<Esc>i
 "   all of them live-time.
 "   This is a Feature alike Sublime Text.
 "
-"-------------------------------------------------------------------
+"------------------------------------------------------------------------------
 
 
+"imap <Enter> <Down>i
 imap <S-Up> <Esc>v<Up>
 imap <S-Down> <Esc>v<Down>
 imap <S-Left> <Esc>v<Left>
 imap <S-Right> <Esc><Right>v<Right>
-"imap <C-v> @@<Left><Esc>"0[p<Right>"1xi<Right><BS>
-imap <C-v> <Esc>pi
-imap <C-z> <Esc>ui
-"imap <C-k> <Esc> :Goyo<CR>i
+imap <C-v> <Esc>ma[p`ai
+imap <C-z> <Esc>mau`ai
+"imap <C-k> <Esc> :Goyo<CR>i1
 "imap <C-Up> 
 "imap <C-Down>
+"inmap <silent> [<Space> m'<Plug>unimpairedBlankUp`'
+
 
 
 "-----------------------------------------------------------------
@@ -87,6 +98,8 @@ imap <C-z> <Esc>ui
 
 inoremap <S-Home> <Esc>v<Home>
 inoremap <S-End> <Esc>v<End><Left>
+inoremap <S-PageUp> <Esc>v<PageUp>
+inoremap <S-PageDown> <Esc>v<PageDown>
 
 
 "-----------------------------------------------------------------
@@ -94,8 +107,11 @@ inoremap <S-End> <Esc>v<End><Left>
 "-------------------------------------------------------------------
 
 
+nnoremap <silent> <c-c> :if (&hlsearch == 1) \| set nohlsearch \| else \| set hlsearch \| endif<cr>
 nnoremap <S-Home> <Left><Esc>v<Home>
 nnoremap <S-End> <Esc>v<End><Left>
+nnoremap <S-PageUp> <Esc>v<PageUp>
+nnoremap <S-PageDown> <Esc>v<PageDown>
 noremap! <C-BS> <C-w>
 noremap! <C-h> <C-w>
 
@@ -115,7 +131,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'cakebaker/scss-syntax.vim'
   Plug 'tpope/vim-haml'
     " Status Colours
-  Plug 'bluz71/vim-moonfly-statusline'
+  Plug 'vim-airline/vim-airline'
+ 	Plug 'vim-airline/vim-airline-themes'
+      "  Plug 'bluz71/vim-moonfly-statusline'
     " Theme
   Plug 'bluz71/vim-moonfly-colors'
 
@@ -160,7 +178,9 @@ colorscheme moonfly
 "-------------------------------------------------------------------
 
 
-let g:user_emmet_leader_key='?'
+"let g:user_emmet_leader_key='?'
+let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts = 1
 
 
 "-----------------------------------------------------------------
@@ -197,18 +217,23 @@ set mouse=a
 set clipboard+=unnamedplus
 set viminfo+=n~/.config/nvim/viminfo
 set backspace=indent,eol,start
+set cc=80
 
-
-"-----------------------------------------------------------------
+"------------------------------------------------------------------------------------
 " Colours <hi>
-"-------------------------------------------------------------------
+"------------------------------------------------------------------------------------
 
 
 hi! Normal ctermbg=NONE guibg=NONE
-hi StatusLine guibg=#6F9AF6 guifg=black
+"hi StatusLine guibg=#6F9AF6 guifg=black
 
 
-"------------------------------------------------------------------------------------
+"-----------------------------------------------------------------------------------
+" Functions
+"-----------------------------------------------------------------------------------
+
+
+"-----------------------------------------------------------------------------------
 " Autocmd
 "-----------------------------------------------------------------------------------
 
