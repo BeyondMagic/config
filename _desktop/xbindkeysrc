@@ -24,6 +24,16 @@
     m:0x58 + c:82
       Super + Alt + -
 
+# Set a wallpaper from a folder
+"zsh -c '. ~/desktop/aliasesrc; set_wallpaper'"
+   m:0x10 + c:68 
+      F2
+
+# Random Wallpaper
+"zsh -c '. ~/desktop/aliasesrc; random_wallpaper'"
+    m:0x10 + c:69
+      F3
+
 # increase volume of mpc
 "mpc -q volume $(( $(mpc | grep --line-buffered -hoE '[0-9]{2}' | tail -n 1) + 1 ))"
    m:0x50 + c:86 

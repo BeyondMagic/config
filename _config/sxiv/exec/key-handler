@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+#
+# To load when <CTRL-C> is pressed on sxiv.
+#
+# BeyondMagic © 2021
+
+while read file; do
+
+    echo "- File: $file"
+
+    case "$1" in
+
+        # Trash it
+        'C-d')
+              mv "$file" ~/.local/trash/ ;;
+
+        # Rotate our image 90deg
+        'C-r')
+            convert -rotate 90 "$file" "$file" ;;
+
+        # Copy image path to clipboard
+        'C-c')
+            echo -n "$file" | xclip -selection clipboard ;;
+
+        # Copy image to clipboard
+        'C-t')
+            fcat "$file" | xclip -selection clipboard -t image/png ;;
+
+        # 
+        'C-m')
+            mv "$file" $dirpath ;;
+
+        # Set wallpaper
+        'C-w')
+            zsh -c ". ~/desktop/aliasesrc; wallpaper \"$file\"" ;;
+
+        # 
+        *)
+            echo "Not yet implemented: $1" ;;
+    esac
+
+done

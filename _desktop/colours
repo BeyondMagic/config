@@ -8,10 +8,13 @@
 #
 # by BeyondMagic - 2021
 
+#--------------------------------------------------------------------------------
+# Colours for lemonbar : bottom bar Black
+[ '' ] && { #CHANGE_THIS_THEME_THROUGH_SCRIPTING
+#--------------------------------------------------------------------------------
 
-#--------------------------------------------------------------------------------
-# Colours for lemonbar : bottom bar
-#--------------------------------------------------------------------------------
+nickname="magic %{T3 F#7EABF8}%{T2 F#FFFFFF} flora  "
+bg_bar="#14181B"; fg_bar="#ffffff"
 
 
 # Tags : Left
@@ -63,6 +66,63 @@ task_fg_icon="#243F76"
 
 
 #--------------------------------------------------------------------------------
+# White Theme
+#--------------------------------------------------------------------------------
+} || {
+
+nickname="magic %{T3 F#7EABF8}%{T2 F-} flora  "
+bg_bar="#f0f0f0"; fg_bar="#1b1b1b"
+
+# Tags : Left
+             bg_tags="#ffffff"
+         fg_selected="#14181B";          fg_unselect="#696969"
+fg_selected_occupied="#408245"; fg_unselect_occupied="#82CDD2"
+           layout_fg="#DEF1E4";            layout_bg="#14181B"
+
+# Titles : Center
+title_name_fg="#12171C"
+title_icon_fg="#246898"
+
+# Memory : Right
+ mem_colour="#12171C";  mem_barra="#444444"; 
+swap_colour="#aaaaaa"; swap_barra="#eeeeee"; swap_icon_colour="#bbbbbb"
+
+
+#--------------------------------------------------------------------------------
+# Colours for lemonbar : top bar
+#--------------------------------------------------------------------------------
+
+
+# Clock : Left
+clock_fg="#FA9370"; clock_bg="#1E1E20"; clock_f_bg="#616164"
+clock_hg="#CC5044"
+
+# Sensors : Left
+sensors_fg_affix="#616164"; sensors_bg_affix="#616164"
+      low_low_fg="#0D2331";       low_low_bg="#87C7E4"
+      nor_low_fg="#0D2331";       nor_low_bg="#BDCDD7"
+      med_med_fg="#340010";       med_med_bg="#FAFBC2"
+      hig_med_fg="#0D2331";       hig_med_bg="#FF4464"
+
+# Song : Center
+       background_before="#ffffff"
+         background_icon="#f0f0f0"
+    background_song_name="#f0f0f0"
+ first_running_song_name="#F05D94"
+second_running_song_name="#000000"
+    background_icon_name="#2b2b2b"
+            neighbors_fg="#787773"
+
+# Tasks : Right
+     task_fg="#0f0f0f"
+task_fg_icon="#913D45"
+
+# Power Button : Right
+    power_fg="#0f0f0f"; power_bg="#C92430"; bg_before_power="#f0f0f0"
+
+}
+
+#--------------------------------------------------------------------------------
 # String for lemonbar : top bar
 #--------------------------------------------------------------------------------
 
@@ -80,3 +140,4 @@ extra_icon_paused=": •́ ◇ •̀ : "
 
 limit_extra_length=35
         song_limit=20
+bnotification_time=550

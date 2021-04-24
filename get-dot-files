@@ -69,11 +69,11 @@ cp -rf $c/GIMP/2.10/splashes \
        $c/fcitx5 \
        $c/gtk-2.0 \
        $c/gtk-3.0 \
-       $c/mozc \
        $c/nvim \
        $c/picom \
        $c/visualboyadvance-m \
        $c/zathura \
+       $c/sxiv \
     -t $o/_config/
 
 cp -rf $c/mpd/mpd.conf $o/_config/mpd/

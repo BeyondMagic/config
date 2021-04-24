@@ -1,11 +1,11 @@
+#zmodload zsh/zprof
+
 # -------------------------------------------------------------------------------------------
 # Autoload
 # -------------------------------------------------------------------------------------------
 
 
-autoload -U compinit \
-  colors \
-  promptinit \
+autoload -Uz compinit \
   down-line-or-beginning-search \
   edit-command-line \
   up-line-or-beginning-search
@@ -29,12 +29,20 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 
 # -------------------------------------------------------------------------------------------
+# Loop for init
+# -------------------------------------------------------------------------------------------
+
+
+skip_global_compinit=1
+[[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]] && compinit || compinit -C
+
+
+# -------------------------------------------------------------------------------------------
 # init
 # -------------------------------------------------------------------------------------------
 
 
-compinit
-colors
+#colors
 
 
 # -------------------------------------------------------------------------------------------
@@ -148,6 +156,15 @@ zle -N edit-command-line
 
 
 # -------------------------------------------------------------------------------------------
+# Options to choose :)
+# -------------------------------------------------------------------------------------------
+
+
+PS1_SYMBOLS='Ǝ♥>:∞▲✞✛✝✜✟?!❥$-+§ØŦƆƩƪȹϮϨϞ߷࿗ლႿჄჯᐉᓬᗆᗇᗈᗎᗎᗓᗔᗘᗙᗠᗤᗦᘱᙄᯡᯢ᯾ᰉᰜᰞ᱃᱃†'
+PS1_SYMBOL=$(expr substr "$PS1_SYMBOLS" $(shuf -i 1-$(printf "$PS1_SYMBOLS" | wc -m) -n 1) 1)
+
+
+# -------------------------------------------------------------------------------------------
 # Set full
 # -------------------------------------------------------------------------------------------
 
@@ -155,9 +172,9 @@ zle -N edit-command-line
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=''
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=''
 HISTFILE=~/.config/zsh/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-PS1="%B%{$fg[white]%}%n %{$fg[grey]%}%~%{$fg[red]%} %{$reset_color%}$%b "
+HISTSIZE=5000
+SAVEHIST=5000
+PS1="%B%{$fg[grey]%}%~%{$fg[red]%} %{$reset_color%}$PS1_SYMBOL%b "
 _comp_options+=(globdots)
 
 
@@ -166,7 +183,7 @@ _comp_options+=(globdots)
 # -------------------------------------------------------------------------------------------
 
 
-## History command configuration
+# History command configuration
 setopt extended_history       # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
@@ -182,10 +199,6 @@ setopt share_history          # share command history data
 
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
-#bindkey '^[[A' history-substring-search-up
-#bindkey '^[[B' history-substring-search-down
-#bindkey "^[[A" history-beginning-search-backward
-#bindkey "^[[B" history-beginning-search-forward
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 bindkey '^[[H' beginning-of-line
@@ -196,6 +209,7 @@ bindkey '^?' backward-delete-char
 bindkey '^E' edit-command-line
 bindkey '^H' backward-kill-word
 bindkey '^X' x-copy-region-as-kill
+bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 
 # -------------------------------------------------------------------------------------------
@@ -212,7 +226,7 @@ for key     kcap   seq        mode     widget (
     send    kEND   $'\E[1;2F' select   end-of-line
     send2   x      $'\E[4;2~' select   end-of-line
 
-    shome kHOM   $'\E[1;2H' select   beginning-of-line
+    shome kHOM     $'\E[1;2H' select   beginning-of-line
     shome2  x      $'\E[1;2~' select   beginning-of-line
 
     left    kcub1  $'\EOD'    deselect backward-char
@@ -243,4 +257,4 @@ for key     kcap   seq        mode     widget (
   bindkey ${terminfo[$kcap]-$seq} key-$key
 }
 
-
+#zprof

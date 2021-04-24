@@ -28,11 +28,19 @@
 map <C-v> p"_d<Esc>i<Right>
 
 
+
+"-----------------------------------------------------------------
+" Keybinds <xmap>
+"-------------------------------------------------------------------
+
+"xmap <leader>f  <Plug>(coc-format-selected)
+
 "-----------------------------------------------------------------
 " Keybinds <nmap>
 "-------------------------------------------------------------------
 
 
+"nmap <leader>rn <Plug>(coc-rename)
 nmap <S-Up> v<Up>
 nmap <S-Down> v<Down>
 nmap <S-Down> v<Down
@@ -44,10 +52,11 @@ nmap <S-Right> v<Right>
 
 
 "-------------------------------------------------------------------
-" Keybinds <vmap>
+" Keybinds <xnoremap>
 "-------------------------------------------------------------------
 
 
+xnoremap p "_dP
 xnoremap <silent> <cr> "*y:silent! let searchTerm = '\V'.substitute(escape(@*, '\/'), "\n", '\\n', "g") <bar> let @/ = searchTerm <bar> echo '/'.@/ <bar> call histadd("search", searchTerm) <bar> set hls<cr>
 
 
@@ -65,6 +74,14 @@ vmap <C-c> may`ai
 vmap <C-x> mad`ai
 
 
+"-----------------------------------------------------------------------------
+" Keybinds <vnoremap>
+"-----------------------------------------------------------------------------
+
+
+vnoremap <BS> <Esc>diw
+
+
 "------------------------------------------------------------------------------
 " Keybinds <imap>
 "
@@ -76,14 +93,13 @@ vmap <C-x> mad`ai
 "
 "------------------------------------------------------------------------------
 
-
 "imap <Enter> <Down>i
 imap <S-Up> <Esc>v<Up>
 imap <S-Down> <Esc>v<Down>
 imap <S-Left> <Esc>v<Left>
 imap <S-Right> <Esc><Right>v<Right>
-imap <C-v> <Esc>ma[p`ai
-imap <C-z> <Esc>mau`ai
+imap <C-v> <Esc>pi<Right>
+imap <C-z> <Esc>ui
 "imap <C-k> <Esc> :Goyo<CR>i1
 "imap <C-Up> 
 "imap <C-Down>
@@ -100,6 +116,8 @@ inoremap <S-Home> <Esc>v<Home>
 inoremap <S-End> <Esc>v<End><Left>
 inoremap <S-PageUp> <Esc>v<PageUp>
 inoremap <S-PageDown> <Esc>v<PageDown>
+"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+"                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
 "-----------------------------------------------------------------
@@ -112,7 +130,6 @@ nnoremap <S-Home> <Left><Esc>v<Home>
 nnoremap <S-End> <Esc>v<End><Left>
 nnoremap <S-PageUp> <Esc>v<PageUp>
 nnoremap <S-PageDown> <Esc>v<PageDown>
-noremap! <C-BS> <C-w>
 noremap! <C-h> <C-w>
 
 
@@ -123,43 +140,28 @@ noremap! <C-h> <C-w>
 
 call plug#begin('~/.config/nvim/plugged')
 
-    " Colour preview
+  " Colour preview
   Plug 'ap/vim-css-color'
-    " Jade & Pug
-  Plug 'digitaltoad/vim-jade'
-    " SASS & SCSS
-  Plug 'cakebaker/scss-syntax.vim'
-  Plug 'tpope/vim-haml'
-    " Status Colours
+
+  " Jade & Pug
+ " Plug 'digitaltoad/vim-jade'
+
+  " SASS & SCSS
+ " Plug 'cakebaker/scss-syntax.vim'
+"  Plug 'tpope/vim-haml'
+
+  " Status Colours
   Plug 'vim-airline/vim-airline'
  	Plug 'vim-airline/vim-airline-themes'
-      "  Plug 'bluz71/vim-moonfly-statusline'
-    " Theme
-  Plug 'bluz71/vim-moonfly-colors'
 
-    " Papercolor
-       "Plug 'NLKNguyen/papercolor-theme'
-    " ZEN MODE
-  "Plug 'junegunn/goyo.vim'
-    " Auto Pairs
-  "Plug 'jiangmiao/auto-pairs' 
-    " More syntax (much laggy)
-   " Plug 'sheerun/vim-polyglot'
-   "    " Vue.js Syntax
-"  Plug 'othree/javascript-libraries-syntax.vim'
-"  let g:used_javascript_libs = 'vue'
-"  Plug 'posva/vim-vue'
-"  let g:vue_pre_processors = ['typescript']
-    " Typescript vim
-"  Plug 'leafgarland/typescript-vim'
-"  Plug 'tasn/vim-tsx'
+  " Theme
+  Plug 'jacoborus/tender.vim'
+  Plug 'rakr/vim-one'
+
+  " Autocompletion
   "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    " Julia Vim
-"  Plug 'JuliaEditorSupport/julia-vim'
-    " HTML
-"  Plug 'mattn/emmet-vim'
 
-cal plug#end()
+call plug#end()
 
 
 "-----------------------------------------------------------------
@@ -170,7 +172,8 @@ cal plug#end()
 syntax on
 filetype on
 filetype plugin on
-colorscheme moonfly
+"colorscheme tender " Black
+colorscheme one " White
 
 
 "-----------------------------------------------------------------
@@ -178,9 +181,13 @@ colorscheme moonfly
 "-------------------------------------------------------------------
 
 
-"let g:user_emmet_leader_key='?'
-let g:airline_theme='bubblegum'
+let g:one_allow_italics = 1 
+let g:airline_statusline_ontop=1
+let g:airline_theme='bubblegum' " Black
+let g:airline_theme='papercolor' " White
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 
 "-----------------------------------------------------------------
@@ -188,12 +195,14 @@ let g:airline_powerline_fonts = 1
 "-------------------------------------------------------------------
 
 
+set wildmenu
 set wildignore+=*/tmp*/,*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log
 set foldcolumn=1
 set wrap
 set linebreak
 set nu
-set background=dark
+"set background=dark " White
+set background=light " Black
 set ruler
 set hlsearch
 set foldmethod=expr
@@ -218,6 +227,10 @@ set clipboard+=unnamedplus
 set viminfo+=n~/.config/nvim/viminfo
 set backspace=indent,eol,start
 set cc=80
+set path+=**
+set number relativenumber
+set nu rnu
+
 
 "------------------------------------------------------------------------------------
 " Colours <hi>
@@ -225,7 +238,9 @@ set cc=80
 
 
 hi! Normal ctermbg=NONE guibg=NONE
-"hi StatusLine guibg=#6F9AF6 guifg=black
+hi Pmenu ctermbg=black guibg=black
+hi PmenuSel ctermbg=red guibg=white
+hi PmenuThumb ctermbg=black guibg=red
 
 
 "-----------------------------------------------------------------------------------
@@ -238,11 +253,21 @@ hi! Normal ctermbg=NONE guibg=NONE
 "-----------------------------------------------------------------------------------
 
 
-autocmd BufWritePost $HOME/.config/dunst/dunstrc !eval
+" When save dunst, notify
+autocmd BufWritePost 
+  \ $HOME/.config/dunst/dunstrc !eval
   \ "killall dunst; dunst & notify-send -i /usr/share/icons/BeautyLine/places/16/folder-grey.svg 'Testing Dunst'"
+
+" When save dunst, notify
+autocmd BufWritePost 
+  \ $HOME/desktop/xbindkeysrc !eval
+  \ "killall xbindkeys; xbindkeys -f /home/magic/desktop/xbindkeysrc"
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
   \ endif
+
+" Highlight the symbol and its references when holding the cursor.
+" autocmd CursorHold * silent call CocActionAsync('highlight')

@@ -1,0 +1,54 @@
+#!/usr/bin/env sh
+#
+# This will just change the theme of the config.h file
+# and then build it
+# 
+# Configure yourself the colours
+#
+# BeyondMagic © 2021
+
+origin=$(cd -- "$(dirname "$0")" >/dev/null 2>&1 && pwd -P); cd $origin
+
+[ "$1" = 'white' ] && {
+
+  bg_low="#ffffff"; fg_low="#444444"; fc_low="#A2C0CB"
+  bg_nor="#F8F6FE"; fg_nor="#333333"; fc_nor="#9E9E9E"
+  bg_cri="#F8F6FE"; fg_cri="#Fe2d3b"; fc_cri="#010000"
+
+} 
+
+[ "$1" = 'black' ] && {
+
+  bg_low="#000000"; fg_low="#A8A8A8"; fc_low="#111111"
+  bg_nor="#13171a"; fg_nor="#ffffff"; fc_nor="#000000"
+  bg_cri="#13171a"; fg_cri="#Fe2d3b"; fc_cri="#141e24"
+
+}
+
+[ "$1" = 'black' ] || [ "$1" = 'white' ] || {
+
+  echo "Y'all got some theme? Maybe black or white..."
+  exit 1
+
+}
+
+# Build our new theme :)
+[ $bg_low ] && {
+
+  sed -r \
+    -e "s/ *background = \"#.{6}\" # BACKGROUND_LOW/  background = \"$bg_low\" # BACKGROUND_LOW/" \
+    -e "s/ *foreground = \"#.{6}\" # FOREGROUND_LOW/  foreground = \"$fg_low\" # FOREGROUND_LOW/" \
+    -e "s/ *frame_color = \"#.{6}\" # FRAMECOLOR_LOW/  frame_color = \"$fc_low\" # FRAMECOLOR_LOW/" \
+    -e "s/ *background = \"#.{6}\" # BACKGROUND_NORMAL/  background = \"$bg_nor\" # BACKGROUND_NORMAL/" \
+    -e "s/ *foreground = \"#.{6}\" # FOREGROUND_NORMAL/  foreground = \"$fg_nor\" # FOREGROUND_NORMAL/" \
+    -e "s/ *frame_color = \"#.{6}\" # FRAMECOLOR_NORMAL/  frame_color = \"$fc_nor\" # FRAMECOLOR_NORMAL/" \
+    -e "s/ *background = \"#.{6}\" # BACKGROUND_CRITICAL/  background = \"$bg_cri\" # BACKGROUND_CRITICAL/" \
+    -e "s/ *foreground = \"#.{6}\" # FOREGROUND_CRITICAL/  foreground = \"$fg_cri\" # FOREGROUND_CRITICAL/" \
+    -e "s/ *frame_color = \"#.{6}\" # FRAMECOLOR_CRITICAL/  frame_color = \"$fc_cri\" # FRAMECOLOR_CRITICAL/" \
+    dunstrc > ./dunstrc.new
+
+  rm -rf dunstrc; mv dunstrc.new dunstrc
+
+  killall dunst; dunst
+
+}
