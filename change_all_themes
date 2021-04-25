@@ -1,0 +1,153 @@
+#!/usr/bin/env sh
+#
+# DESCRIPTION:
+#   Change all app's theme that I use.
+# 
+# DEPENDENCIES:
+#   GNU core utils
+#     sed
+#
+# AUTHOR(s):
+#   BeyondMagic © 2021
+#
+# GPL © 2021
+
+
+# Test if there's actually a real theme to use
+[ "$1" = 'black' ] || [ "$1" = 'white' ] || {
+
+  echo "Y'all got some theme? Maybe black or white..."
+  exit 1
+
+}
+
+#-----------------------------------------------------------------------------
+# Unset future variables
+#-----------------------------------------------------------------------------
+
+
+unset origin config suckless barslash colorscheme set_background
+
+
+#-----------------------------------------------------------------------------
+# Initial variables
+#-----------------------------------------------------------------------------
+
+
+# Origin of this script
+origin=$(cd -- "$(dirname "$0")" >/dev/null 2>&1 && pwd -P)
+
+# Config path
+config="$HOME/.config"
+
+# Suckless path
+suckless="$HOME/github/external/suckless"
+
+# Slash bar
+barslash='\'
+
+
+#-----------------------------------------------------------------------------
+# Themes setting
+#-----------------------------------------------------------------------------
+
+
+# White theme
+[ "$1" = 'white' ] && {
+
+  # gtk
+  cursor_theme='Breeze-Obsidian (left)'
+    gtk3_theme='Lucrezia'
+    gtk2_theme="$gtk3_theme"
+
+  # nvim
+  colorscheme='one'
+  set_background='light'
+
+  # bars
+  bar_theme='suun'
+
+} 
+
+
+# Black theme
+[ "$1" = 'black' ] && {
+
+  # gtk
+  cursor_theme='Breeze-Snow (left)'
+    gtk3_theme='trollwut-pink-dark'
+    gtk2_theme="$gtk3_theme"
+
+  # nvim
+  colorscheme='tender'
+  set_background='dark'
+
+  # bars
+  bar_theme='moon'
+
+}
+
+
+#-----------------------------------------------------------------------------
+# Themes processing
+#-----------------------------------------------------------------------------
+
+
+# gtk-3.0:
+sed -ri \
+  -e "s/^gtk-cursor-theme-name=.*/gtk-cursor-theme-name=\"$cursor_theme\"/" \
+  -e "s/^gtk-theme-name=.*/gtk-theme-name=\"$gtk3_theme\"/" \
+  "$config/gtk-3.0/settings.ini"
+
+# gtk-2.0:
+sed -ri \
+  -e "s/^gtk-theme-name=.*/gtk-theme-name=\"$gtk2_theme\"/" \
+  "$config/gtk-2.0/.gtkrc-2.0"
+
+# nvim:
+sed -ri \
+  -e "s/^colorscheme .*/colorscheme $colorscheme/" \
+  -e "s/^set background=.*/set background=$set_background/" \
+  "$config/nvim/init.vim"
+
+# xinitrc:
+sed -ri \
+  -e "s/ *XCURSOR_THEME='.*/       XCURSOR_THEME='$cursor_theme' $barslash\/" \
+  "$HOME/.xinitrc"
+
+# bars:
+sed -ri \
+  -e "s/^change_this_theme='.{4}'/change_this_theme='$bar_theme'/" \
+  "$HOME/desktop/colours"
+
+
+#-----------------------------------------------------------------------------
+# Clean bars to reset theme
+#-----------------------------------------------------------------------------
+
+
+zsh -c '. ~/desktop/aliasesrc; clean_bars'
+nohup "$HOME/github/scripts/bars/bars" >/dev/null 2>&1 &
+
+
+#-----------------------------------------------------------------------------
+# External theme script processing
+#-----------------------------------------------------------------------------
+
+
+# call < st dmenu dunst > scripts
+"$suckless/st/change_theme" $1
+"$suckless/dmenu/change_theme" $1
+"$config/dunst/change_theme" $1 
+lxappearance
+
+
+#-----------------------------------------------------------------------------
+# Successfull, I think
+#-----------------------------------------------------------------------------
+
+
+echo "Your theme was successfully changed :)\n"
+sleep 2
+echo "...I think :)"
+exit 0
