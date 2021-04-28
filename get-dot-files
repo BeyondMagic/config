@@ -11,7 +11,7 @@
 #--------------------------------------------------------------------------------
 
 
-unset h o c d
+unset h o c d f
 
 
 #--------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ h=$HOME
 o=$(cd -- "$(dirname "$0")" >/dev/null 2>&1 && pwd -P)
 c=$h/.config
 d=$h/desktop
-
+f='2u77uk0t.default-release'
 
 #--------------------------------------------------------------------------------
 # Verify/Create folders
@@ -34,6 +34,7 @@ mkdir -p $o/_local/share
 mkdir -p $o/_config/mpd
 mkdir -p $o/_config/ncmpcpp
 mkdir -p $o/_config/zsh
+mkdir -p $o/_config/firefox
 mkdir -p $o/_desktop
 mkdir -p $o/etc
 
@@ -47,6 +48,7 @@ cp -rf $d/colours \
        $d/icons \
        $d/status_info \
        $d/xbindkeysrc \
+       $d/aliasesrc \
     -t $o/_desktop/
 
 
@@ -76,12 +78,14 @@ cp -rf $c/GIMP/2.10/splashes \
        $c/sxiv \
     -t $o/_config/
 
-cp -rf $c/mpd/mpd.conf $o/_config/mpd/
-cp -rf $c/ncmpcpp/config $o/_config/ncmpcpp/
 cp -rf $c/zsh/zsh-plugins \
        $c/zsh/.zcompdump \
        $c/zsh/.zshrc \
     -t $o/_config/zsh
+
+cp -rf $c/mpd/mpd.conf $o/_config/mpd/
+cp -rf $c/ncmpcpp/config $o/_config/ncmpcpp/
+cp -rf $h/.mozilla/firefox/$f/chrome/*.css $o/_config/firefox
 
 
 #--------------------------------------------------------------------------------
