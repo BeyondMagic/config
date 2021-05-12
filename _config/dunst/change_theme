@@ -35,7 +35,7 @@ origin=$(cd -- "$(dirname "$0")" >/dev/null 2>&1 && pwd -P); cd $origin
 # Build our new theme :)
 [ $bg_low ] && {
 
-  sed -r \
+  sed -ri \
     -e "s/ *background = \"#.{6}\" # BACKGROUND_LOW/  background = \"$bg_low\" # BACKGROUND_LOW/" \
     -e "s/ *foreground = \"#.{6}\" # FOREGROUND_LOW/  foreground = \"$fg_low\" # FOREGROUND_LOW/" \
     -e "s/ *frame_color = \"#.{6}\" # FRAMECOLOR_LOW/  frame_color = \"$fc_low\" # FRAMECOLOR_LOW/" \
@@ -45,10 +45,8 @@ origin=$(cd -- "$(dirname "$0")" >/dev/null 2>&1 && pwd -P); cd $origin
     -e "s/ *background = \"#.{6}\" # BACKGROUND_CRITICAL/  background = \"$bg_cri\" # BACKGROUND_CRITICAL/" \
     -e "s/ *foreground = \"#.{6}\" # FOREGROUND_CRITICAL/  foreground = \"$fg_cri\" # FOREGROUND_CRITICAL/" \
     -e "s/ *frame_color = \"#.{6}\" # FRAMECOLOR_CRITICAL/  frame_color = \"$fc_cri\" # FRAMECOLOR_CRITICAL/" \
-    dunstrc > ./dunstrc.new
+    dunstrc
 
-  rm -rf dunstrc; mv dunstrc.new dunstrc
-
-  killall dunst; dunst
+  killall dunst; nohup dunst >/dev/null 2>&1 &
 
 }

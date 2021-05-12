@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 #
-# Description
+# DESCRIPTION:
 #   Execute magic's desktop :)
 #
 # Executed by startx (run your window manager from here)
@@ -10,6 +10,8 @@
 #-------------------------------------------------------------------------------
 
 export NO_AT_BRIDGE=1 \
+       NOTMUCH_CONFIG="$HOME/.config/nt/" \
+       PASSWORD_STORE_DIR="$HOME/.config/nt" \
        XMODIFIERS='@im=fcitx5' \
        GTK_IM_MODULE='fcitx5' \
        QT_IM_MODULE='fcitx5' \
@@ -18,14 +20,17 @@ export NO_AT_BRIDGE=1 \
        XDG_CONFIG_HOME="$HOME/.config/" \
        XMODIFIERS="@im=fcitx5" \
        EDITOR="nvim" "VISUAL=nvim" \
-       BROWSER='firefox' \
+       BROWSER='vieb' \
+       GNUPGHOME="$HOME/.config/gnupg" \
+       CARGO_HOME="$HOME/.config/cargo" \
        READER='zathura' \
        FILE='nnn' \
        GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0" \
        ZDOTDIR="$HOME/.config/zsh" \
        LESSHISTFILE='/dev/null' \
        XDG_CONFIG_HOME="$HOME/.config/" \
-       PATH="$HOME/.cargo/bin:$HOME/github/scripts/fetch:$HOME/.local/bin:$HOME/github/scripts/root:$HOME/github/scripts/system:$HOME/github/scripts/screenshot:$HOME/github/scripts/colour:$HOME/github/scripts/quotes:$PATH"
+       XCURSOR_THEME='Breeze-Snow (left)' \
+       PATH="$HOME/.config/.cargo/bin:$HOME/github/scripts/fetch:$HOME/.local/bin:$HOME/github/scripts/root:$HOME/github/scripts/system:$HOME/github/scripts/screenshot:$HOME/github/scripts/colour:$HOME/github/scripts/quotes:$PATH"
 
 
 
@@ -46,6 +51,9 @@ mpdscribble --conf "$HOME/.config/mpdscribble/mpdscribble.conf" &
 #   Picom as compositor
 picom &
 
+#   Start downloading some music :)
+zsh -c '. ~/desktop/aliasesrc; mdemonde' &
+
 #   Japanese Keyboard
 fcitx5 &
 
@@ -65,7 +73,7 @@ setxkbmap -model abnt2 -layout br -variant abnt2 &
 xset r rate 170 60 & 
 
 #   Set Mouse speed
-xinput --set-prop 8 277 0.5 &
+xinput --set-prop 11 277 0.5 &
 
 #   Set Left Handed Mouse
 xmodmap -e 'pointer = 3 2 1' &
@@ -78,14 +86,13 @@ rm -rf \
   "$HOME/.lyrics" &
 
 #   Lock screen because yes
-eval "sleep 3; lock" & 
+eval "sleep 8; lock" & 
 
 #   Sleep after 12 minutes of inactivity
 xautolock -time 5 -locker "lock" &
-xautolock -time 7 -locker "doas zzz && notify-send.sh '... woke up ...'" &
 
 #   Reset xbindkeys ??? a few keybinds only work with this
-killall xbindkeys; xbindkeys -f "$HOME/desktop/xbindkeysrc" &
+#killall xbindkeys; xbindkeys -f "$HOME/desktop/xbindkeysrc" &
 
 #   Start Window Manager
 exec dwm

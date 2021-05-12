@@ -79,7 +79,7 @@ vmap <C-x> mad`ai
 "-----------------------------------------------------------------------------
 
 
-vnoremap <BS> <Esc>diw
+vnoremap <BS> di
 
 
 "------------------------------------------------------------------------------
@@ -99,7 +99,7 @@ imap <S-Down> <Esc>v<Down>
 imap <S-Left> <Esc>v<Left>
 imap <S-Right> <Esc><Right>v<Right>
 imap <C-v> <Esc>pi<Right>
-imap <C-z> <Esc>ui
+
 "imap <C-k> <Esc> :Goyo<CR>i1
 "imap <C-Up> 
 "imap <C-Down>
@@ -117,8 +117,15 @@ inoremap <S-End> <Esc>v<End><Left>
 inoremap <S-PageUp> <Esc>v<PageUp>
 inoremap <S-PageDown> <Esc>v<PageDown>
 "inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-"                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"                              \: \<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <expr> <A-Down> pumvisible() ? "<C-n>" : "<Down>"
+inoremap <expr> <A-Up> pumvisible() ? "<C-p>" : "<Up>"
 
+inoremap <expr> <A-Right> pumvisible() ? "<C-y>" : "<Right>"
+inoremap <expr> <A-CR> pumvisible() ? "<C-y>" : "<CR>"
+inoremap <C-z> <Esc>ui
+
+inoremap <expr> <A-Left> pumvisible() ? "<C-e>" : "<Left>"
 
 "-----------------------------------------------------------------
 " Keybinds <nnoremap>
@@ -130,7 +137,9 @@ nnoremap <S-Home> <Left><Esc>v<Home>
 nnoremap <S-End> <Esc>v<End><Left>
 nnoremap <S-PageUp> <Esc>v<PageUp>
 nnoremap <S-PageDown> <Esc>v<PageDown>
-noremap! <C-h> <C-w>
+
+noremap! <F36><F35> <C-w>
+inoremap <F36><F35> <C-w>
 
 
 "-----------------------------------------------------------------
@@ -144,11 +153,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'ap/vim-css-color'
 
   " Jade & Pug
- " Plug 'digitaltoad/vim-jade'
+  "Plug 'digitaltoad/vim-jade'
 
   " SASS & SCSS
- " Plug 'cakebaker/scss-syntax.vim'
-"  Plug 'tpope/vim-haml'
+  "Plug 'cakebaker/scss-syntax.vim'
+  "Plug 'tpope/vim-haml'
 
   " Status Colours
   Plug 'vim-airline/vim-airline'
@@ -159,9 +168,10 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'rakr/vim-one'
 
   " Autocompletion
-  "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'vim-scripts/AutoComplPop'
 
 call plug#end()
+
 
 
 "-----------------------------------------------------------------
@@ -172,8 +182,8 @@ call plug#end()
 syntax on
 filetype on
 filetype plugin on
-"colorscheme tender " Black
-colorscheme one " White
+"colorscheme tender
+colorscheme tender
 
 
 "-----------------------------------------------------------------
@@ -202,7 +212,7 @@ set wrap
 set linebreak
 set nu
 "set background=dark " White
-set background=light " Black
+set background=dark
 set ruler
 set hlsearch
 set foldmethod=expr
@@ -230,6 +240,9 @@ set cc=80
 set path+=**
 set number relativenumber
 set nu rnu
+set complete+=kspell
+set completeopt=menuone,longest
+set shortmess+=c
 
 
 "------------------------------------------------------------------------------------
@@ -241,11 +254,18 @@ hi! Normal ctermbg=NONE guibg=NONE
 hi Pmenu ctermbg=black guibg=black
 hi PmenuSel ctermbg=red guibg=white
 hi PmenuThumb ctermbg=black guibg=red
+hi CustomPink ctermbg=black guibg=black guifg=white ctermbg=white
 
 
-"-----------------------------------------------------------------------------------
-" Functions
-"-----------------------------------------------------------------------------------
+
+"-----------------------------------------------------------------
+" call command for the rest
+"-------------------------------------------------------------------
+
+
+
+call matchadd('CustomPink', 'NOTE')
+
 
 
 "-----------------------------------------------------------------------------------
@@ -268,6 +288,3 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
   \ endif
-
-" Highlight the symbol and its references when holding the cursor.
-" autocmd CursorHold * silent call CocActionAsync('highlight')

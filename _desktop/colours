@@ -8,9 +8,11 @@
 #
 # by BeyondMagic - 2021
 
+change_this_theme='moon'
+
 #--------------------------------------------------------------------------------
 # Colours for lemonbar : bottom bar Black
-[ '' ] && { #CHANGE_THIS_THEME_THROUGH_SCRIPTING
+[ "$change_this_theme" = "moon" ] && {
 #--------------------------------------------------------------------------------
 
 nickname="magic %{T3 F#7EABF8}%{T2 F#FFFFFF} flora  "
@@ -62,13 +64,12 @@ second_running_song_name="#E4F2FF"
 task_fg_icon="#243F76"
 
 # Power Button : Right
-    power_fg="#FaFaFa"; power_bg="#C92430"
-
+    power_fg="#FaFaFa"; power_bg="#C92430"; bg_before_power="#14181B"
 
 #--------------------------------------------------------------------------------
 # White Theme
 #--------------------------------------------------------------------------------
-} || {
+}; [ "$change_this_theme" = "suun" ] && {
 
 nickname="magic %{T3 F#7EABF8}%{T2 F-} flora  "
 bg_bar="#f0f0f0"; fg_bar="#1b1b1b"

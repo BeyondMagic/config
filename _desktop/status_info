@@ -42,7 +42,7 @@ _run_song() {
   [ "$after" ] && after="$(echo "$after" | cut -c -$song_limit)..."
 
 
-  echo 'M' "%{T4 F$neighbors_fg}$before  %{T2 F$first_running_song_name}$song  %{T4 F$neighbors_fg}$after%{T1 F-}"
+  echo 'M' "%{T4 F$neighbors_fg}$before  %{T2 F$first_running_song_name}$song  %{T4 F$neighbors_fg}$after%{T1 F-}" &
 
 }
 

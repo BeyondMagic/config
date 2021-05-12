@@ -1,0 +1,408 @@
+#!/usr/bin/env sh
+#
+# Description
+#   aliases to my magic's system
+#
+# by BeyondMagic - 2021
+
+
+. $HOME/desktop/accounts
+
+
+#--------------------------------------------------------------------------------
+# Enviroment Variables
+#--------------------------------------------------------------------------------
+
+
+export LIMIT_WALLPAPERS=50
+export EDITOR=nvim VISUAL=nvim
+
+
+#--------------------------------------------------------------------------------
+# Wallpapers paths to be used in functions
+#--------------------------------------------------------------------------------
+
+
+# Directory of wallpapers to get files
+directory_wallpapers="$HOME/img/wallpapers"
+
+# Path of a file to set the new wallpaper in history  
+temp_wallpaper_file="$HOME/desktop/wallpapers_history"
+
+
+#--------------------------------------------------------------------------------
+# Aliases
+#--------------------------------------------------------------------------------
+
+
+alias     clear="clear; dash $HOME/github/nincat/nincat"
+alias   new_key="xbindkeys -f $HOME/desktop/xbindkeysrc -mk"
+alias        nt='neomutt'
+alias    pacman='doas -- pacman'
+alias        ..='cd ..'
+alias      ....='cd ../..'
+alias        lu='ls -la --color=always'
+alias      wget="wget --hsts-file '$HOME/.config/wget/wget-history'"
+alias      grep='grep --colour'
+alias     build='doas -- make clean install'
+alias  pendrive='doas -- mount /dev/sdc /mnt/pendrive -o umask=000'
+alias upendrive='doas -- umount /dev/sdc'
+alias       cpv='cpv -gr' # Patch for cp by jarun https://github.com/jarun/advcpmv
+alias       mvv='mvv -gr' # Patch for mv by jarun https://github.com/jarun/advcpmv
+
+#--------------------------------------------------------------------------------
+# Functions
+#--------------------------------------------------------------------------------
+
+
+# Find cover images from Google (opening a new tab on your browser)
+findimage() {
+
+  $BROWSER "https://www.google.com/search?as_st=y&tbm=isch&hl=en-GB&as_q=$@ cover&as_epq=&as_oq=&as_eq=&cr=&as_sitesearch=&safe=images&tbs=iar:s"
+
+}
+
+# Add cover from an image file to a song
+coverfrom() {
+
+  ffmpeg -i "$2" -i "$1" -map 0:0 -map 1:0 -c copy -id3v2_version 3 \
+    -metadata:s:v title='Album cover' \
+    -metadata:s:v comment='Cover (front)' \
+    new-"$2"
+
+}
+
+# Function to transform clipboard into an image
+toimage() {
+
+  xclip -selection clipboard -t image/png -o > "$1.png"
+
+}
+
+# Download from Youtube and transform in mp3
+tomp3() {
+
+  youtube-dl -o '~/music/celular/%(title)s.%(ext)s' \
+    --add-metadata \
+    --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)" \
+    -x -i -f bestaudio "$1"
+
+}
+
+# Download my music
+mdemonde() {
+
+  youtube-dl -o "~/music/libraria/%(title)s.%(ext)s" \
+    --download-archive ~/music/yt_archive.txt --add-metadata \
+    --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)" \
+    --playlist-end 50 -x -i \
+    -f bestaudio "https://www.youtube.com/playlist?list=$all_music_yt_playlist"
+  mpc update --wait
+
+}
+
+
+# Run nvim :Z
+v() {
+  nvim "$@"
+}
+
+# Run ncmpcpp :|
+song() {
+  ncmpcpp -c "$HOME/.config/ncmpcpp/config" --ignore-config-errors
+}
+
+
+# List files 
+la() {
+  ls -lAfh $@
+}
+
+# List only dots
+ldot() {
+  ls -ld .* $@
+}
+
+# Copy content of a file
+copypaste() {
+  xclip -sel c < "$1"
+}
+
+# Get current PATH and copy it to system
+copydir() {
+  echo -n "$PWD" | xclip -selection clipboard
+}
+
+# Run program and disown it easily
+q() { "$@" & disown }
+qq() { "$@" & disown; exit; }
+
+# Clean lemonbar scripts
+#   scripts (github.com/beyondMagic/scripts)
+clean_bars() {
+
+  killall "lemonbar"
+  pkill -f "bars"
+  pkill -f "sleep"
+  pkill -f "dwm-msg"
+  pkill -f "mpc"
+
+  notify-send -i "/usr/share/icons/BeautyLine/apps/scalable/deskbar.svg" \
+    "Bar was killed :("
+
+}
+
+#   mpv see video
+see() {
+  exec mpv "$@" --save-position-on-quit --hwdec --vo=xv 
+}
+
+#   mpv see video from youtube
+seeytb() {
+  exec mpv "$@" --save-position-on-quit --hwdec --vo=xv --ytdl-format=best
+}
+
+#   mpv see video from youtube from medium quality
+seeytm() {
+  exec mpv "$@" --save-position-on-quit --hwdec --vo=xv --ytdl-format=18
+}
+
+# Load a song that you found from a playlist
+find_song() {
+
+  # query get by dmenu
+  query="$(printf '' | dmenu -p "Find a song:")"
+
+  # if empty doesn't continue
+  [ "$query" ] || exit 1
+
+  # select all songs that it finds
+  song_found="$(mpc search any "$query")"
+
+  # if it doesn't find any song
+  [ "$song_found" ] || exit 1
+
+  # add songs
+  song_found="$(echo "$song_found" | dmenu -i -l 10 -r )"
+
+  # only continue if it found songs
+  [ "$song_found" ] || exit 1
+  
+  # last position to start counting from now (in case of multiple songs)
+  position_last=$(mpc playlist | wc -l)
+
+  # loop through all the songs to add it to mpd
+  echo "$song_found" | \
+    while IFS="" read -r song_path || [ -n "$song_path" ]; do
+    mpc add "$song_path"
+  done
+
+  # start from the first song added
+  mpc play $((position_last + 1))
+
+}
+
+# See all fonts and display
+see_fonts() {
+
+  display "/usr/share/fonts/$(fc-list | sed -r \
+    's/(^\/usr\/share\/fonts\/)|(:.+)//g' | \
+    dmenu -l 20 -i -r -p 'Display font:')"
+
+}
+
+# Delete current song of mpd
+del_cursong() {
+
+  # A direct call :)
+  mpc del $(mpc playlist | grep -n "$(mpc current)" | cut -d : -f 1)
+
+}
+
+# nnn with cd on exit
+n() {
+
+  # Block nesting of nnn in subshells
+  [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ] && {
+    echo "nnn is already running"
+    return
+  }
+
+  # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
+  # To cd on quit only on ^G, remove the "export" as in:
+  #     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+  # NOTE: NNN_TMPFILE is fixed, should not be modified
+  export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+  # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+  # stty start undef
+  # stty stop undef
+  # stty lwrap undef
+  # stty lnext undef
+
+  nnn -dDoxR "$@"
+
+  [ -f "$NNN_TMPFILE" ] && {
+    . "$NNN_TMPFILE"
+    rm -f "$NNN_TMPFILE" > /dev/null
+  }
+}
+
+# tuxi
+#   Translate is simply to find the translation of something in English
+translate() {
+
+  result=$(LANG="en_US" tuxi -trq "tuxi_trans $@ in english")
+  notify-send -i "$HOME/desktop/icons/translate.svg" "'$@' in English is '$result.'"
+  echo "$result"
+
+}
+
+#   Meaning is just to find the meaning of a word or kanji.
+meaning() {
+
+  result=$(LANG="en_US" tuxi -trq "tuxi_define $@ meaning")
+  notify-send -i "$HOME/desktop/icons/dictionary.svg" "The meaning of '$@' in English is '$result.'"
+  echo "$result"
+
+}
+
+
+#   Config of Mozc
+mozc_config() {
+
+  /usr/lib/mozc/mozc_tool --mode=config_dialog
+
+}
+
+
+#   Mozc Handwriting
+mozc_handwriting() {
+
+  /usr/lib/mozc/mozc_tool --mode=hand_writing
+
+}
+
+
+
+# Restart dwm fastly
+restartdwm() {
+
+  pkill -1 dwm
+
+}
+
+# Rick roll in terminal :)
+rickrollrc() {
+
+  curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash
+
+}
+
+
+# Get current weather (Brazil)
+#   TODO
+#weather() {
+
+  #source "`ueberzug library`"
+
+  #tmp_top="/tmp/top_weather.gif"
+  #tmp_bot="/tmp/bot_weather.gif"
+
+  #while :; do
+
+#    curl -S https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/ssa/Sandwich/GOES16-SSA-Sandwich-900x540.gif -o "$tmp_top"
+#    curl -S https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/nsa/Sandwich/GOES16-NSA-Sandwich-900x540.gif -o "$tmp_bot"
+
+    # load gifs in terminal
+    #ImageLayer 0< <(
+      #ImageLayer::add [identifier]="example0" [path]="$tmp_top" [x]="11" [y]="11" [max_width]="900" [max_height]="540" 
+      #read
+    #)
+
+    #sleep 600
+
+  #done
+
+#}
+
+
+# Get recipes with
+#   woman.recipes
+#   based.cooking
+#
+# Dependencies
+#   woman
+#   dmenu
+recipes() {
+
+  woman --list | \
+    dmenu -l 10 -p 'Select a recipe: ' | \
+    xargs woman
+
+}
+
+wallpaper() {
+
+  # If there's a wallpaper, then set it
+  [ "$1" ] && {
+
+    # Set wallpaper with feh
+    feh --no-fehbg --bg-scale "$1"
+
+    # Get how many lives our temp file has
+    total_lines_temp=$(fcat "$temp_wallpaper_file" | wc -l)
+
+    # Verify how many wallpapers we saved already - limit: 50
+    [ $total_lines_temp -ge $LIMIT_WALLPAPERS ] && {
+
+        # Get limit to delete
+        limit_deletion=$(($total_lines_temp - $LIMIT_WALLPAPERS + 1))
+        
+        sed -i "1,${limit_deletion}d" desktop/wallpapers_history
+
+    }
+
+    # Add new's wallpaper's path to temp file
+    echo "$1" >> "$temp_wallpaper_file"
+
+  }
+
+}
+
+random_wallpaper() {
+
+  # This will get a new random wallpaper based on a directory
+  wallpaper "$directory_wallpapers/$(ls $directory_wallpapers | shuf -n 1)" 
+
+}
+
+set_wallpaper() {
+
+  # Set wallpaper chosen by user
+  wallpaper "$(ls -d -1 "$directory_wallpapers/"** | sxiv -itob | tail -n1)" 
+
+}
+
+
+previous_wallpaper() {
+
+  # Path of a file to set the new wallpaper in history  
+  temp_wallpaper_file="$HOME/desktop/wallpapers_history"
+
+  # Remove last line of the file
+  sed -i '$d' "$temp_wallpaper_file"
+
+  # Get latest wallpaper of path
+  latest_wallpaper=$(fcat "$temp_wallpaper_file" | tail -n 1)
+
+  # Verify if there's a latest wallpaper
+  [ "$latest_wallpaper" ] && {
+
+    # Set wallpaper with feh || If it fails, set a random
+    feh --no-fehbg --bg-scale "$latest_wallpaper" || random_wallpaper
+
+  # If there's not a wallpaper, then just set a random
+  } || random_wallpaper
+
+}

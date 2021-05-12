@@ -1,3 +1,25 @@
+# -------------------------------------------------------------------------------------------
+# Start
+# -------------------------------------------------------------------------------------------
+
+# My toy :)
+dash /home/magic/github/nincat/nincat
+
+# Load faster
+. ~/.config/zsh/zsh-plugins/instant-zsh.zsh
+
+# while PROMPT
+#instant-zsh-pre ":)"
+
+
+
+PS1_SYMBOLS='Ǝ♥>:∞▲✞✛✝✜✟?!❥$-+§ØŦƆƩƪȹϮϨϞ߷࿗ლႿჄჯᐉᓬᗆᗇᗈᗎᗎᗓᗔᗘᗙᗠᗤᗦᘱᙄᯡᯢ᯾ᰉᰜᰞ᱃᱃†'
+PS1_SYMBOL=$(expr substr "$PS1_SYMBOLS" $(shuf -i 1-$(printf "$PS1_SYMBOLS" | wc -m) -n 1) 1)
+
+#instant-zsh-pre "%B%~ $PS1_SYMBOL %b"
+#
+instant-zsh-pre "%B%{$fg[grey]%}%~%{$fg[red]%} %{$reset_color%}$PS1_SYMBOL%b "
+
 #zmodload zsh/zprof
 
 # -------------------------------------------------------------------------------------------
@@ -78,6 +100,7 @@ fancy-ctrl-z () {
 
 # History wrapper
 function omz_history {
+
   local clear list
   zparseopts -E c=clear l=list
 
@@ -93,6 +116,15 @@ function omz_history {
     # unless a number is provided, show all history events (starting from 1)
     [[ ${@[-1]-} = *[0-9]* ]] && builtin fc -l "$@" || builtin fc -l "$@" 1
   fi
+
+}
+
+function forward-kill-word {
+
+  zle forward-word
+
+  zle backward-kill-word
+
 }
 
 r-delregion() {
@@ -135,6 +167,7 @@ zle -N fancy-ctrl-z
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 zle -N edit-command-line
+zle -N forward-kill-word
 
 
 # -------------------------------------------------------------------------------------------
@@ -154,14 +187,6 @@ zle -N edit-command-line
 # my own aliases
 . $HOME/desktop/aliasesrc
 
-
-# -------------------------------------------------------------------------------------------
-# Options to choose :)
-# -------------------------------------------------------------------------------------------
-
-
-PS1_SYMBOLS='Ǝ♥>:∞▲✞✛✝✜✟?!❥$-+§ØŦƆƩƪȹϮϨϞ߷࿗ლႿჄჯᐉᓬᗆᗇᗈᗎᗎᗓᗔᗘᗙᗠᗤᗦᘱᙄᯡᯢ᯾ᰉᰜᰞ᱃᱃†'
-PS1_SYMBOL=$(expr substr "$PS1_SYMBOLS" $(shuf -i 1-$(printf "$PS1_SYMBOLS" | wc -m) -n 1) 1)
 
 
 # -------------------------------------------------------------------------------------------
@@ -207,7 +232,8 @@ bindkey '^[[P' delete-char
 bindkey '^Z' fancy-ctrl-z
 bindkey '^?' backward-delete-char
 bindkey '^E' edit-command-line
-bindkey '^H' backward-kill-word
+bindkey '^[[24;5~^[[23;5~' backward-kill-word
+bindkey '^[[M' forward-kill-word
 bindkey '^X' x-copy-region-as-kill
 bindkey -M menuselect '^[[Z' reverse-menu-complete
 
@@ -258,3 +284,5 @@ for key     kcap   seq        mode     widget (
 }
 
 #zprof
+
+instant-zsh-post

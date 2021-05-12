@@ -13,16 +13,62 @@
 #
 # BeyondMagic © 2021
 
+#------------------------------------------------------------------------------
+# music player deamon (mpd) calls with mpc
+#------------------------------------------------------------------------------
 
-# seek lesss mpd
+# Seek less mpd
 "mpc -q seek +00:00:04"
     m:0x58 + c:86
       Super + Alt + +
 
-# seek more mpd
+# Seek more mpd
 "mpc -q seek -00:00:04"
     m:0x58 + c:82
       Super + Alt + -
+
+# Reset song (call notification, too)
+"mpc -q seek 00:00:00"
+    m:0x50 + c:27
+      Super + r
+
+# Increase volume of mpc
+"mpc -q volume $(( $(mpc | grep --line-buffered -hoE '[0-9]{2}' | tail -n 1) + 1 ))"
+   m:0x50 + c:86 
+      Super + +
+
+# Decrease volume of mpc
+"mpc -q volume $(( $(mpc | grep --line-buffered -hoE '[0-9]{2}' | tail -n 1) - 1 ))"
+   m:0x50 + c:82 
+      Super + -
+
+# Add a new song from database :)
+"zsh -c '. ~/desktop/aliasesrc; find_song'"
+   m:0x50 + c:38
+      Super + A
+
+# Delete the current song from database :)
+"zsh -c '. ~/desktop/aliasesrc; del_cursong'"
+   m:0x50 + c:129
+      Super + .
+
+# Toggle mpd
+"mpc toggle"
+    m:0x50 + c:33
+      Super + p
+
+#------------------------------------------------------------------------------
+# Youtube with dmenu : ytfzf
+#------------------------------------------------------------------------------
+
+# Open a simple youtube video cli opener with mpv
+"YTFZF_PLAYER_FORMAT='mpv --save-position-on-quit --hwdec --vo=xv --ytdl-format=best' ytfzf -D -l"
+    m:0x50 + c:90
+      Super + 0
+
+#------------------------------------------------------------------------------
+# Z shell calls
+#------------------------------------------------------------------------------
 
 # Set a wallpaper from a folder
 "zsh -c '. ~/desktop/aliasesrc; set_wallpaper'"
@@ -34,34 +80,21 @@
     m:0x10 + c:69
       F3
 
-# increase volume of mpc
-"mpc -q volume $(( $(mpc | grep --line-buffered -hoE '[0-9]{2}' | tail -n 1) + 1 ))"
-   m:0x50 + c:86 
-      Super + +
+"zsh -c '. ~/desktop/aliasesrc; see_fonts'"
+    m:0x10 + c:76
+      Super + F10
 
-# decrease volume of mpc
-"mpc -q volume $(( $(mpc | grep --line-buffered -hoE '[0-9]{2}' | tail -n 1) - 1 ))"
-   m:0x50 + c:82 
-      Super + -
+#------------------------------------------------------------------------------
+# POSIX-complaint scripts
+#------------------------------------------------------------------------------
 
 
-# toggle mpd
-"mpc toggle"
-    m:0x50 + c:33
-      Super + p
-
-# open a simple youtube video cli opener with mpv
-"YTFZF_PLAYER_FORMAT='mpv --save-position-on-quit --hwdec --vo=xv --ytdl-format=best' ytfzf -D -l"
-    m:0x50 + c:90
-      Super + 0
-
-
-# take screenshot, duh
+# Take screenshot, duh
 "$HOME/github/scripts/screenshot/screen"
     m:0x10 + c:107
       Printscr
 
-# take screenshot, duh
+# Take full screenshot, duh
 "$HOME/github/scripts/screenshot/fullscreen"
     m:0x50 + c:107
       Super + Printscr
@@ -76,8 +109,8 @@
    m:0x14 + c:107
      Ctrl + Printscr
 
-# simple terminal with float status
-"st -T floatst"
+# Simple terminal with float status
+"$HOME/github/scripts/terminal/st"
     m:0x50 + c:22
       Super + Back
 

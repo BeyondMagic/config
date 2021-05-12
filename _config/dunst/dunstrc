@@ -45,23 +45,22 @@
 [shortcuts]
   close = ctrl+shift+space
 #  close_all = ctrl+shift+space
-  context = ctrl+shift+period
+#  context = ctrl+shift+period
 
 [urgency_low]
-  background = "#ffffff" # BACKGROUND_LOW
-  foreground = "#444444" # FOREGROUND_LOW
-  frame_color = "#A2C0CB" # FRAMECOLOR_LOW
+  background = "#000000" # BACKGROUND_LOW
+  foreground = "#A8A8A8" # FOREGROUND_LOW
+  frame_color = "#111111" # FRAMECOLOR_LOW
   timeout = 5
 
 [urgency_normal]
-  background = "#F8F6FE" # BACKGROUND_NORMAL
-  foreground = "#333333" # FOREGROUND_NORMAL
-  frame_color = "#9E9E9E" # FRAMECOLOR_NORMAL
+  background = "#13171a" # BACKGROUND_NORMAL
+  foreground = "#ffffff" # FOREGROUND_NORMAL
+  frame_color = "#000000" # FRAMECOLOR_NORMAL
   timeout = 10
 
 [urgency_critical]
-  background = "#F8F6FE" # BACKGROUND_CRITICAL
+  background = "#13171a" # BACKGROUND_CRITICAL
   foreground = "#Fe2d3b" # FOREGROUND_CRITICAL
-  frame_color = "#010000" # FRAMECOLOR_CRITICAL
+  frame_color = "#141e24" # FRAMECOLOR_CRITICAL
   timeout = 0
-  icon = /usr/share/icons/Paper/16x16/status/dialog-warning.png

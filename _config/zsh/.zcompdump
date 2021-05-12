@@ -1,4 +1,4 @@
-#files: 757	version: 5.8
+#files: 760	version: 5.8
 
 _comps=(
 '-' '_precommand'
@@ -33,9 +33,6 @@ _comps=(
 '-value-' '_value'
 '-value-,-default-,-command-' '_zargs'
 '-value-,-default-,-default-' '_value'
-'-value-,ADB_TRACE,-default-' '_adb'
-'-value-,ANDROID_LOG_TAGS,-default-' '_adb'
-'-value-,ANDROID_SERIAL,-default-' '_adb'
 '-value-,ANSIBLE_STDOUT_CALLBACK,-default-' '_ansible'
 '-value-,ANT_ARGS,-default-' '_ant'
 '-value-,CFLAGS,-default-' '_gcc'
@@ -102,7 +99,6 @@ _comps=(
 'acpi' '_acpi'
 'acpitool' '_acpitool'
 'acroread' '_acroread'
-'adb' '_adb'
 'add-zle-hook-widget' '_add-zle-hook-widget'
 'add-zsh-hook' '_add-zsh-hook'
 'admin' '_sccs'
@@ -889,6 +885,7 @@ _comps=(
 'nmap' '_nmap'
 'nmblookup' '_samba'
 'nmcli' '_networkmanager'
+'nnn' '_nnn'
 'nocorrect' '_precommand'
 'noglob' '_precommand'
 'nohup' '_precommand'
@@ -1583,34 +1580,34 @@ bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
 autoload -Uz _cargo _curl _email-notmuch _libinput _loginctl \
-            _meson _mkinitcpio _mpv _ninja _notmuch \
-            _pacman _pass _yay _youtube-dl _zathura \
-            _cdr _all_labels _all_matches _alternative _approximate \
-            _arg_compile _arguments _bash_completions _cache_invalid _call_function \
-            _combination _comp_locale _complete _complete_debug _complete_help \
-            _complete_help_generic _complete_tag _correct _correct_filename _correct_word \
-            _describe _description _dispatch _expand _expand_alias \
-            _expand_word _extensions _external_pwds _generic _guard \
-            _history _history_complete_word _ignored _list _main_complete \
-            _match _menu _message _most_recent_file _multi_parts \
-            _next_label _next_tags _normal _nothing _oldlist \
-            _pick_variant _prefix _read_comp _regex_arguments _regex_words \
-            _requested _retrieve_cache _sep_parts _sequence _set_command \
-            _setup _store_cache _sub_commands _tags _user_expand \
-            _values _wanted _acpi _acpitool _alsa-utils \
-            _analyseplugin _brctl _btrfs _chattr _chcon \
-            _chrt _cpupower _cryptsetup _dkms _e2label \
-            _ethtool _findmnt _free _fuse_arguments _fuse_values \
-            _fusermount _gpasswd _htop _iconvconfig _ionice \
-            _ipset _iptables _iwconfig _kpartx _losetup \
-            _lsattr _lsblk _lsusb _ltrace _mdadm \
-            _mii-tool _modutils _mondo _networkmanager _opkg \
-            _pidof _pmap _qdbus _schedtool _selinux_contexts \
-            _selinux_roles _selinux_types _selinux_users _setsid _slabtop \
-            _ss _sshfs _strace _sysstat _tload \
-            _tpb _tracepath _tune2fs _uml _valgrind \
-            _vserver _wakeup_capable_devices _wipefs _wpa_cli _a2ps \
-            _aap _abcde _absolute_command_paths _ack _adb \
+            _meson _mkinitcpio _mpv _ninja _nnn \
+            _notmuch _pacman _pass _yay _youtube-dl \
+            _zathura _cdr _all_labels _all_matches _alternative \
+            _approximate _arg_compile _arguments _bash_completions _cache_invalid \
+            _call_function _combination _comp_locale _complete _complete_debug \
+            _complete_help _complete_help_generic _complete_tag _correct _correct_filename \
+            _correct_word _describe _description _dispatch _expand \
+            _expand_alias _expand_word _extensions _external_pwds _generic \
+            _guard _history _history_complete_word _ignored _list \
+            _main_complete _match _menu _message _most_recent_file \
+            _multi_parts _next_label _next_tags _normal _nothing \
+            _oldlist _pick_variant _prefix _read_comp _regex_arguments \
+            _regex_words _requested _retrieve_cache _sep_parts _sequence \
+            _set_command _setup _store_cache _sub_commands _tags \
+            _user_expand _values _wanted _acpi _acpitool \
+            _alsa-utils _analyseplugin _brctl _btrfs _chattr \
+            _chcon _chrt _cpupower _cryptsetup _dkms \
+            _e2label _ethtool _findmnt _free _fuse_arguments \
+            _fuse_values _fusermount _gpasswd _htop _iconvconfig \
+            _ionice _ipset _iptables _iwconfig _kpartx \
+            _losetup _lsattr _lsblk _lsusb _ltrace \
+            _mdadm _mii-tool _modutils _mondo _networkmanager \
+            _opkg _pidof _pmap _qdbus _schedtool \
+            _selinux_contexts _selinux_roles _selinux_types _selinux_users _setsid \
+            _slabtop _ss _sshfs _strace _sysstat \
+            _tload _tpb _tracepath _tune2fs _uml \
+            _valgrind _vserver _wakeup_capable_devices _wipefs _wpa_cli \
+            _a2ps _aap _abcde _absolute_command_paths _ack \
             _ansible _ant _antiword _apachectl _apm \
             _arch_archives _arch_namespace _arp _arping _asciidoctor \
             _asciinema _at _attr _augeas _avahi \
