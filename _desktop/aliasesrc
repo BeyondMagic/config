@@ -35,7 +35,8 @@ temp_wallpaper_file="$HOME/desktop/wallpapers_history"
 #--------------------------------------------------------------------------------
 
 
-alias     clear="clear; dash $HOME/github/nincat/nincat"
+alias        ls="exa"
+alias     clear="clear; dash $HOME/github/nincat/nincat random see"
 alias   new_key="xbindkeys -f $HOME/desktop/xbindkeysrc -mk"
 alias        nt='neomutt'
 alias    pacman='doas -- pacman'

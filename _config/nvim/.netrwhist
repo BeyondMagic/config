@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/magic/github/nincat'
+let g:netrw_dirhist_9='/home/magic/.config/zsh/zsh-plugins'
+let g:netrw_dirhist_8='/home/magic/github/nincat/ascii_arts/natural/lolcat'
+let g:netrw_dirhist_7='/home/magic/github/external/tuxis/tuxi'
 let g:netrw_dirhist_6='/home/magic/github/nincat/ascii_arts/sky'
 let g:netrw_dirhist_5='/home/magic/github/nincat/ascii_arts/comics'
 let g:netrw_dirhist_4='/home/magic/.config/dunst'
 let g:netrw_dirhist_3='/home'
 let g:netrw_dirhist_2='/home/magic'
 let g:netrw_dirhist_1='/home/magic/.config'
-let g:netrw_dirhist_0='/home/magic/.config/dunst'
-let g:netrw_dirhist_9='/home/magic/github/nincat/ascii_arts/artist'
-let g:netrw_dirhist_8='/home/magic/github/nincat/ascii_arts/lolcat'
-let g:netrw_dirhist_7='/home/magic/github/nincat/wrong_arts'

@@ -3,7 +3,7 @@
 # -------------------------------------------------------------------------------------------
 
 # My toy :)
-dash /home/magic/github/nincat/nincat
+dash /home/magic/github/nincat/nincat r
 
 # Load faster
 . ~/.config/zsh/zsh-plugins/instant-zsh.zsh
@@ -16,9 +16,7 @@ dash /home/magic/github/nincat/nincat
 PS1_SYMBOLS='Ǝ♥>:∞▲✞✛✝✜✟?!❥$-+§ØŦƆƩƪȹϮϨϞ߷࿗ლႿჄჯᐉᓬᗆᗇᗈᗎᗎᗓᗔᗘᗙᗠᗤᗦᘱᙄᯡᯢ᯾ᰉᰜᰞ᱃᱃†'
 PS1_SYMBOL=$(expr substr "$PS1_SYMBOLS" $(shuf -i 1-$(printf "$PS1_SYMBOLS" | wc -m) -n 1) 1)
 
-#instant-zsh-pre "%B%~ $PS1_SYMBOL %b"
-#
-instant-zsh-pre "%B%{$fg[grey]%}%~%{$fg[red]%} %{$reset_color%}$PS1_SYMBOL%b "
+instant-zsh-pre "%B%F{grey}%~ %(?..%F{red})$PS1_SYMBOL%b%F{grey} " 
 
 #zmodload zsh/zprof
 
@@ -151,9 +149,13 @@ r-select() {
   zle $widget_name -- $@
 }
 
-x-copy-region-as-kill () {
+x-copy-region-as-kill() {
   zle copy-region-as-kill
   print -rn "$CUTBUFFER" | xclip -selection clipboard
+}
+
+do-nothing() {
+	:
 }
 
 
@@ -162,6 +164,7 @@ x-copy-region-as-kill () {
 # ------------------------------------------------------------------------------------------
 
 
+zle -N do-nothing
 zle -N x-copy-region-as-kill
 zle -N fancy-ctrl-z
 zle -N up-line-or-beginning-search
@@ -199,7 +202,7 @@ HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=''
 HISTFILE=~/.config/zsh/.zsh_history
 HISTSIZE=5000
 SAVEHIST=5000
-PS1="%B%{$fg[grey]%}%~%{$fg[red]%} %{$reset_color%}$PS1_SYMBOL%b "
+PS1="%B%F{grey}%~ %(?..%F{red})$PS1_SYMBOL%b%F{grey} "
 _comp_options+=(globdots)
 
 
@@ -222,6 +225,9 @@ setopt share_history          # share command history data
 # -------------------------------------------------------------------------------------------
 
 
+bindkey '^[[4h' do-nothing
+bindkey '^[[5~' forward-word 
+bindkey '^[[6~' backward-word 
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 bindkey "^[[A" up-line-or-beginning-search # Up

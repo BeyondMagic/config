@@ -1,3 +1,33 @@
++ xdo
++ xdotool
++ exa
++ slop
++ lemonbar (special fonts support)
++ nnn
++ sxiv
++ feh
++ dunst
++ picom
++ coreutils
++ ncmpcpp
++ mpd
++ mpdscribble
++ glib2
++ lib32-glib2
++ gcr
++ fcitx5
++ fcitx5-configtool
++ fcitx5-gtk
++ fcitx5-material-color
++ fcitx5-qt
++ fcitx5-mozc
+
+
+---
+
++ Fira Code
++ Noto Sans CJK
+
 
 ### Post-Installation Artix
 

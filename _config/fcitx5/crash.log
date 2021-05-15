@@ -1,0 +1,25 @@
+=========================
+Fcitx 5.0.7 -- Get Signal No.: 11
+Date: try "date -d @1620787139" if you are using GNU date ***
+ProcessID: 942
+fcitx5(+0xbdae)[0x5592577f1dae]
+/usr/lib/libc.so.6(+0x3cf80)[0x7fe8f6568f80]
+/usr/lib/fcitx5/xim.so(+0x8ea5)[0x7fe8f54e3ea5]
+/usr/lib/fcitx5/xim.so(+0x6ace)[0x7fe8f54e1ace]
+/usr/lib/libxcb-imdkit.so.1(+0xfb63)[0x7fe8f53bcb63]
+/usr/lib/libxcb-imdkit.so.1(+0xc270)[0x7fe8f53b9270]
+/usr/lib/libxcb-imdkit.so.1(xcb_im_filter_event+0x3d)[0x7fe8f53b9c0d]
+/usr/lib/fcitx5/xim.so(+0x8d36)[0x7fe8f54e3d36]
+/usr/lib/fcitx5/xcb.so(+0x1116b)[0x7fe8f601016b]
+/usr/lib/libFcitx5Utils.so.2(+0x4c290)[0x7fe8f6980290]
+/usr/lib/libFcitx5Utils.so.2(+0x4bcec)[0x7fe8f697fcec]
+/usr/lib/libFcitx5Utils.so.2(+0x43e55)[0x7fe8f6977e55]
+/usr/lib/libsystemd.so.0(+0x56947)[0x7fe8f6470947]
+/usr/lib/libsystemd.so.0(sd_event_dispatch+0x16e)[0x7fe8f647800e]
+/usr/lib/libsystemd.so.0(sd_event_run+0x99)[0x7fe8f64781b9]
+/usr/lib/libsystemd.so.0(sd_event_loop+0x58)[0x7fe8f64783d8]
+/usr/lib/libFcitx5Utils.so.2(_ZN5fcitx9EventLoop4execEv+0x12)[0x7fe8f6977f32]
+/usr/lib/libFcitx5Core.so.7(_ZN5fcitx8Instance4execEv+0x57)[0x7fe8f6a44ec7]
+fcitx5(+0xaa92)[0x5592577f0a92]
+/usr/lib/libc.so.6(__libc_start_main+0xd5)[0x7fe8f6553b25]
+fcitx5(+0xb01e)[0x5592577f101e]

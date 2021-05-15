@@ -94,6 +94,10 @@ xautolock -time 5 -locker "lock" &
 #   Reset xbindkeys ??? a few keybinds only work with this
 #killall xbindkeys; xbindkeys -f "$HOME/desktop/xbindkeysrc" &
 
+#   Start SSH-AGENT
+ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+
 #   Start Window Manager
 exec dwm
 

@@ -5,9 +5,12 @@ function title {
 
 #    echo -en "\ek$1\e\\" #set screen hardstatus, usually truncated at 20 chars
 
-    printf "\e[5 q"
-    print -Pn "\e]2;$2\a" #set window name
-    print -Pn "\e]1;$1\a" #set icon (=tab) name (will override window name on broken terminal)
+		case "$(echo "$1" | head -n1 | awk '{print $1}')" in
+			printf | print | echo | ls) return
+		esac
+		
+    print -Pn "\e[5 q\e]2;$2\a\e]1;$1\a" #set window name
+			# (will override window name on broken terminal)
 
 }
 
@@ -24,7 +27,10 @@ function precmd {
 #Appears at the beginning of (and during) of command execution
 function preexec {
 
+#	echo "$cmd"
+
   local -a cmd; cmd=(${(z)1}) # the command string
+
   title "$cmd" "%100>...>$2%<<"
 
 

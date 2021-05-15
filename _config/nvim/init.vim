@@ -27,13 +27,13 @@
 "map <C-k> :Goyo<CR>
 map <C-v> p"_d<Esc>i<Right>
 
-
-
 "-----------------------------------------------------------------
 " Keybinds <xmap>
 "-------------------------------------------------------------------
 
 "xmap <leader>f  <Plug>(coc-format-selected)
+
+map <F5> :setlocal spell!<CR>
 
 "-----------------------------------------------------------------
 " Keybinds <nmap>
@@ -106,7 +106,6 @@ imap <C-v> <Esc>pi<Right>
 "inmap <silent> [<Space> m'<Plug>unimpairedBlankUp`'
 
 
-
 "-----------------------------------------------------------------
 " Keybinds <inoremap>
 "-------------------------------------------------------------------
@@ -130,7 +129,6 @@ inoremap <expr> <A-Left> pumvisible() ? "<C-e>" : "<Left>"
 "-----------------------------------------------------------------
 " Keybinds <nnoremap>
 "-------------------------------------------------------------------
-
 
 nnoremap <silent> <c-c> :if (&hlsearch == 1) \| set nohlsearch \| else \| set hlsearch \| endif<cr>
 nnoremap <S-Home> <Left><Esc>v<Home>
@@ -168,7 +166,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'rakr/vim-one'
 
   " Autocompletion
-  Plug 'vim-scripts/AutoComplPop'
+"  Plug 'vim-scripts/AutoComplPop'
 
 call plug#end()
 
@@ -205,6 +203,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "-------------------------------------------------------------------
 
 
+set dictionary+=/usr/share/dict/words
 set wildmenu
 set wildignore+=*/tmp*/,*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log
 set foldcolumn=1
@@ -231,18 +230,24 @@ set laststatus=2
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set expandtab
+"set expandtab
 set mouse=a
 set clipboard+=unnamedplus
 set viminfo+=n~/.config/nvim/viminfo
 set backspace=indent,eol,start
-set cc=80
+set cc=85
 set path+=**
 set number relativenumber
 set nu rnu
-set complete+=kspell
+set complete+=k
 set completeopt=menuone,longest
 set shortmess+=c
+set showmatch
+set showcmd
+set ruler
+set hidden
+set spell spelllang=en_us
+set nospell
 
 
 "------------------------------------------------------------------------------------
@@ -254,9 +259,25 @@ hi! Normal ctermbg=NONE guibg=NONE
 hi Pmenu ctermbg=black guibg=black
 hi PmenuSel ctermbg=red guibg=white
 hi PmenuThumb ctermbg=black guibg=red
+
+" For special words highlighting
 hi CustomPink ctermbg=black guibg=black guifg=white ctermbg=white
 
+" Spelling mistakes will be colored up red.
+hi SpellBad cterm=undercurl ctermfg=203 gui=undercurl guifg=none guisp=#C32632
+hi SpellLocal cterm=undercurl ctermfg=203 gui=undercurl guifg=none guisp=#66A1D7 
+hi SpellRare cterm=undercurl ctermfg=203 gui=undercurl guifg=none guisp=#243E73 
+hi SpellCap cterm=undercurl ctermfg=203 gui=undercurl guifg=none guisp=#82C0DC
 
+
+let &t_Cs = "\e[4:3m"
+let &t_Ce = "\e[4:0m"
+"hi SpellBad   guisp=red gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=underline cterm=undercurl ctermul=red
+"hi SpellCap   guisp=yellow gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=underline cterm=undercurl ctermul=yellow
+
+
+
+"hi SpellBad    ctermfg=015      ctermbg=000     cterm=none      guifg=#FFFFFF   guibg=#000000   gui=none
 
 "-----------------------------------------------------------------
 " call command for the rest
